@@ -1,0 +1,238 @@
+body { 
+    margin-top:1%;
+    margin-bottom:1%;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 0.6em;
+    background-image:url('../images/background.jpg');
+    background-repeat:repeat;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+table.tr,td,th{
+    border: none;
+    padding: 7px;
+}
+
+#global{
+    position: relative;
+    margin: 0 auto;
+    width: 800px;
+    min-height: 700px;
+    background-color:rgba(255, 255, 255, 0.7);
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    /*IE 7 AND 8 DO NOT SUPPORT BORDER RADIUS*/
+    -moz-box-shadow: 0px 0px 5px #000000;
+    -webkit-box-shadow: 0px 0px 5px #000000;
+    box-shadow: 0px 0px 5px #000000;
+    /*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
+}
+
+header{
+    position:absolute;
+    width: 100%;
+    top:0;
+    padding: 0;
+    height: 120px;
+    border-radius: 10px 10px 0 0;
+    border-bottom: solid 1px grey;
+    background-image:linear-gradient(#1C4501, #2B7013);
+    color: white;
+}
+
+#titreEntete{
+    display: block;
+    float: left;
+    height: 100%;
+    padding-left: 1%;
+    padding-top: 1%;
+    font-size: 3em;
+    font-family: system-ui;
+}
+
+#logoEntete{
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-right: 1%;
+    display: block;
+    float: right;
+}
+
+span.deconnexion{
+    float:right;
+    margin-right:50px;
+    margin-top:-44px;
+}
+
+#footer{
+    height:8%;
+    width: 100%;
+    position:absolute;
+    bottom:0;
+    color: white;
+    border-top: solid 1px grey;
+    background-image:linear-gradient(#2B7013, #1C4501);
+    border-radius: 0 0 10px 10px;
+    font-size:0.9em;
+}
+
+#footerLeft{
+    float: left;
+    display: block;
+    margin-top: 3%;
+    padding-left: 2%;
+}
+
+#footerRight{
+    display: block;
+    float: right;
+    margin-top: 3%;
+    padding-right: 2%;
+}
+
+section{
+    width: 100%;
+    position: absolute;
+    margin-top: 120px;
+    padding: 20px;
+}
+
+h1{
+    font-size: 20px;
+}
+h2{
+    font-size: 15px;
+}
+
+nav{
+    float: left;
+    width: 300px;
+    float:left;
+    text-align: left;
+    margin-top:20px;
+}
+
+nav ul{
+    list-style-type: none;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+nav li{
+    display: inline-block;
+    margin-right: 15px;
+    padding-bottom: 5px;
+}
+
+li{
+    padding-left: 0px;
+    list-style-type: none;
+}
+
+nav a{
+    font-size: 1.3em;
+    color: #181818;
+    padding-bottom: 2px;
+    text-decoration: none;
+}
+
+nav a:hover{
+    color: #4BB5C1;
+
+}
+
+form {
+    overflow: hidden;
+    clear: both;
+}
+label{
+    clear: left;
+    float: left;
+    width: 100px;
+    padding-right: 2%;
+    height: 1em;
+    margin-bottom: 10px;
+}
+select{
+    float: left;	
+    margin-bottom: 15px;
+}
+
+
+/*bordure des champs de connection*/
+fieldset{
+    width: 40%;
+    position: absolute;
+    margin: auto;
+    padding: 20px;
+    border-style: none;
+    box-shadow: 0 0 10px #777;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background-image:linear-gradient(rgba(255,255,255,1), rgba(241,241,241,1));
+}
+
+ul#menu {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #3D261A;
+}
+
+li.onglet_1, li.onglet_2, li.onglet_3 {
+    float: left;
+}
+
+li.onglet_1 a {
+    font-size: 20px;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    text-decoration: none;
+}
+
+li.onglet_2 a {
+    font-size: 20px;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    text-decoration: none;
+}
+
+li.onglet_3 a {
+    font-size: 20px;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    text-decoration: none;
+}
+
+li.onglet_1 a:hover {
+    background-color: #111111;
+}
+
+li.onglet_2 a:hover {
+    background-color: #111111;
+}
+
+li.onglet_3 a:hover {
+    background-color: #111111;
+}
