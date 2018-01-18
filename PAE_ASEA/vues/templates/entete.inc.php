@@ -1,7 +1,7 @@
 <div id="titreEntete">
     Demande de contrat de travail
-    <br>
-    <a href=".?controleur=accueil&action=defaut">Acceuil</a>
+    <br><br>
+    <a class="lienAccueil" href=".?controleur=accueil&action=defaut"><img src="../vues/images/home.png" > Accueil</a>
 </div>
 <div id="logoEntete"><img src="../vues/images/logo_asea.gif"></div>
 <?php

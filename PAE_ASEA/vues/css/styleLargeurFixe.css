@@ -22,7 +22,7 @@ table.tr,td,th{
     position: relative;
     margin: 0 auto;
     width: 800px;
-    min-height: 700px;
+    min-height: 97%;
     background-color:rgba(255, 255, 255, 0.7);
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -104,10 +104,10 @@ section{
 }
 
 h1{
-    font-size: 20px;
+    font-size: 2em;
 }
 h2{
-    font-size: 15px;
+    font-size: 1.5px;
 }
 
 nav{
@@ -178,61 +178,95 @@ fieldset{
     background-image:linear-gradient(rgba(255,255,255,1), rgba(241,241,241,1));
 }
 
-ul#menu {
-    display: flex;
-    justify-content: space-around;
-    list-style-type: none;
-    margin: 0;
+a.lienAccueil{
+    color: #fff;
+    font-size: 0.7em;
+    text-decoration: none;
+}
+
+a.lienAccueil:hover{
+    color: #3bafda;
+}
+
+.breadcrumb-arrow {
+    width: 80%;
+    height: 36px;
+    position: relative;
+    margin: auto;
     padding: 0;
-    overflow: hidden;
-    background-color: #3D261A;
+    line-height: 36px;
+    list-style: none;
+    font-size: 1.6em;
 }
-
-li.onglet_1, li.onglet_2, li.onglet_3 {
-    float: left;
+.breadcrumb-arrow li:first-child a {
+    border-radius: 4px 0 0 4px;
+    -webkit-border-radius: 4px 0 0 4px;
+    -moz-border-radius: 4px 0 0 4px;
 }
-
-li.onglet_1 a {
-    font-size: 20px;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    padding-left: 50px;
-    padding-right: 50px;
+.breadcrumb-arrow li, .breadcrumb-arrow li a, .breadcrumb-arrow li span {
+    display: inline-block;
+    vertical-align: top;
+}
+.breadcrumb-arrow li:not(:first-child) {
+    margin-left: -5px;
+}
+.breadcrumb-arrow li+li:before {
+    padding: 0;
+    content: "";
+}
+.breadcrumb-arrow li span {
+    padding: 0 10px;
+}
+.breadcrumb-arrow li a, .breadcrumb-arrow li:not(:first-child) span {
+    height: 36px;
+    padding: 0 10px 0 25px;
+    line-height: 36px;
+}
+.breadcrumb-arrow li:first-child a {
+    padding: 0 10px;
+}
+.breadcrumb-arrow li a {
+    position: relative;
+    width: 120px;
+    color: #fff;
     text-decoration: none;
+    background-color: #3bafda;
+    border: 1px solid #3bafda;
 }
-
-li.onglet_2 a {
-    font-size: 20px;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    padding-left: 50px;
-    padding-right: 50px;
-    text-decoration: none;
+.breadcrumb-arrow li:first-child a {
+    padding-left: 10px
 }
-
-li.onglet_3 a {
-    font-size: 20px;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    padding-left: 50px;
-    padding-right: 50px;
-    text-decoration: none;
+.breadcrumb-arrow li a:after, .breadcrumb-arrow li a:before {
+    position: absolute;
+    top: -1px;
+    width: 0;
+    height: 0;
+    content: '';
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
 }
-
-li.onglet_1 a:hover {
-    background-color: #111111;
+.breadcrumb-arrow li a:before {
+    right: -10px;
+    z-index: 3;
+    border-left-color: #3bafda;
+    border-left-style: solid;
+    border-left-width: 11px;
 }
-
-li.onglet_2 a:hover {
-    background-color: #111111;
+.breadcrumb-arrow li a:after {
+    right: -11px;
+    z-index: 2;
+    border-left: 11px solid #2494be;
 }
-
-li.onglet_3 a:hover {
-    background-color: #111111;
+.breadcrumb-arrow li a:focus, .breadcrumb-arrow li a:hover {
+    background-color: #fff;
+    color: #FF6600;
+    border: 1px solid #4fc1e9;
+}
+.breadcrumb-arrow li a:focus:before, .breadcrumb-arrow li a:hover:before, .breadcrumb-arrow li a.active:before {
+    border-left-color: #fff;
+}
+.breadcrumb-arrow li a.active{
+    background-color: #fff;
+    color: #FF6600;
+    border: 1px solid #4fc1e9;
 }
