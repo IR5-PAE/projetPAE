@@ -8,29 +8,28 @@
 <div id="globalNewDemande" class="centrerElem">
     <div id="divDemande" style="display: block">
         <?php include($this->lireDonnee('divDemande')); ?>
-        <?php include($this->lireDonnee('divSalarie')); ?>
     </div>
     <div id="divSalarie" style="display: none">
         <?php include($this->lireDonnee('divSalarie')); ?>
     </div>
     <div id="divContrat" style="display: none">
-        c
+        <?php include($this->lireDonnee('divContrat')); ?>
     </div>
     <div id="divTempsTravail" style="display: none">
-        d
+        <?php include($this->lireDonnee('divTempsTravail')); ?>
     </div>
 </div>
 
 <script>
-    document.querySelector("#boutonDemande").onclick = function() {
-        document.querySelector("#divDemande").style.display = "block";
-        document.querySelector("#divSalarie").style.display = "none";
+    document.querySelector("#BoutonSuivantDemande").onclick = function() {
+        document.querySelector("#divDemande").style.display = "none";
+        document.querySelector("#divSalarie").style.display = "block";
         document.querySelector("#divContrat").style.display = "none";
         document.querySelector("#divTempsTravail").style.display = "none";
-        document.querySelector("#boutonDemande").className="";
+        document.querySelector("#boutonDemande").className="disabled";
         document.querySelector("#boutonSalarie").className="";
-        document.querySelector("#boutonContrat").className="";
-        document.querySelector("#boutonTempsTravail").className="";
+        document.querySelector("#boutonContrat").className="disabled";
+        document.querySelector("#boutonTempsTravail").className="disabled";
     };    
 </script>
 

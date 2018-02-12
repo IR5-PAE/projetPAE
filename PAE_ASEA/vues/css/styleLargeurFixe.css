@@ -10,9 +10,8 @@ body {
 }
 
 #global{
+    margin-top: -11px;
     width: 800px;
-    /*min-height: 97%;*/
-    min-height: 710px; /*Mozilla*/
     background-color:rgba(255, 255, 255, 0.7);
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -71,29 +70,36 @@ span.deconnexion{
 }
 
 section{
-    width: 100%;
-    position: absolute;
-    margin-top: 120px;
-    padding-top: 20px;
+    min-height: 490px;
+    padding-top: 150px;
     padding-bottom: 20px;
+}
+
+input{
+    width: 200px;
+}
+
+select{
+    width: 200px;
+}
+
+.inherit{
+    width: inherit;
 }
 
 .sectionMarge{
     padding-right: 20px;
     padding-left: 20px;
+    font-size: 12px;
 }
 
 .formsDemandeContrat{
-    width: 68%;
-    position: relative;
-    margin : auto;
-    font-size: 14px;
+    /*font-size: 12px;*/
 }
 
 #footer{
-    height:8%;
+    height:60px;
     width: 100%;
-    position:absolute;
     bottom:0;
     color: white;
     border-top: solid 1px black;
@@ -118,12 +124,12 @@ section{
 
 label{
     float: left;
-    width: 150px;
-    padding-right: 20px;
+    width: 200px;
+    padding-right: 10px;
 }
 
 fieldset{
-    width: 300px;
+    width: 320px;
     padding: 30px;
     border-style: none;
     box-shadow: 0 0 10px #777;
@@ -161,6 +167,7 @@ a.lienAccueil:hover{
     line-height: 36px;
     list-style: none;
     font-size: 1.5em;
+    text-align: center;
 }
 .breadcrumb-arrow li:first-child a {
     border-radius: 4px 0 0 4px;
