@@ -9,20 +9,10 @@ body {
     background-attachment:fixed;
 }
 
-table{
-    border-collapse: collapse;
-}
-
-table.tr,td,th{
-    border: none;
-    padding: 7px;
-}
-
 #global{
-    position: relative;
-    margin: 0 auto;
     width: 800px;
-    min-height: 97%;
+    /*min-height: 97%;*/
+    min-height: 710px; /*Mozilla*/
     background-color:rgba(255, 255, 255, 0.7);
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -34,6 +24,17 @@ table.tr,td,th{
     /*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
 }
 
+#globalNewDemande{
+    width: 72%;
+    margin-top: 10px;
+    padding: 20px;
+    border-style: none;
+    box-shadow: 0 0 10px #777;
+    -webkit-border-radius: 10px;
+    border-radius: 4px;
+    background-image:linear-gradient(rgba(255,255,255,1), rgba(241,241,241,1));
+}
+
 header{
     position:absolute;
     width: 100%;
@@ -41,7 +42,7 @@ header{
     padding: 0;
     height: 120px;
     border-radius: 10px 10px 0 0;
-    border-bottom: solid 1px grey;
+    border-bottom: solid 1px black;
     background-image:linear-gradient(#1C4501, #2B7013);
     color: white;
 }
@@ -50,16 +51,15 @@ header{
     display: block;
     float: left;
     height: 100%;
-    padding-left: 1%;
-    padding-top: 1%;
+    padding-left: 20px;
+    padding-top: 8px;
     font-size: 3em;
     font-family: system-ui;
 }
 
 #logoEntete{
-    padding-top: 1%;
-    padding-bottom: 1%;
-    padding-right: 1%;
+    padding-top: 8px;
+    padding-right: 8px;
     display: block;
     float: right;
 }
@@ -70,13 +70,33 @@ span.deconnexion{
     margin-top:-44px;
 }
 
+section{
+    width: 100%;
+    position: absolute;
+    margin-top: 120px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.sectionMarge{
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.formsDemandeContrat{
+    width: 68%;
+    position: relative;
+    margin : auto;
+    font-size: 14px;
+}
+
 #footer{
     height:8%;
     width: 100%;
     position:absolute;
     bottom:0;
     color: white;
-    border-top: solid 1px grey;
+    border-top: solid 1px black;
     background-image:linear-gradient(#2B7013, #1C4501);
     border-radius: 0 0 10px 10px;
     font-size:0.9em;
@@ -86,96 +106,40 @@ span.deconnexion{
     float: left;
     display: block;
     margin-top: 3%;
-    padding-left: 2%;
+    padding-left: 20px;
 }
 
 #footerRight{
     display: block;
     float: right;
     margin-top: 3%;
-    padding-right: 2%;
-}
-
-section{
-    width: 100%;
-    position: absolute;
-    margin-top: 120px;
-    padding: 20px;
-}
-
-h1{
-    font-size: 2em;
-}
-h2{
-    font-size: 1.5px;
-}
-
-nav{
-    float: left;
-    width: 300px;
-    float:left;
-    text-align: left;
-    margin-top:20px;
-}
-
-nav ul{
-    list-style-type: none;
-    padding-left: 20px;
     padding-right: 20px;
 }
 
-nav li{
-    display: inline-block;
-    margin-right: 15px;
-    padding-bottom: 5px;
-}
-
-li{
-    padding-left: 0px;
-    list-style-type: none;
-}
-
-nav a{
-    font-size: 1.3em;
-    color: #181818;
-    padding-bottom: 2px;
-    text-decoration: none;
-}
-
-nav a:hover{
-    color: #4BB5C1;
-
-}
-
-form {
-    overflow: hidden;
-    clear: both;
-}
 label{
-    clear: left;
     float: left;
-    width: 100px;
-    padding-right: 2%;
-    height: 1em;
-    margin-bottom: 10px;
-}
-select{
-    float: left;	
-    margin-bottom: 15px;
+    width: 150px;
+    padding-right: 20px;
 }
 
-
-/*bordure des champs de connection*/
 fieldset{
-    width: 40%;
-    position: absolute;
-    margin: auto;
-    padding: 20px;
+    width: 300px;
+    padding: 30px;
     border-style: none;
     box-shadow: 0 0 10px #777;
     -webkit-border-radius: 10px;
     border-radius: 10px;
     background-image:linear-gradient(rgba(255,255,255,1), rgba(241,241,241,1));
+}
+
+.centrerElem{
+    position: relative;
+    margin: auto;
+}
+
+button{
+   display: block;
+   margin : auto;
 }
 
 a.lienAccueil{
@@ -189,14 +153,14 @@ a.lienAccueil:hover{
 }
 
 .breadcrumb-arrow {
-    width: 80%;
+    width: 77%;
     height: 36px;
     position: relative;
     margin: auto;
     padding: 0;
     line-height: 36px;
     list-style: none;
-    font-size: 1.6em;
+    font-size: 1.5em;
 }
 .breadcrumb-arrow li:first-child a {
     border-radius: 4px 0 0 4px;
@@ -234,7 +198,7 @@ a.lienAccueil:hover{
     border: 1px solid #3bafda;
 }
 .breadcrumb-arrow li:first-child a {
-    padding-left: 10px
+    padding-left: 10px;
 }
 .breadcrumb-arrow li a:after, .breadcrumb-arrow li a:before {
     position: absolute;
@@ -245,28 +209,26 @@ a.lienAccueil:hover{
     border-top: 18px solid transparent;
     border-bottom: 18px solid transparent;
 }
+
 .breadcrumb-arrow li a:before {
-    right: -10px;
+    right: -11px;
     z-index: 3;
     border-left-color: #3bafda;
     border-left-style: solid;
     border-left-width: 11px;
 }
+
 .breadcrumb-arrow li a:after {
-    right: -11px;
+    right: -12px;
     z-index: 2;
     border-left: 11px solid #2494be;
 }
-.breadcrumb-arrow li a:focus, .breadcrumb-arrow li a:hover {
-    background-color: #fff;
-    color: #FF6600;
-    border: 1px solid #4fc1e9;
+
+.breadcrumb-arrow li a.disabled:before{
+    border-left-color: #89CFE9;
 }
-.breadcrumb-arrow li a:focus:before, .breadcrumb-arrow li a:hover:before, .breadcrumb-arrow li a.active:before {
-    border-left-color: #fff;
-}
-.breadcrumb-arrow li a.active{
-    background-color: #fff;
-    color: #FF6600;
-    border: 1px solid #4fc1e9;
+
+.breadcrumb-arrow li a.disabled{
+    pointer-events:none; /*This makes it not clickable*/
+    background-color: #89CFE9;
 }

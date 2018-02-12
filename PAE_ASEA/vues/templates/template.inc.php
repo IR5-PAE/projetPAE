@@ -7,7 +7,7 @@
         <title><?php echo $this->lireDonnee('titreVue'); ?></title>
     </head>
     <body>
-        <div id="global">
+        <div id="global" class="centrerElem">
             <header>
                <?php include($this->lireDonnee('entete')); ?>
             </header>

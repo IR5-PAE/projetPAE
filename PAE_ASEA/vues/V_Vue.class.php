@@ -12,6 +12,12 @@ class V_Vue {
         $this->donnees['entete'] = "../vues/templates/entete.inc.php";
         $this->donnees['gauche'] = "../vues/templates/gauche.inc.php";
         $this->donnees['pied'] = "../vues/templates/pied.inc.php";
+        
+        //composants de la demande de contrat
+        $this->donnees['divDemande'] = "../vues/includes/utilisateur/divDemande.inc.php";
+        $this->donnees['divSalarie'] = "../vues/includes/utilisateur/divSalarie.inc.php";
+        $this->donnees['divContrat'] = "../vues/includes/utilisateur/divContrat.inc.php";
+        $this->donnees['divTempsTravail'] = "../vues/includes/utilisateur/divTempsTravail.inc.php";
     }
 
     function afficher() {
