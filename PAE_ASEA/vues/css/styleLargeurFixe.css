@@ -24,7 +24,7 @@ body {
 }
 
 #globalNewDemande{
-    width: 72%;
+    width: 80%;
     margin-top: 10px;
     padding: 20px;
     border-style: none;
@@ -102,10 +102,10 @@ select{
     width: 100%;
     bottom:0;
     color: white;
+    font-size: 12px;
     border-top: solid 1px black;
     background-image:linear-gradient(#2B7013, #1C4501);
     border-radius: 0 0 10px 10px;
-    font-size:0.9em;
 }
 
 #footerLeft{
@@ -124,7 +124,7 @@ select{
 
 label{
     float: left;
-    width: 200px;
+    width: 150px;
     padding-right: 10px;
 }
 
@@ -159,7 +159,7 @@ a.lienAccueil:hover{
 }
 
 .breadcrumb-arrow {
-    width: 77%;
+    width: 90%;
     height: 36px;
     position: relative;
     margin: auto;
@@ -169,6 +169,7 @@ a.lienAccueil:hover{
     font-size: 1.5em;
     text-align: center;
 }
+
 .breadcrumb-arrow li:first-child a {
     border-radius: 4px 0 0 4px;
     -webkit-border-radius: 4px 0 0 4px;
@@ -198,7 +199,7 @@ a.lienAccueil:hover{
 }
 .breadcrumb-arrow li a {
     position: relative;
-    width: 120px;
+    width: 137px;
     color: #fff;
     text-decoration: none;
     background-color: #3bafda;
