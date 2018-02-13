@@ -5,11 +5,11 @@
  *
  * @author arichard
  */
-class M_DaoUser extends M_DaoGenerique {
+class M_DaoPersonne extends M_DaoGenerique {
 
     function __construct() {
-        $this->nomTable = "user";
-        $this->nomClefPrimaire = "idUser";
+        $this->nomTable = "personne";
+        $this->nomClefPrimaire = "idPersonne";
     }
 
     /**
@@ -27,8 +27,8 @@ class M_DaoUser extends M_DaoGenerique {
             $leRole = $daoRole->getOneById($enreg['idRole']);
         }
 
-// on construit l'objet User 
-        $retour = new M_User(
+// on construit l'objet Personne 
+        $retour = new M_Personne(
                 $enreg['idUser'], $enreg['nomUser'], $enreg['prenomUser'], $enreg['email'], $enreg['tel'], $enreg['login'], $enreg['mdp'], $leRole);
         return $retour;
     }

@@ -29,7 +29,7 @@ class C_Connexion extends C_ControleurGenerique {
         //------------------------------------------------------------------------
         // VUE CENTRALE
         //------------------------------------------------------------------------
-        $daoUser = new M_DaoUser();
+        $daoUser = new M_DaoPersonne();
         // Vérifier login et mot de passe saisis dans la formulaire d'authentification
         if (isset($_POST['login']) && isset($_POST['mdp'])) {
             $login = $_POST['login'];
