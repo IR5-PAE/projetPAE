@@ -144,8 +144,8 @@ fieldset{
 }
 
 button{
-   display: block;
-   margin : auto;
+    display: block;
+    margin : auto;
 }
 
 a.lienAccueil{
@@ -238,4 +238,76 @@ a.lienAccueil:hover{
 .breadcrumb-arrow li a.disabled{
     pointer-events:none; /*This makes it not clickable*/
     background-color: #89CFE9;
+}
+
+/* CSS pour les tableaux de Temps Travail */
+
+.tg  {
+    border-collapse:collapse;
+    border-spacing:0;
+    border-color:#ccc;
+}
+
+.tg td{
+    font-family:Arial, sans-serif;
+    font-size:14px;
+    padding:10px 6px;
+    border-style:solid;
+    border-width:1px;
+    overflow:hidden;
+    word-break:normal;
+    border-color:#ccc;
+    color:#333;
+    background-color:#fff;
+}
+
+.tg th{
+    font-family:Arial, sans-serif;
+    font-size:14px;
+    font-weight:normal;
+    padding:10px 6px;
+    border-style:solid;
+    border-width:1px;
+    overflow:hidden;
+    word-break:normal;
+    border-color:#ccc;
+    color:#333;
+    background-color:#f0f0f0;
+}
+
+.tg .tg-24vz{
+    font-weight:bold;
+    font-size:10px;
+    font-family:Verdana, Geneva, sans-serif !important;;
+    text-align:center
+}
+
+.tg .tg-uegx{
+    font-weight:bold;
+    font-size:12px;
+    font-family:Verdana, Geneva, sans-serif !important;;
+    text-align:center
+}
+
+.tg .tg-3rb4{
+    font-weight:bold;
+    font-size:11px;
+    font-family:Verdana, Geneva, sans-serif !important;;
+    text-align:center
+}
+
+.tg .tg-9wvm{
+    font-size:10px;
+    font-family:Verdana, Geneva, sans-serif !important;;
+    text-align:center
+}
+
+.tg .tg-hnao{
+    font-size:12px;
+    font-family:Verdana, Geneva, sans-serif !important;;
+    text-align:center
+}
+
+input[type="time"] {
+    width: inherit;
 }
