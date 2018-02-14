@@ -19,106 +19,45 @@ class M_DaoPersonne extends M_DaoGenerique {
      * @return objet :  instance de la classe métier, initialisée d'après les valeurs de l'enregistrement 
      */
     public function enregistrementVersObjet($enreg) {
-// on instancie l'objet Role s'il y a lieu
-        $leRole = null;
-        if (isset($enreg['nomRole'])) {
-            $daoRole = new M_DaoRole();
-            $daoRole->setPdo($this->pdo);
-            $leRole = $daoRole->getOneById($enreg['idRole']);
-        }
-
-// on construit l'objet Personne 
+        // on construit l'objet Personne 
         $retour = new M_Personne(
-                $enreg['idUser'], $enreg['nomUser'], $enreg['prenomUser'], $enreg['email'], $enreg['tel'], $enreg['login'], $enreg['mdp'], $leRole);
+                $enreg['idPersonne'],
+                $enreg['nomPersonne'],
+                $enreg['nomJeuneFillePersonne'],
+                $enreg['prenomPersonne'],
+                $enreg['dateNaissance'],
+                $enreg['lieuNaissance'],
+                $enreg['numSecuSoc'],
+                $enreg['nationalite'],
+                $enreg['adresse'],
+                $enreg['complementAdresse'],
+                $enreg['codePostal'],
+                $enreg['ville']
+                );
         return $retour;
     }
-
+    
     /**
      * Prépare une liste de paramètres pour une requête SQL UPDATE ou INSERT
      * @param Object $objetMetier
      * @return array : tableau ordonné de valeurs
      */
     public function objetVersEnregistrement($objetMetier) {
-// construire un tableau des paramètres d'insertion ou de modification
-// l'ordre des valeurs est important : il correspond à celui des paramètres de la requête SQL
-// le rôle sera mis à jour séparément
-        if (!is_null($objetMetier->getRole())) {
-            $idRole = $objetMetier->getRole()->getIdRole();
-        } else {
-            $idRole = 0; // "Autre" (simple visiteur)
-        }
+        // construire un tableau des paramètres d'insertion ou de modification
+        // l'ordre des valeurs est important : il correspond à celui des paramètres de la requête SQL
         $retour = array(
-            ':nomUser' => $objetMetier->getNomUser(),
-            ':prenomUser' => $objetMetier->getPrenomUser(),
-            ':email' => $objetMetier->getEmail(),
-            ':tel' => $objetMetier->getTel(),
-            ':login' => $objetMetier->getLogin(),
-            ':mdp' => $objetMetier->getMdp(),
-            ':idRole' => $idRole
+            ':nomPersonne' => $objetMetier->getNomPersonne(),
+            ':nomJeuneFillePersonne' => $objetMetier->getNomJeuneFillePersonne(),
+            ':prenomPersonne' => $objetMetier->getPrenomPersonne(),
+            ':dateNaissance' => $objetMetier->getDateNaissance(),
+            ':lieuNaissance' => $objetMetier->getLieuNaissance(),
+            ':numSecuSoc' => $objetMetier->getNumSecuSoc(),
+            ':nationalite' => $objetMetier->getNationalite(),
+            ':adresse' => $objetMetier->getAdresse(),
+            ':complementAdresse' => $objetMetier->getComplementAdresse(),
+            ':codePostal' => $objetMetier->getCodePostal(),
+            ':ville' => $objetMetier->getVille()
         );
-        return $retour;
-    }
-
-    /**
-     * Lire tous les enregistrements d'une table
-     * @return tableau-associatif d'objets : un tableau d'instances de la classe métier
-     */
-    function getAll() {
-        echo "--- getAll redéfini ---<br/>";
-        $retour = null;
-// Requête textuelle
-        $sql = "SELECT * FROM $this->nomTable P ";
-        $sql .= "LEFT OUTER JOIN ROLE R ON R.IDROLE = P.IDROLE ";
-        try {
-// préparer la requête PDO
-            $queryPrepare = $this->pdo->prepare($sql);
-// exécuter la requête PDO
-            if ($queryPrepare->execute()) {
-// si la requête réussit :
-// initialiser le tableau d'objets à retourner
-                $retour = array();
-// pour chaque enregistrement retourné par la requête
-                while ($enregistrement = $queryPrepare->fetch(PDO::FETCH_ASSOC)) {
-// construir un objet métier correspondant
-                    $unObjetMetier = $this->enregistrementVersObjet($enregistrement);
-// ajouter l'objet au tableau
-                    $retour[] = $unObjetMetier;
-                }
-            }
-        } catch (PDOException $e) {
-            echo get_class($this) . ' - ' . __METHOD__ . ' : ' . $e->getMessage();
-        }
-        return $retour;
-    }
-
-    /**
-     * Lire tous les enregistrements de table par le role insérer en paramètre
-     * @return tableau-associatif d'objets : un tableau d'instances de la classe métier
-     */
-    function getAllByRole($idrole) {
-        $retour = null;
-        try {
-            // Requête textuelle
-            $sql = "SELECT * FROM $this->nomTable P ";
-            $sql .= "LEFT OUTER JOIN ROLE R ON R.IDROLE = P.IDROLE ";
-            $sql .= "WHERE P.IDROLE = :role";
-            // préparer la requête PDO
-            $queryPrepare = $this->pdo->prepare($sql);
-            // exécuter la requête avec les valeurs des paramètres (il n'y en a qu'un ici) dans un tableau
-            if ($queryPrepare->execute(array(':role' => $idrole))) {
-                // si la requête réussit :
-                // extraire l'enregistrement retourné par la requête
-                // construire l'objet métier correspondant
-                while ($enregistrement = $queryPrepare->fetch(PDO::FETCH_ASSOC)) {
-// construir un objet métier correspondant
-                    $unObjetMetier = $this->enregistrementVersObjet($enregistrement);
-// ajouter l'objet au tableau
-                    $retour[] = $unObjetMetier;
-                }
-            }
-        } catch (PDOException $e) {
-            echo get_class($this) . ' - ' . __METHOD__ . ' : ' . $e->getMessage();
-        }
         return $retour;
     }
 
@@ -128,7 +67,6 @@ class M_DaoPersonne extends M_DaoGenerique {
         try {
             // Requête textuelle
             $sql = "SELECT * FROM $this->nomTable P ";
-            $sql .= "LEFT OUTER JOIN ROLE R ON R.IDROLE = P.IDROLE ";
             $sql .= "WHERE $this->nomClefPrimaire = :id";
             // préparer la requête PDO
             $queryPrepare = $this->pdo->prepare($sql);
@@ -152,7 +90,6 @@ class M_DaoPersonne extends M_DaoGenerique {
         try {
             // Requête textuelle
             $sql = "SELECT * FROM $this->nomTable P ";
-            $sql .= "LEFT OUTER JOIN ROLE R ON R.IDROLE = P.IDROLE ";
             $sql .= "WHERE P.LOGIN = ?";
             // préparer la requête PDO
             $queryPrepare = $this->pdo->prepare($sql);
@@ -191,7 +128,7 @@ class M_DaoPersonne extends M_DaoGenerique {
     }
     
     /**
-     * suppression
+     * insertion
      * @param type $objetMetier
      * @return boolean Cette fonction retourne TRUE en cas de succès ou FALSE si une erreur survient.
      */
@@ -200,17 +137,17 @@ class M_DaoPersonne extends M_DaoGenerique {
         try {
             // Requête textuelle paramétrée (paramètres nommés)
             $sql = "INSERT INTO $this->nomTable (";
-            $sql .= "NOMUSER, PRENOMUSER, EMAIL, TEL, LOGIN, MDP, IDROLE) ";
+            $sql .= "nomPersonne, nomJeuneFillePersonne, prenomPersonne, dateNaissance, lieuNaissance, numSecuSoc, nationalite, adresse, complementAdresse, codePostal, ville) ";
             $sql .= "VALUES (";
-            $sql .= ":nomUser, :prenomUser, :email, :tel, :login, :mdp, :idRole)";
-//            var_dump($sql);
+            $sql .= ":nomPersonne, :nomJeuneFillePersonne, :prenomPersonne, :dateNaissance, :lieuNaissance, :numSecuSoc, :nationalite, :adresse, :complementAdresse, :codePostal, :ville)";
+            //var_dump($sql);
             // préparer la requête PDO
             $queryPrepare = $this->pdo->prepare($sql);
             // préparer la  liste des paramètres, avec l'identifiant en dernier
             $parametres = $this->objetVersEnregistrement($objetMetier);
             // exécuter la requête avec les valeurs des paramètres dans un tableau
             $retour = $queryPrepare->execute($parametres);
-//            debug_query($sql, $parametres);
+            //debug_query($sql, $parametres);
         } catch (PDOException $e) {
             echo get_class($this) . ' - ' . __METHOD__ . ' : ' . $e->getMessage();
         }
@@ -222,28 +159,32 @@ class M_DaoPersonne extends M_DaoGenerique {
         try {
             // Requête textuelle paramétrée (paramètres nommés)
             $sql = "UPDATE $this->nomTable SET ";
-            $sql .= "NOMUSER = :nomUser, ";
-            $sql .= "PRENOMUSER = :prenomUser, ";
-            $sql .= "EMAIL = :email, ";
-            $sql .= "TEL = :tel, ";
-            $sql .= "LOGIN = :login, ";
-            $sql .= "MDP = :mdp, ";
-            $sql .= "IDROLE = :idRole ";
-            $sql .= "WHERE IDUSER = :id";
-//            var_dump($sql);
+            $sql .= "nomPersonne = :nomPersonne, ";
+            $sql .= "nomJeuneFillePersonne = :nomJeuneFillePersonne, ";
+            $sql .= "prenomPersonne = :prenomPersonne, ";
+            $sql .= "dateNaissance = :dateNaissance, ";
+            $sql .= "lieuNaissance = :lieuNaissance, ";
+            $sql .= "numSecuSoc = :numSecuSoc, ";
+            $sql .= "nationalite = :nationalite, ";
+            $sql .= "adresse = :adresse, ";
+            $sql .= "complementAdresse = :complementAdresse, ";
+            $sql .= "codePostal = :codePostal, ";
+            $sql .= "ville = :ville ";
+            $sql .= "WHERE idPersonne = :idPersonne";
+            //var_dump($sql);
             // préparer la requête PDO
             $queryPrepare = $this->pdo->prepare($sql);
             // préparer la  liste des paramètres la valeur de l'identifiant
             //  à prendre en compte est celle qui a été passée en paramètre à la méthode
             $parametres = $this->objetVersEnregistrement($objetMetier);
-            $parametres[':id'] = $idMetier;
+            $parametres[':idPersonne'] = $idMetier;
             // exécuter la requête avec les valeurs des paramètres dans un tableau
             $retour = $queryPrepare->execute($parametres);
-//            debug_query($sql, $parametres);
+            //debug_query($sql, $parametres);
         } catch (PDOException $e) {
             echo get_class($this) . ' - ' . __METHOD__ . ' : ' . $e->getMessage();
         }
         return $retour;
     }
-
+    
 }

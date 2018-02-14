@@ -9,17 +9,17 @@
 
 CREATE TABLE Personne(
         idPersonne            int (11) Auto_increment  NOT NULL ,
-        nomPersonne           Varchar (25) NOT NULL ,
-        nomJeuneFillePersonne Varchar (25) ,
-        prenomPersonne        Varchar (25) NOT NULL ,
+        nomPersonne           Varchar (255) NOT NULL ,
+        nomJeuneFillePersonne Varchar (255) ,
+        prenomPersonne        Varchar (255) NOT NULL ,
         dateNaissance         Date NOT NULL ,
-        lieuNaissance         Varchar (25) NOT NULL ,
+        lieuNaissance         Varchar (255) NOT NULL ,
         numSecuSoc            Int NOT NULL ,
-        nationalite           Varchar (25) NOT NULL ,
-        adresse               Varchar (25) NOT NULL ,
-        complementAdresse     Varchar (25) NOT NULL ,
+        nationalite           Varchar (255) NOT NULL ,
+        adresse               Varchar (255) NOT NULL ,
+        complementAdresse     Varchar (255) ,
         codePostal            Int NOT NULL ,
-        ville                 Varchar (25) NOT NULL ,
+        ville                 Varchar (255) NOT NULL ,
         PRIMARY KEY (idPersonne )
 )ENGINE=InnoDB;
 

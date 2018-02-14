@@ -52,7 +52,8 @@ abstract class M_DaoGenerique {
     function getAll() {
         $retour = null;
         // Requête textuelle
-        $sql = "SELECT * FROM $this->nomTable ORDER BY $this->nomClefPrimaire";
+        $sql = "SELECT * FROM $this->nomTable";
+        //$sql = "SELECT * FROM $this->nomTable ORDER BY $this->nomClefPrimaire";
         try {
             // préparer la requête PDO
             $queryPrepare = $this->pdo->prepare($sql);
@@ -98,6 +99,25 @@ abstract class M_DaoGenerique {
             }
         } catch (PDOException $e) {
             echo get_class($this) . ' - '.__METHOD__ . ' : '. $e->getMessage();
+        }
+        return $retour;
+    }
+    
+    function delete($idMetier) {
+        $retour = FALSE;
+        try {
+            // Requête textuelle
+            $sql = "DELETE FROM $this->nomTable ";
+            $sql .= "WHERE $this->nomClefPrimaire = :id";
+            // préparer la requête PDO
+            $queryPrepare = $this->pdo->prepare($sql);
+            // exécuter la requête avec les valeurs des paramètres (il n'y en a qu'un ici) dans un tableau
+            if ($queryPrepare->execute(array(':id' => $idMetier))) {
+                // si la requête réussit :
+                $retour = TRUE;
+            }
+        } catch (PDOException $e) {
+            echo get_class($this) . ' - ' . __METHOD__ . ' : ' . $e->getMessage();
         }
         return $retour;
     }
