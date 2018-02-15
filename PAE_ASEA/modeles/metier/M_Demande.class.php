@@ -37,7 +37,7 @@ class M_Demande {
     private $volumeTempsPartiel;       //Varchar (25) NOT NULL ,
     private $repartitionTempsPartiel;  //Varchar (50) NOT NULL ,
     private $personne;                 //Int NOT NULL ,
-    
+
     function __construct($idDemande, $etablissement, $numOffreEmploi, $emploi, $qualification, $lieuTravail, $remuneration, $avantage, $typeContrat, $dateDebutCDD, $dateFinCDD, $motifCDD, $infoComplementaireMotif, $dateDebutCDI, $periodeEssaiCDI, $dureePeriodeEssaiCDI, $dureeAvenant, $dateDebutAvenant, $dateFinAvenant, $emploiAvenant, $qualificationAvenant, $remunerationAvenant, $lieuTravailAvenant, $avantageAvenant, $autreModificationAvenant, $tempsTravail, $volumeTempsPartiel, $repartitionTempsPartiel, $personne) {
         $this->idDemande = $idDemande;
         $this->etablissement = $etablissement;
@@ -69,6 +69,7 @@ class M_Demande {
         $this->repartitionTempsPartiel = $repartitionTempsPartiel;
         $this->personne = $personne;
     }
+
     function getIdDemande() {
         return $this->idDemande;
     }
@@ -300,6 +301,5 @@ class M_Demande {
     function setPersonne($personne) {
         $this->personne = $personne;
     }
-
 
 }
