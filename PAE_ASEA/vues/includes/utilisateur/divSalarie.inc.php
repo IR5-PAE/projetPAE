@@ -4,10 +4,10 @@
         <input type="text" id="nom" required/>
         <br><br>
         <label>Nom de jeune fille:</label>
-        <input type="text" id="nomJeuneFille" required/>
+        <input type="text" id="nomJeuneFille"/>
         <br><br>
         <label>Prénom :</label>
-        <input type="text" id="prenom"/>
+        <input type="text" id="prenom" required/>
         <br><br>
         <label>Date de naissance :</label>
         <input type="date" name="dateNaissance" required>
@@ -232,16 +232,3 @@
         <button id="BoutonSuivantSalarie" type="submit">Suivant</button>
     </div>
 </form>
-
-<script>
-    document.querySelector("#BoutonSuivantSalarie").onclick = function() {
-        document.querySelector("#divDemande").style.display = "none";
-        document.querySelector("#divSalarie").style.display = "none";
-        document.querySelector("#divContrat").style.display = "block";
-        document.querySelector("#divTempsTravail").style.display = "none";
-        document.querySelector("#boutonDemande").className="disabled";
-        document.querySelector("#boutonSalarie").className="disabled";
-        document.querySelector("#boutonContrat").className="";
-        document.querySelector("#boutonTempsTravail").className="disabled";
-    };    
-</script>

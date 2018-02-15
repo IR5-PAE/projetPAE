@@ -20,16 +20,5 @@
     </div>
 </div>
 
-<script>
-    document.querySelector("#BoutonSuivantDemande").onclick = function() {
-        document.querySelector("#divDemande").style.display = "none";
-        document.querySelector("#divSalarie").style.display = "block";
-        document.querySelector("#divContrat").style.display = "none";
-        document.querySelector("#divTempsTravail").style.display = "none";
-        document.querySelector("#boutonDemande").className="disabled";
-        document.querySelector("#boutonSalarie").className="";
-        document.querySelector("#boutonContrat").className="disabled";
-        document.querySelector("#boutonTempsTravail").className="disabled";
-    };    
-</script>
+<script src="../vues/js/contrat.js" type="text/javascript"></script>
 
