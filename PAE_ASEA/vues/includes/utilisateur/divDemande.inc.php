@@ -7,7 +7,7 @@
         <input type="text" id="numOffreEmploi" name="numOffreEmploi"/>
         <br><br><br>
         <div id="divBouton">
-            <button id="BoutonSuivantDemande" type="submit" onclick="return validerDemande()">Suivant</button>
+            <button type="submit" onclick="return validerDemande()">Suivant</button>
         </div>
     </div>
 </form>

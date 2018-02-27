@@ -7,6 +7,7 @@
 function validerDemande() {
     var ok = 1;
 
+    /*
     if (document.getElementById("etablissement").value === "")
     {
         alert("Veuillez indiquer un établissement.");
@@ -22,6 +23,7 @@ function validerDemande() {
         document.getElementById("numOffreEmploi").focus();
         return false;
     }
+    */
     
     if (ok === 1) {
         document.submit();

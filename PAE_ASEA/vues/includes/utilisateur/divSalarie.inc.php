@@ -231,7 +231,7 @@
         <br><br><br>
         <div id="divBoutons">
             <button type="button" onclick="history.go(-1)">Retour</button>
-            <button id="BoutonSuivantSalarie" type="button" onclick="validerSalarie()">Suivant</button>
+            <button type="submit" onclick="validerSalarie()">Suivant</button>
         </div>
     </div>
 </form>

@@ -140,6 +140,9 @@
             </div>
         </div>
         <br><br>
-        <button id="BoutonSuivantContrat" type="button" onclick="validerContrat()">Suivant</button>
+        <div id="divBoutons">
+            <button type="button" onclick="history.go(-1)">Retour</button>
+            <button type="submit" onclick="validerContrat()">Suivant</button>
+        </div>
     </div>
 </form>

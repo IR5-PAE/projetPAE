@@ -94,6 +94,9 @@
         </table>
         
         <br><br><br>
-        <button id="BoutonSuivantTempsTravail" type="button" onclick="validerTempsTravail()">Suivant</button>
+        <div id="divBoutons">
+            <button type="button" onclick="history.go(-1)">Retour</button>
+            <button type="submit" onclick="validerTempsTravail()">Suivant</button>
+        </div>
     </div>
 </form>

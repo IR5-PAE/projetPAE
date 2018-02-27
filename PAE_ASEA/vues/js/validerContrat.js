@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-function validerContrat() {
+function validerSalarie() {
     var ok = 1;
     
     if (ok === 1) {
