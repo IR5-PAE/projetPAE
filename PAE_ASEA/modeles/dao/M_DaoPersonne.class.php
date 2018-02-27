@@ -61,29 +61,6 @@ class M_DaoPersonne extends M_DaoGenerique {
         return $retour;
     }
 
-    // Lire un enregistrement d'une table par son id mis en paramètre
-    function getOneById($id) {
-        $retour = null;
-        try {
-            // Requête textuelle
-            $sql = "SELECT * FROM $this->nomTable P ";
-            $sql .= "WHERE $this->nomClefPrimaire = :id";
-            // préparer la requête PDO
-            $queryPrepare = $this->pdo->prepare($sql);
-            // exécuter la requête avec les valeurs des paramètres (il n'y en a qu'un ici) dans un tableau
-            if ($queryPrepare->execute(array(':id' => $id))) {
-                // si la requête réussit :
-                // extraire l'enregistrement retourné par la requête
-                $enregistrement = $queryPrepare->fetch(PDO::FETCH_ASSOC);
-                // construire l'objet métier correspondant
-                $retour = $this->enregistrementVersObjet($enregistrement);
-            }
-        } catch (PDOException $e) {
-            echo get_class($this) . ' - ' . __METHOD__ . ' : ' . $e->getMessage();
-        }
-        return $retour;
-    }
-
     // Lire un enregistrement d'une table par son login mis en paramètre
     function getOneByLogin($valeurLogin) {
         $retour = null;
@@ -137,9 +114,29 @@ class M_DaoPersonne extends M_DaoGenerique {
         try {
             // Requête textuelle paramétrée (paramètres nommés)
             $sql = "INSERT INTO $this->nomTable (";
-            $sql .= "nomPersonne, nomJeuneFillePersonne, prenomPersonne, dateNaissance, lieuNaissance, numSecuSoc, nationalite, adresse, complementAdresse, codePostal, ville) ";
+            $sql .=   "nomPersonne,"
+                    . "nomJeuneFillePersonne,"
+                    . "prenomPersonne,"
+                    . "dateNaissance,"
+                    . "lieuNaissance,"
+                    . "numSecuSoc,"
+                    . "nationalite,"
+                    . "adresse,"
+                    . "complementAdresse,"
+                    . "codePostal,"
+                    . "ville) ";
             $sql .= "VALUES (";
-            $sql .= ":nomPersonne, :nomJeuneFillePersonne, :prenomPersonne, :dateNaissance, :lieuNaissance, :numSecuSoc, :nationalite, :adresse, :complementAdresse, :codePostal, :ville)";
+            $sql .=   ":nomPersonne,"
+                    . ":nomJeuneFillePersonne,"
+                    . ":prenomPersonne,"
+                    . ":dateNaissance,"
+                    . ":lieuNaissance,"
+                    . ":numSecuSoc,"
+                    . ":nationalite,"
+                    . ":adresse,"
+                    . ":complementAdresse,"
+                    . ":codePostal,"
+                    . ":ville)";
             //var_dump($sql);
             // préparer la requête PDO
             $queryPrepare = $this->pdo->prepare($sql);

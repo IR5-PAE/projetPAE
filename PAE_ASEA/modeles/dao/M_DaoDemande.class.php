@@ -172,6 +172,7 @@ class M_DaoDemande extends M_DaoGenerique {
 
     // Lire un enregistrement d'une table par son id mis en paramètre
     function getOneById($id) {
+        echo "--- getOneById redéfini ---<br/>";
         $retour = null;
         try {
             // Requête textuelle
@@ -204,9 +205,63 @@ class M_DaoDemande extends M_DaoGenerique {
         try {
             // Requête textuelle paramétrée (paramètres nommés)
             $sql = "INSERT INTO $this->nomTable (";
-            $sql .= "etablissement, numOffreEmploi, emploi, qualification, lieuTravail, remuneration, avantage, typeContrat, dateDebutCDD, dateFinCDD, motifCDD, infoComplementaireMotif, dateDebutCDI, periodeEssaiCDI, dureePeriodeEssaiCDI, dureeAvenant, dateDebutAvenant, dateFinAvenant, emploiAvenant, qualificationAvenant, remunerationAvenant, lieuTravailAvenant, avantageAvenant, autreModificationAvenant, tempsTravail, volumeTempsPartiel, repartitionTempsPartiel, idPersonne) ";
+            $sql .=   "etablissement,"
+                    . "numOffreEmploi,"
+                    . "emploi,"
+                    . "qualification,"
+                    . "lieuTravail,"
+                    . "remuneration,"
+                    . "avantage,"
+                    . "typeContrat,"
+                    . "dateDebutCDD,"
+                    . "dateFinCDD,"
+                    . "motifCDD,"
+                    . "infoComplementaireMotif,"
+                    . "dateDebutCDI,"
+                    . "periodeEssaiCDI,"
+                    . "dureePeriodeEssaiCDI,"
+                    . "dureeAvenant,"
+                    . "dateDebutAvenant,"
+                    . "dateFinAvenant,"
+                    . "emploiAvenant,"
+                    . "qualificationAvenant,"
+                    . "remunerationAvenant,"
+                    . "lieuTravailAvenant,"
+                    . "avantageAvenant,"
+                    . "autreModificationAvenant,"
+                    . "tempsTravail,"
+                    . "volumeTempsPartiel,"
+                    . "repartitionTempsPartiel,"
+                    . "idPersonne) ";
             $sql .= "VALUES (";
-            $sql .= ":etablissement, :numOffreEmploi, :emploi, :qualification, :lieuTravail, :remuneration, :avantage, :typeContrat, :dateDebutCDD, :dateFinCDD, :motifCDD, :infoComplementaireMotif, :dateDebutCDI, :periodeEssaiCDI, :dureePeriodeEssaiCDI, :dureeAvenant, :dateDebutAvenant, :dateFinAvenant, :emploiAvenant, :qualificationAvenant, :remunerationAvenant, :lieuTravailAvenant, :avantageAvenant, :autreModificationAvenant, :tempsTravail, :volumeTempsPartiel, :repartitionTempsPartiel, :idPersonne)";
+            $sql .= ":etablissement,"
+                    . ":numOffreEmploi,"
+                    . ":emploi,"
+                    . ":qualification,"
+                    . ":lieuTravail,"
+                    . ":remuneration,"
+                    . ":avantage,"
+                    . ":typeContrat,"
+                    . ":dateDebutCDD,"
+                    . ":dateFinCDD,"
+                    . ":motifCDD,"
+                    . ":infoComplementaireMotif,"
+                    . ":dateDebutCDI,"
+                    . ":periodeEssaiCDI,"
+                    . ":dureePeriodeEssaiCDI,"
+                    . ":dureeAvenant,"
+                    . ":dateDebutAvenant,"
+                    . ":dateFinAvenant,"
+                    . ":emploiAvenant,"
+                    . ":qualificationAvenant,"
+                    . ":remunerationAvenant,"
+                    . ":lieuTravailAvenant,"
+                    . ":avantageAvenant,"
+                    . ":autreModificationAvenant,"
+                    . ":tempsTravail,"
+                    . ":volumeTempsPartiel,"
+                    . ":repartitionTempsPartiel,"
+                    . ":idPersonne)";
             //var_dump($sql);
             // préparer la requête PDO
             $queryPrepare = $this->pdo->prepare($sql);

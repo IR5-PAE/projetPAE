@@ -9,52 +9,53 @@
         require_once("../includes/parametres.inc.php");
         require_once("../includes/fonctions.inc.php");
 
-        $dao = new M_DaoDemande();
-        $dao->connecter();
+        $daoDemande = new M_DaoDemande();
+        $daoPersonne = new M_DaoPersonne();
+        $daoDemande->connecter();
+        $daoPersonne->connecter();
 
         //Test de sélection par Id 
         echo "<p>Test de sélection par Id </p>";
-        $demande = $dao->getOneById(1);
+        $demande = $daoDemande->getOneById(1);
         var_dump($demande);
-        
+
         //Test de sélection de toutes les demandes
         echo "<p>Test de sélection de tous les demandes</p>";
-        $lesDemandes = $dao->getAll();
+        $lesDemandes = $daoDemande->getAll();
         var_dump($lesDemandes);
-        
-        //Test de sélection de toutes les demandes d'une personne 
+
+        //Test de sélection de toutes les demandes d'une personne spécifique
         echo "<p>Test de sélection de toutes les demandes d'une personne</p>";
-        $lesDemandes = $dao->getAllByPersonne(1);
+        $lesDemandes = $daoDemande->getAllByPersonne(1);
         var_dump($lesDemandes);
 
         //Test d'insertion
-//        echo "<p>Test d'insertion</p>";
-//        $role = new M_Role(2, "intendant");
-//        $role= new M_User(null, "Hugo", "Victor","vhugo@free.fr", "0678901234", "vhugo", "vhugo", $role);
-//        var_dump($role);
-//        $dao->insert($role);
-//        $persLu = $dao->getOneByLogin('vhugo');
-//        var_dump($persLu);
-        
+        echo "<p>Test d'insertion</p>";
+        $personne = $daoPersonne->getOneById(1);
+        $demande = new M_Demande(null, "ASEA", 1, "stagiaire", "aucune", "angers", "1050", "pass metro", "stage", "2018-05-29", "2018-05-29", "malade", "très malade", "2018-05-29", 1, "6 mois", "", "2018-05-29", "2018-05-29", "z", "z", "z", "z", "z", "z", "z", "z", "z", $personne);
+        $daoDemande->insert($demande);
+        var_dump($demande);
+
         //Test de modification
-//        echo "<p>Test de modification</p>";
-//        $role->setEmail("victor.hugo@laposte.net");
-//        $role->setNomUser("uther");
-//        $enr = $dao->getPdo()->query('SELECT MAX(IDUSER) FROM USER;')->fetch();
-//        $id= $enr[0];
-//        $dao->update($id,$role);
-//        $persLu = $dao->getOneByLogin('vhugo');
-//        var_dump($persLu);
- 
+        echo "<p>Test de modification</p>";
+        $demande->setEtablissement("esaip");
+        $demande->setEmploi("etudiant");
+        $enr = $daoDemande->getPdo()->query('SELECT MAX(idDemande) FROM demandecontrat;')->fetch();
+        $idLastDemande = $enr[0];
+        $daoDemande->update($idLastDemande, $demande);
+        $demandeLu = $daoDemande->getOneById($idLastDemande);
+        var_dump($demandeLu);
+
         //Test de suppression
-//        echo "<p>Test de suppression</p>";
-//        $id = $persLu->getIdUser();
-//        echo "Supprimer : ".$id."<br/>";
-//        $dao->delete($id);
-//        $persLu = $dao->getOneById($id);
-//        var_dump($persLu);
-        
-        $dao->deconnecter();
+        echo "<p>Test de suppression</p>";
+        $id = $demandeLu->getIdDemande();
+        echo "Supprimer : " . $id . "<br/>";
+        $daoDemande->delete($id);
+        $demandeLu = $daoDemande->getOneById($id);
+        var_dump($demandeLu);
+
+        $daoDemande->deconnecter();
+        $daoPersonne->deconnecter();
         ?>
     </body>
 </html>
