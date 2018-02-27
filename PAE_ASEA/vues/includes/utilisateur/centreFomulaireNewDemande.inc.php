@@ -20,5 +20,19 @@
     </div>
 </div>
 
+<?php
+    if($this->lireDonnee('etape')=='okDemande'){
+        ?>
+        <script type="text/javascript">
+            document.getElementById("divDemande").style.display = "none";
+            document.getElementById("divSalarie").style.display = "block";
+            document.getElementById("boutonDemande").className="disabled";
+            document.getElementById("boutonSalarie").className="";
+        </script>
+        <?php
+    }
+?>
+
 <script src="../vues/js/contrat.js" type="text/javascript"></script>
+<script src="../vues/js/validerDemande.js" type="text/javascript"></script>
 

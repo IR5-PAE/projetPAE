@@ -79,6 +79,20 @@ input{
     width: 200px;
 }
 
+.required{
+    float: left;
+    width: inherit;
+    padding-right: 0;
+    color: red;
+}
+
+.nonRequired{
+    float: left;
+    width: inherit;
+    padding-right: 0;
+    color: transparent;
+}
+
 select{
     width: 200px;
 }
@@ -144,8 +158,15 @@ fieldset{
 }
 
 button{
-    display: block;
-    margin : auto;
+    display: inline-block;
+}
+#divBouton{
+    margin: auto; 
+    width: 60px;
+}
+#divBoutons{
+    margin: auto; 
+    width: 121px;
 }
 
 a.lienAccueil{

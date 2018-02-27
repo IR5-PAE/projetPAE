@@ -1,24 +1,24 @@
-<form class="sectionMarge" method="post" action=".?controleur=connexion&action=authentifier">
+<form class="sectionMarge" method="post" action=".?controleur=utilisateur&action=validerSalarieForm">
     <div class="formsDemandeContrat">
-        <label>Nom :</label>
-        <input type="text" id="nom" required/>
+        <label class="required">*</label><label>Nom :</label>
+        <input type="text" id="nom"/>
         <br><br>
-        <label>Nom de jeune fille:</label>
+        <label class="nonRequired">*</label><label>Nom de jeune fille:</label>
         <input type="text" id="nomJeuneFille"/>
         <br><br>
-        <label>Prénom :</label>
-        <input type="text" id="prenom" required/>
+        <label class="required">*</label><label>Prénom :</label>
+        <input type="text" id="prenom"/>
         <br><br>
-        <label>Date de naissance :</label>
-        <input type="date" name="dateNaissance" required>
+        <label class="required">*</label><label>Date de naissance :</label>
+        <input type="date" name="dateNaissance">
         <br><br>
-        <label>Lieu de naissance :</label>
-        <input type="text" id="lieuNaissance" required/>
+        <label class="required">*</label><label>Lieu de naissance :</label>
+        <input type="text" id="lieuNaissance"/>
         <br><br>
-        <label>N° sécurité sociale :</label>
-        <input type="text" id="numSecu" required/>
+        <label class="required">*</label><label>N° sécurité sociale :</label>
+        <input type="text" id="numSecu"/>
         <br><br>
-        <label>Nationalité :</label>
+        <label class="required">*</label><label>Nationalité :</label>
         <select name="pays">
             <optgroup label="Afrique">
             <option value="afriqueDuSud">Afrique Du Sud</option>
@@ -224,11 +224,14 @@
             </optgroup>
             </select>
         <br><br>
-        *Pour les non européens : fournir le titre de séjour et l'autorisation de travail
+        - Pour les non européens : fournir le titre de séjour et l'autorisation de travail
         <br><br>
-        <label>Adresse :</label>
-        <input type="text" id="adresse" required/>
+        <label class="required">*</label><label>Adresse :</label>
+        <input type="text" id="adresse"/>
         <br><br><br>
-        <button id="BoutonSuivantSalarie" type="submit">Suivant</button>
+        <div id="divBoutons">
+            <button type="button" onclick="history.go(-1)">Retour</button>
+            <button id="BoutonSuivantSalarie" type="button" onclick="validerSalarie()">Suivant</button>
+        </div>
     </div>
 </form>

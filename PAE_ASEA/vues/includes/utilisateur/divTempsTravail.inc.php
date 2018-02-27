@@ -1,4 +1,4 @@
-<form class="sectionMarge" method="post" action=".?controleur=connexion&action=authentifier">
+<form class="sectionMarge" method="post" action=".?controleur=utilisateur&action=validerTempsTravailForm">
     <div class="formsDemandeContrat">
         <strong>Temps de travail :</strong>
             <br><hr><br>
@@ -94,7 +94,6 @@
         </table>
         
         <br><br><br>
-        
-        <button id="BoutonSuivantTempsTravail" type="submit">Suivant</button>
+        <button id="BoutonSuivantTempsTravail" type="button" onclick="validerTempsTravail()">Suivant</button>
     </div>
 </form>

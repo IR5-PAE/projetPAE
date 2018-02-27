@@ -1,11 +1,13 @@
-<form class="sectionMarge" method="post" action=".?controleur=connexion&action=authentifier">
+<form class="sectionMarge" method="post" action=".?controleur=utilisateur&action=validerDemandeForm">
     <div class="formsDemandeContrat">
-        <label>Etablissement :</label>
-        <input type="text" id="etablissement" required/>
+        <label class="required">*</label><label>Etablissement :</label>
+        <input type="text" id="etablissement" name="etablissement"/>
         <br><br>
-        <label>Offre d'emploi n° :</label>
-        <input type="text" id="numOffreEmploi" required/>
+        <label class="required">*</label><label>Offre d'emploi n° :</label>
+        <input type="text" id="numOffreEmploi" name="numOffreEmploi"/>
         <br><br><br>
-        <button id="BoutonSuivantDemande" type="submit">Suivant</button>
+        <div id="divBouton">
+            <button id="BoutonSuivantDemande" type="submit" onclick="return validerDemande()">Suivant</button>
+        </div>
     </div>
 </form>

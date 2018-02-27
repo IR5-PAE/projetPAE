@@ -1,88 +1,100 @@
-document.querySelector("#BoutonSuivantDemande").onclick = function() {
-    document.querySelector("#divDemande").style.display = "none";
-    document.querySelector("#divSalarie").style.display = "block";
-    document.querySelector("#divContrat").style.display = "none";
-    document.querySelector("#divTempsTravail").style.display = "none";
-    document.querySelector("#boutonDemande").className="disabled";
-    document.querySelector("#boutonSalarie").className="";
-    document.querySelector("#boutonContrat").className="disabled";
-    document.querySelector("#boutonTempsTravail").className="disabled";
+/*
+document.getElementById("BoutonSuivantDemande").onclick = function() {
+    document.getElementById("divDemande").style.display = "none";
+    document.getElementById("divSalarie").style.display = "block";
+    document.getElementById("divContrat").style.display = "none";
+    document.getElementById("divTempsTravail").style.display = "none";
+    document.getElementById("boutonDemande").className="disabled";
+    document.getElementById("boutonSalarie").className="";
+    document.getElementById("boutonContrat").className="disabled";
+    document.getElementById("boutonTempsTravail").className="disabled";
 };    
+*/
 
-document.querySelector("#BoutonSuivantSalarie").onclick = function() {
-    document.querySelector("#divDemande").style.display = "none";
-    document.querySelector("#divSalarie").style.display = "none";
-    document.querySelector("#divContrat").style.display = "block";
-    document.querySelector("#divTempsTravail").style.display = "none";
-    document.querySelector("#boutonDemande").className="disabled";
-    document.querySelector("#boutonSalarie").className="disabled";
-    document.querySelector("#boutonContrat").className="";
-    document.querySelector("#boutonTempsTravail").className="disabled";
+/*
+document.getElementById("BoutonSuivantSalarie").onclick = function() {
+    document.getElementById("divDemande").style.display = "none";
+    document.getElementById("divSalarie").style.display = "none";
+    document.getElementById("divContrat").style.display = "block";
+    document.getElementById("divTempsTravail").style.display = "none";
+    document.getElementById("boutonDemande").className="disabled";
+    document.getElementById("boutonSalarie").className="disabled";
+    document.getElementById("boutonContrat").className="";
+    document.getElementById("boutonTempsTravail").className="disabled";
 };   
+*/
 
-document.querySelector("#BoutonSuivantContrat").onclick = function() {
-    document.querySelector("#divDemande").style.display = "none";
-    document.querySelector("#divSalarie").style.display = "none";
-    document.querySelector("#divContrat").style.display = "none";
-    document.querySelector("#divTempsTravail").style.display = "block";
-    document.querySelector("#boutonDemande").className="disabled";
-    document.querySelector("#boutonSalarie").className="disabled";
-    document.querySelector("#boutonContrat").className="disabled";
-    document.querySelector("#boutonTempsTravail").className="";
+/*
+document.getElementById("BoutonSuivantContrat").onclick = function() {
+    document.getElementById("divDemande").style.display = "none";
+    document.getElementById("divSalarie").style.display = "none";
+    document.getElementById("divContrat").style.display = "none";
+    document.getElementById("divTempsTravail").style.display = "block";
+    document.getElementById("boutonDemande").className="disabled";
+    document.getElementById("boutonSalarie").className="disabled";
+    document.getElementById("boutonContrat").className="disabled";
+    document.getElementById("boutonTempsTravail").className="";
 };    
+*/
 
 //Concernant le cdi
-document.querySelector("#cdi").onclick = function() {
-    document.querySelector("#cdd").checked = false;
-    document.querySelector("#divCdi").style.display = "block";
-    document.querySelector("#divCdd").style.display = "none";
+document.getElementById("cdi").onclick = function() {
+    document.getElementById("cdd").checked = false;
+    document.getElementById("divCdi").style.display = "block";
+    document.getElementById("divCdd").style.display = "none";
 };    
-document.querySelector("#completCdi").onclick = function() {
-    document.querySelector("#tempsPartielCdi").checked = false;
+document.getElementById("completCdi").onclick = function() {
+    document.getElementById("tempsPartielCdi").checked = false;
 };  
-document.querySelector("#tempsPartielCdi").onclick = function() {
-    document.querySelector("#completCdi").checked = false;
+document.getElementById("tempsPartielCdi").onclick = function() {
+    document.getElementById("completCdi").checked = false;
 };  
-document.querySelector("#oui").onclick = function() {
-    document.querySelector("#non").checked = false;
+document.getElementById("oui").onclick = function() {
+    document.getElementById("non").checked = false;
 };  
-document.querySelector("#non").onclick = function() {
-    document.querySelector("#oui").checked = false;
+document.getElementById("non").onclick = function() {
+    document.getElementById("oui").checked = false;
 }; 
 
 //Concernant le cdd
-document.querySelector("#cdd").onclick = function() {
-    document.querySelector("#cdi").checked = false;
-    document.querySelector("#divCdi").style.display = "none";
-    document.querySelector("#divCdd").style.display = "block";
+document.getElementById("cdd").onclick = function() {
+    document.getElementById("cdi").checked = false;
+    document.getElementById("divCdi").style.display = "none";
+    document.getElementById("divCdd").style.display = "block";
 };  
-document.querySelector("#completCdd").onclick = function() {
-    document.querySelector("#tempsPartielCdd").checked = false;
+
+//Si il y a remplacement de salarié
+document.getElementById("remplacementCascade").onclick = function() {
+    document.getElementById("remplacementPartiel").checked = false;
+    document.getElementById("divRemplacementCascade").style.display = "block";
+    document.getElementById("divRemplacementPartiel").style.display = "none";
 };  
-document.querySelector("#tempsPartielCdd").onclick = function() {
-    document.querySelector("#completCdd").checked = false;
-}; 
+document.getElementById("remplacementPartiel").onclick = function() {
+    document.getElementById("remplacementCascade").checked = false;
+    document.getElementById("divRemplacementCascade").style.display = "none";
+    document.getElementById("divRemplacementPartiel").style.display = "block";
+};  
 
 function listLink() {
-    var optionSelected = document.querySelector("#motif").value;
+    var optionSelected = document.getElementById("motif").value;
     if(optionSelected==="surcroit"){
-      document.querySelector("#divSurcroit").style.display = "block";
-      document.querySelector("#divTacheOcas").style.display = "none";
-      document.querySelector("#divRemplacement").style.display = "none";
+      document.getElementById("divSurcroit").style.display = "block";
+      document.getElementById("divTacheOcas").style.display = "none";
+      document.getElementById("divRemplacement").style.display = "none";
     }else{
         if(optionSelected==="tacheOcas"){
-          document.querySelector("#divSurcroit").style.display = "none";
-          document.querySelector("#divTacheOcas").style.display = "block";
-          document.querySelector("#divRemplacement").style.display = "none";
+          document.getElementById("divSurcroit").style.display = "none";
+          document.getElementById("divTacheOcas").style.display = "block";
+          document.getElementById("divRemplacement").style.display = "none";
         }else{
             if(optionSelected==="remplacement"){
-                document.querySelector("#divSurcroit").style.display = "none";
-                document.querySelector("#divTacheOcas").style.display = "none";
-                document.querySelector("#divRemplacement").style.display = "block";
+                document.getElementById("divSurcroit").style.display = "none";
+                document.getElementById("divTacheOcas").style.display = "none";
+                document.getElementById("divRemplacement").style.display = "block";
               }else{
-                  document.querySelector("#divSurcroit").style.display = "none";
-                  document.querySelector("#divTacheOcas").style.display = "none";
-                  document.querySelector("#divRemplacement").style.display = "none";
+                  document.getElementById("divSurcroit").style.display = "none";
+                  document.getElementById("divTacheOcas").style.display = "none";
+                  document.getElementById("divRemplacement").style.display = "none";
               }
         }
     }
