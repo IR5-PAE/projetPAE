@@ -61,6 +61,5 @@
     }
 ?>
 
-<script src="../vues/js/contrat.js" type="text/javascript"></script>
 <script src="../vues/js/validerDemande.js" type="text/javascript"></script>
 

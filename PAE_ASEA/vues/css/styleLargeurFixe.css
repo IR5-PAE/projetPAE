@@ -262,72 +262,54 @@ a.lienAccueil:hover{
     background-color: #89CFE9;
 }
 
-/* CSS pour les tableaux de Temps Travail */
+/* CSS pour les tableaux */
 
-.tg  {
+table{
+    margin: auto;
+    font-family:Verdana,Arial,Helvetica,sans-serif;
     border-collapse:collapse;
     border-spacing:0;
     border-color:#ccc;
+    text-align:center;
+    font-weight:bold;
 }
 
-.tg td{
-    font-family:Arial, sans-serif;
+td, th{
     font-size:14px;
-    padding:10px 6px;
     border-style:solid;
     border-width:1px;
     overflow:hidden;
     word-break:normal;
     border-color:#ccc;
     color:#333;
+}
+
+td{
     background-color:#fff;
 }
 
-.tg th{
-    font-family:Arial, sans-serif;
-    font-size:14px;
-    font-weight:normal;
-    padding:10px 6px;
-    border-style:solid;
-    border-width:1px;
-    overflow:hidden;
-    word-break:normal;
-    border-color:#ccc;
-    color:#333;
+th{
     background-color:#f0f0f0;
 }
 
-.tg .tg-24vz{
-    font-weight:bold;
+.tabRepartitionEnHeure td, .tabRepartitionEnHeure th{
+    padding:10px 6px;
+}
+
+.tabVolumeJournalier td, .tabVolumeJournalier th{
+    padding:10px 20px;
+}
+
+.debutFin{
     font-size:10px;
-    font-family:Verdana, Geneva, sans-serif !important;;
-    text-align:center
 }
 
-.tg .tg-uegx{
-    font-weight:bold;
+.titreTableau{
     font-size:12px;
-    font-family:Verdana, Geneva, sans-serif !important;;
-    text-align:center
 }
 
-.tg .tg-3rb4{
-    font-weight:bold;
+.titres{
     font-size:11px;
-    font-family:Verdana, Geneva, sans-serif !important;;
-    text-align:center
-}
-
-.tg .tg-9wvm{
-    font-size:10px;
-    font-family:Verdana, Geneva, sans-serif !important;;
-    text-align:center
-}
-
-.tg .tg-hnao{
-    font-size:12px;
-    font-family:Verdana, Geneva, sans-serif !important;;
-    text-align:center
 }
 
 input[type="time"] {

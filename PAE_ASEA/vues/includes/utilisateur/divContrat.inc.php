@@ -80,13 +80,13 @@
         <br><br>
         <strong>Type de contrat :</strong>
         <br><hr><br>
-        <input type="radio" class="inherit" id="cdi" value="cdi">CDI
-        <input type="radio" class="inherit" id="cdd" value="cdd">CDD
+        <input type="radio" class="inherit" id="cdi" value="cdi" onchange="TypeContrat(1)">CDI
+        <input type="radio" class="inherit" id="cdd" value="cdd" onchange="TypeContrat(2)">CDD
         <br><br>
         <div id="divCdi" style="display: none">
             <label class="required">*</label><label>Période d'essai :</label>
-            <input type="radio" class="inherit" id="oui" value="oui">Oui
-            <input type="radio" class="inherit" id="non" value="non">Non
+            <input type="radio" class="inherit" id="oui" value="oui" onchange="PeriodeEssai(1)">Oui
+            <input type="radio" class="inherit" id="non" value="non" onchange="PeriodeEssai(2)">Non
         </div>
         <div id="divCdd" style="display: none">
             <label class="required">*</label><label>Date du CDD :</label>
@@ -98,14 +98,14 @@
             <input type="date" id="dateFinDernierCDD">
             <br><br>
             <label class="required">*</label><label>Motif du CDD :</label>
-            <select id="motif" onchange="listLink()">
-                <option id="surcroit" value="surcroit">surcroît de travail</option>
-                <option id="tacheOcas" value="tacheOcas">tâche ocasionnelle</option>
-                <option id="remplacement" value="remplacement">remplacement en attente du recrutement du titulaire</option>
+            <select id="motif" onchange="Motif()">
+                <option id="surcroit" value="surcroit">Surcroît de travail</option>
+                <option id="tacheOcas" value="tacheOcas">Tâche ocasionnelle</option>
+                <option id="remplacement" value="remplacement">Remplacement en attente du recrutement du titulaire</option>
                 <option id="cddi" value="cddi">CDDI</option>
                 <option id="cae" value="cae">CAE</option>
-                <option id="contratApren" value="contratApren">contrat d'apprentissage</option>
-                <option id="contratPro" value="contratPro">contrat de professionnalisation</option>
+                <option id="contratApren" value="contratApren">Contrat d'apprentissage</option>
+                <option id="contratPro" value="contratPro">Contrat de professionnalisation</option>
             </select>
             <br><br>
             <div id="divSurcroit">
@@ -123,19 +123,19 @@
                 <label class="required">*</label><label>Motif du remplacement :</label>
                 <input type="text" id="motifRemplacement" />
                 <br><br>
-                <input type="radio" class="inherit" id="remplacementCascade" value="remplacementCascade">Remplacement en cascade
+                <input type="radio" class="inherit" id="remplacementCascade" value="remplacementCascade" onchange="Remplacement(1)">Remplacement en cascade
                 <br><br>
                 <div id="divRemplacementCascade" style="display: none">
                     <label class="required">*</label>Précisez le nom du salarié sous CDI <br> qui remplace le salarié titulaire :
                     <input type="text" id="salarieRemplacementCascade" />
                     <br><br>
                 </div>
-                <input type="radio" class="inherit" id="remplacementPartiel" value="remplacementPartiel">Remplacement partiel
+                <input type="radio" class="inherit" id="remplacementPartiel" value="remplacementPartiel" onchange="Remplacement(2)">Remplacement partiel
                 <div id="divRemplacementPartiel" style="display: none">
                     <br>
-                    <input style="margin-left: 40px" type="radio" class="inherit" id="remplacementPartielOpt1" value="remplacementPartielOpt1">CDD n'effectue pas toutes les missions du titulaire
+                    <input style="margin-left: 40px" type="radio" class="inherit" id="remplacementPartielOpt1" value="remplacementPartielOpt1" onchange="RemplacementPartiel(1)">CDD n'effectue pas toutes les missions du titulaire
                     <br>
-                    <input style="margin-left: 40px" type="radio" class="inherit" id="remplacementPartielOpt2" value="remplacementPartielOpt2">CDD a un temps de travail inférieur à celui du titulaire
+                    <input style="margin-left: 40px" type="radio" class="inherit" id="remplacementPartielOpt2" value="remplacementPartielOpt2" onchange="RemplacementPartiel(2)">CDD a un temps de travail inférieur à celui du titulaire
                 </div>
             </div>
         </div>

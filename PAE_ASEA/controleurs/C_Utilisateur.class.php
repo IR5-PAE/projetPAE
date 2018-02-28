@@ -9,7 +9,7 @@ class C_Utilisateur extends C_ControleurGenerique {
     function newDemande() {
         // les fichiers
         $this->vue = new V_Vue("../vues/templates/template.inc.php");
-        $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreFomulaireNewDemande.inc.php");
+        $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreFormulaireNewDemande.inc.php");
         // les données
         $this->vue->ecrireDonnee('etape',"newDemande");
         $this->vue->afficher();
@@ -29,7 +29,7 @@ class C_Utilisateur extends C_ControleurGenerique {
         $demande->setNumOffreEmploi($numOffreEmploi);
         
         $this->vue = new V_Vue("../vues/templates/template.inc.php");
-        $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreFomulaireNewDemande.inc.php");
+        $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreFormulaireNewDemande.inc.php");
         // les données
         $this->vue->ecrireDonnee('etape',"okDemande");
         $this->vue->ecrireDonnee('demande', $demande);
@@ -50,7 +50,7 @@ class C_Utilisateur extends C_ControleurGenerique {
         //$demande->setNumOffreEmploi($numOffreEmploi);
         
         $this->vue = new V_Vue("../vues/templates/template.inc.php");
-        $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreFomulaireNewDemande.inc.php");
+        $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreFormulaireNewDemande.inc.php");
         // les données
         $this->vue->ecrireDonnee('etape',"okSalarie");
         $this->vue->ecrireDonnee('demande', $demande);
@@ -71,7 +71,7 @@ class C_Utilisateur extends C_ControleurGenerique {
         //$demande->setNumOffreEmploi($numOffreEmploi);
         
         $this->vue = new V_Vue("../vues/templates/template.inc.php");
-        $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreFomulaireNewDemande.inc.php");
+        $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreFormulaireNewDemande.inc.php");
         // les données
         $this->vue->ecrireDonnee('etape',"okContrat");
         $this->vue->ecrireDonnee('demande', $demande);
@@ -92,7 +92,7 @@ class C_Utilisateur extends C_ControleurGenerique {
         //$demande->setNumOffreEmploi($numOffreEmploi);
         
         $this->vue = new V_Vue("../vues/templates/template.inc.php");
-        $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreFomulaireNewDemande.inc.php");
+        $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreFormulaireNewDemande.inc.php");
         // les données
         $this->vue->ecrireDonnee('etape',"okTempsTravail");
         $this->vue->ecrireDonnee('demande', $demande);
