@@ -4,7 +4,6 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../vues/css/styleLargeurFixe.css" />
         <script src="../vues/js/contrat.js" type="text/javascript"></script>
-        <!--<script type="text/javascript" src="../vues/javascript/jsMenuDemandeContrat.js"></script>-->
         <title><?php echo $this->lireDonnee('titreVue'); ?></title>
     </head>
     <body>

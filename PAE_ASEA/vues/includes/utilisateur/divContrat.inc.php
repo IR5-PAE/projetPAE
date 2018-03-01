@@ -1,4 +1,4 @@
-<form class="sectionMarge" method="post" action=".?controleur=utilisateur&action=validerContratForm">
+<form class="sectionMarge" method="post" action=".?controleur=demande&action=validerContratForm">
     <div class="formsDemandeContrat">
         <strong>Renseignement général :</strong>
         <br><hr><br>

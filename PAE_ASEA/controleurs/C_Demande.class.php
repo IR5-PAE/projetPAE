@@ -1,8 +1,8 @@
 <?php
 
-class C_Utilisateur extends C_ControleurGenerique {
+class C_Demande extends C_ControleurGenerique {
     
-        /**
+     /**
      * controleur= utilisateur & action= newDemande
      * Afficher la page demande de contrat
      */
@@ -20,7 +20,7 @@ class C_Utilisateur extends C_ControleurGenerique {
      * Afficher la page demande de contrat
      */
     function validerDemandeForm() {
-        $etablissement = $_POST['etablissement']; 
+        $etablissement = $_POST['listeEtablissements']; 
         $numOffreEmploi = $_POST['numOffreEmploi']; 
         print($etablissement." et ".$numOffreEmploi); 
         
@@ -30,7 +30,6 @@ class C_Utilisateur extends C_ControleurGenerique {
         
         $this->vue = new V_Vue("../vues/templates/template.inc.php");
         $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreFormulaireNewDemande.inc.php");
-        // les données
         $this->vue->ecrireDonnee('etape',"okDemande");
         $this->vue->ecrireDonnee('demande', $demande);
         $this->vue->afficher();
@@ -41,19 +40,34 @@ class C_Utilisateur extends C_ControleurGenerique {
      * Afficher la page demande de contrat
      */
     function validerSalarieForm() {
-        //$etablissement = $_POST['etablissement']; 
-        //$numOffreEmploi = $_POST['numOffreEmploi']; 
-        //print($etablissement." et ".$numOffreEmploi); 
+        $nomPersonne = $_POST['nom']; 
+        $nomJeuneFillePersonne = $_POST['nomJeuneFille']; 
+        $prenomPersonne = $_POST['prenom']; 
+        $dateNaissance = $_POST['dateNaissance']; 
+        $lieuNaissance = $_POST['lieuNaissance']; 
+        $numSecuSoc = $_POST['numSecu']; 
+        $nationalite = $_POST['pays']; 
+        $adresse = $_POST['adresse']; 
+        $complementAdresse = null;
+        $codePostal = null;
+        $ville = null;
+        print($nomPersonne." et ".$nomJeuneFillePersonne); 
         
-        $demande = $_POST['demande']; 
-        //$demande->setEtablissement($etablissement);
-        //$demande->setNumOffreEmploi($numOffreEmploi);
+        $salarie = new M_Personne(null, $nomPersonne, $nomJeuneFillePersonne, $prenomPersonne, $dateNaissance, $lieuNaissance, $numSecuSoc, $nationalite, $adresse, $complementAdresse, $codePostal, $ville);
+//        $personne->setNom($nom);
+//        $personne->setNomJeuneFille($nomJeuneFille);
+//        $personne->setPrenom($prenom);
+//        $personne->setDateNaissance($dateNaissance);
+//        $personne->setLieuNaissance($lieuNaissance);
+//        $personne->setNumSecu($numSecu);
+//        $personne->setPays($pays);
+//        $personne->setAdresse($adresse);
         
         $this->vue = new V_Vue("../vues/templates/template.inc.php");
         $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreFormulaireNewDemande.inc.php");
         // les données
         $this->vue->ecrireDonnee('etape',"okSalarie");
-        $this->vue->ecrireDonnee('demande', $demande);
+        $this->vue->ecrireDonnee('salarie', $salarie);
         $this->vue->afficher();
     }
     

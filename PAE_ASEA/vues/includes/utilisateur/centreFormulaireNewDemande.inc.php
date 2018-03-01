@@ -1,3 +1,7 @@
+<?php
+    $demande = $this->lireDonnee('demande');
+?>
+
 <ol class="breadcrumb breadcrumb-arrow">
     <li><a class="disabled" id="boutonDemande">Demande</a></li>
     <li><a class="disabled" id="boutonSalarie">Salarié</a></li>
@@ -30,6 +34,7 @@
         <?php
     }
     if($this->lireDonnee('etape')=='okDemande'){
+        echo $demande->getEtablissement();
         ?>
         <script type="text/javascript">
             document.getElementById("divDemande").style.display = "none";

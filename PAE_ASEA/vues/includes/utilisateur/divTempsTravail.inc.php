@@ -1,4 +1,4 @@
-<form class="sectionMarge" method="post" action=".?controleur=utilisateur&action=validerTempsTravailForm">
+<form class="sectionMarge" method="post" action=".?controleur=demande&action=validerTempsTravailForm">
     <div class="formsDemandeContrat">
         <strong>Temps de travail :</strong>
         <br><hr><br>
