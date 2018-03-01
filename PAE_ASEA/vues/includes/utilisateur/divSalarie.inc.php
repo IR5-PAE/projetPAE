@@ -228,6 +228,15 @@
         <br><br>
         <label class="required">*</label><label>Adresse :</label>
         <input type="text" id="adresse"/>
+        <br><br>
+        <label class="nonRequired">*</label><label>Complément d'adresse :</label>
+        <input type="text" id="complementAdresse"/>
+        <br><br>
+        <label class="required">*</label><label>Code Postal :</label>
+        <input type="text" id="codePostal"/>
+        <br><br>
+        <label class="required">*</label><label>Ville :</label>
+        <input type="text" id="ville"/>
         <br><br><br>
         <div id="divBoutons">
             <button type="button" onclick="history.go(-1)">Retour</button>
