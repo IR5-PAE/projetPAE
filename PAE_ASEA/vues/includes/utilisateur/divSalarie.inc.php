@@ -1,25 +1,25 @@
-<form class="sectionMarge" method="post" action=".?controleur=utilisateur&action=validerSalarieForm">
+<form class="sectionMarge" method="post" action=".?controleur=demande&action=validerSalarieForm">
     <div class="formsDemandeContrat">
         <label class="required">*</label><label>Nom :</label>
-        <input type="text" id="nom"/>
+        <input type="text" name="nom" required/>
         <br><br>
         <label class="nonRequired">*</label><label>Nom de jeune fille:</label>
-        <input type="text" id="nomJeuneFille"/>
+        <input type="text" name="nomJeuneFille"/>
         <br><br>
         <label class="required">*</label><label>Prénom :</label>
-        <input type="text" id="prenom"/>
+        <input type="text" name="prenom" required/>
         <br><br>
         <label class="required">*</label><label>Date de naissance :</label>
-        <input type="date" name="dateNaissance">
+        <input type="date" name="dateNaissance" required>
         <br><br>
         <label class="required">*</label><label>Lieu de naissance :</label>
-        <input type="text" id="lieuNaissance"/>
+        <input type="text" name="lieuNaissance" required/>
         <br><br>
         <label class="required">*</label><label>N° sécurité sociale :</label>
-        <input type="text" id="numSecu"/>
+        <input type="text" name="numSecu" required/>
         <br><br>
         <label class="required">*</label><label>Nationalité :</label>
-        <select name="pays">
+        <select name="pays" required>
             <optgroup label="Afrique">
             <option value="afriqueDuSud">Afrique Du Sud</option>
             <option value="algerie">Algérie</option>
@@ -227,7 +227,7 @@
         - Pour les non européens : fournir le titre de séjour et l'autorisation de travail
         <br><br>
         <label class="required">*</label><label>Adresse :</label>
-        <input type="text" id="adresse"/>
+        <input type="text" name="adresse" required/>
         <br><br><br>
         <div id="divBoutons">
             <button type="button" onclick="history.go(-1)">Retour</button>
