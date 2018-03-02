@@ -6,10 +6,17 @@ function TypeContrat(nb) {
         document.getElementsByName("cdd")[0].checked = false;
         document.getElementById("divCdi").style.display = "block";
         document.getElementById("divCdd").style.display = "none";
+        document.getElementsByName("dateDebutCDD")[0].removeAttribute("required");
+        document.getElementsByName("dateFinCDD")[0].removeAttribute("required");
+        document.getElementsByName("dateFinDernierCDD")[0].removeAttribute("required");
     } else if (nb === 2) {
         document.getElementsByName("cdi")[0].checked = false;
         document.getElementById("divCdi").style.display = "none";
         document.getElementById("divCdd").style.display = "block";
+        document.getElementsByName("dateDebutCDD")[0].setAttribute("required", "");
+        document.getElementsByName("dateFinCDD")[0].setAttribute("required", "");
+        document.getElementsByName("dateFinDernierCDD")[0].setAttribute("required", "");
+        document.getElementsByName("precSurcroit")[0].setAttribute("required", "");
     }
 }
 
@@ -29,17 +36,25 @@ function Motif() {
         document.getElementById("divSurcroit").style.display = "block";
         document.getElementById("divTacheOcas").style.display = "none";
         document.getElementById("divRemplacement").style.display = "none";
+        document.getElementsByName("precSurcroit")[0].setAttribute("required", "");
     } else {
+        document.getElementsByName("precSurcroit")[0].removeAttribute("required");
         if (optionSelected === "tacheOcas") {
             document.getElementById("divSurcroit").style.display = "none";
             document.getElementById("divTacheOcas").style.display = "block";
             document.getElementById("divRemplacement").style.display = "none";
+            document.getElementsByName("precTacheOcas")[0].setAttribute("required", "");
         } else {
+            document.getElementsByName("precTacheOcas")[0].removeAttribute("required");
             if (optionSelected === "remplacement") {
                 document.getElementById("divSurcroit").style.display = "none";
                 document.getElementById("divTacheOcas").style.display = "none";
                 document.getElementById("divRemplacement").style.display = "block";
+                document.getElementsByName("nomSalarieRemplace")[0].setAttribute("required", "");
+                document.getElementsByName("motifRemplacement")[0].setAttribute("required", "");
             } else {
+                document.getElementsByName("nomSalarieRemplace")[0].removeAttribute("required");
+                document.getElementsByName("motifRemplacement")[0].removeAttribute("required");
                 document.getElementById("divSurcroit").style.display = "none";
                 document.getElementById("divTacheOcas").style.display = "none";
                 document.getElementById("divRemplacement").style.display = "none";
@@ -54,7 +69,9 @@ function Remplacement(nb) {
         document.getElementsByName("remplacementPartiel")[0].checked = false;
         document.getElementById("divRemplacementCascade").style.display = "block";
         document.getElementById("divRemplacementPartiel").style.display = "none";
+        document.getElementsByName("salarieRemplacementCascade")[0].setAttribute("required", "");
     } else if (nb === 2) {
+        document.getElementsByName("salarieRemplacementCascade")[0].removeAttribute("required");
         document.getElementsByName("remplacementCascade")[0].checked = false;
         document.getElementById("divRemplacementCascade").style.display = "none";
         document.getElementById("divRemplacementPartiel").style.display = "block";
