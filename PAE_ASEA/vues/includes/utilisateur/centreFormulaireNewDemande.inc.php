@@ -39,7 +39,6 @@
         <?php
     }
     if($this->lireDonnee('etape')=='okDemande'){
-        echo $demande->getEtablissement();
         ?>
         <script type="text/javascript">
             document.getElementById("divDemande").style.display = "none";

@@ -50,9 +50,9 @@ class C_Demande extends C_ControleurGenerique {
         $numSecuSoc = $_POST['numSecu']; 
         $nationalite = $_POST['pays']; 
         $adresse = $_POST['adresse']; 
-        $complementAdresse = null;
-        $codePostal = null;
-        $ville = null;
+        $complementAdresse = $_POST['complementAdresse'];
+        $codePostal = $_POST['cp'];
+        $ville = $_POST['ville'];
         print($nomPersonne." et ".$nomJeuneFillePersonne); 
         
         $salarie = new M_Personne(null, $nomPersonne, $nomJeuneFillePersonne, $prenomPersonne, $dateNaissance, $lieuNaissance, $numSecuSoc, $nationalite, $adresse, $complementAdresse, $codePostal, $ville);
@@ -82,9 +82,6 @@ class C_Demande extends C_ControleurGenerique {
         //$numOffreEmploi = $_POST['numOffreEmploi']; 
         //print($etablissement." et ".$numOffreEmploi); 
         
-        $demande = $_POST['demande']; 
-        //$demande->setEtablissement($etablissement);
-        //$demande->setNumOffreEmploi($numOffreEmploi);
         
         $this->vue = new V_Vue("../vues/templates/template.inc.php");
         $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreFormulaireNewDemande.inc.php");
