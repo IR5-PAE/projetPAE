@@ -228,7 +228,16 @@
         - Pour les non européens : fournir le titre de séjour et l'autorisation de travail
         <br><br>
         <label class="required">*</label><label>Adresse :</label>
-        <input type="text" name="adresse" required/>
+        <input type="text" id="adresse" required/>
+        <br><br>
+        <label class="nonRequired">*</label><label>Complément d'adresse :</label>
+        <input type="text" id="complementAdresse"/>
+        <br><br>
+        <label class="required">*</label><label>Code Postal :</label>
+        <input type="text" id="codePostal"  required/>
+        <br><br>
+        <label class="required">*</label><label>Ville :</label>
+        <input type="text" id="ville"  required/>
         <br><br><br>
         <div id="divBoutons">
             <button type="button" onclick="history.go(-1)">Retour</button>

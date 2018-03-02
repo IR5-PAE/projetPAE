@@ -32,7 +32,7 @@
         //Test d'insertion
         echo "<p>Test d'insertion</p>";
         $personne = $daoPersonne->getOneById(1);
-        $demande = new M_Demande(null, "ASEA", 1, "stagiaire", "aucune", "angers", "1050", "pass metro", "stage", "2018-05-29", "2018-05-29", "malade", "très malade", "2018-05-29", 1, "6 mois", "", "2018-05-29", "2018-05-29", "z", "z", "z", "z", "z", "z", "z", "z", "z", $personne);
+        $demande = new M_Demande(null, "asea", 1, "2017-05-27 17:48:33", "z", "z", "z", null, null, "z", 1, "2018-05-29", "2018-05-29", "2018-05-29", "a", "a", "a", "a", "a", "a", $personne);
         $daoDemande->insert($demande);
         var_dump($demande);
 
@@ -40,7 +40,7 @@
         echo "<p>Test de modification</p>";
         $demande->setEtablissement("esaip");
         $demande->setEmploi("etudiant");
-        $enr = $daoDemande->getPdo()->query('SELECT MAX(idDemande) FROM demandecontrat;')->fetch();
+        $enr = $daoDemande->getPdo()->query('SELECT MAX(idDemande) FROM demande;')->fetch();
         $idLastDemande = $enr[0];
         $daoDemande->update($idLastDemande, $demande);
         $demandeLu = $daoDemande->getOneById($idLastDemande);

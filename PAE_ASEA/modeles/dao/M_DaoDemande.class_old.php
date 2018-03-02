@@ -8,7 +8,7 @@
 class M_DaoDemande extends M_DaoGenerique {
 
     function __construct() {
-        $this->nomTable = "demande";
+        $this->nomTable = "demandecontrat";
         $this->nomClefPrimaire = "idDemande";
     }
 
@@ -27,25 +27,33 @@ class M_DaoDemande extends M_DaoGenerique {
 
         // on construit l'objet Demande 
         $retour = new M_Demande(
-                $enreg['idDemande'],  
-                $enreg['etablissement'],  
-                $enreg['numOffreEmploi'],  
-                $enreg['dateHeureEmbauche'],  
-                $enreg['emploi'],  
-                $enreg['qualification'],  
-                $enreg['lieuTravail'],  
-                $enreg['remuneration'],  
-                $enreg['avantage'],  
-                $enreg['typeContrat'],  
-                $enreg['periodeEssaiCDI'],  
-                $enreg['dateDebutCDD'], 
-                $enreg['dateFinCDD'],  
-                $enreg['dateFinDernierCDD'], 
-                $enreg['motifCDD'],  
-                $enreg['infoComplementaireMotif'],  
-                $enreg['typeTempsTravail'],  
-                $enreg['volumeTempsPartiel'],  
-                $enreg['typeRepartitionTempsPartiel'],  
+                $enreg['idDemande'],
+                $enreg['etablissement'],
+                $enreg['numOffreEmploi'],
+                $enreg['emploi'],
+                $enreg['qualification'],
+                $enreg['lieuTravail'],
+                $enreg['remuneration'],
+                $enreg['avantage'],
+                $enreg['typeContrat'],
+                $enreg['dateDebutCDD'],
+                $enreg['dateFinCDD'],
+                $enreg['motifCDD'],
+                $enreg['infoComplementaireMotif'],
+                $enreg['dateDebutCDI'],
+                $enreg['periodeEssaiCDI'],
+                $enreg['dureePeriodeEssaiCDI'],
+                $enreg['dureeAvenant'],
+                $enreg['dateDebutAvenant'],
+                $enreg['dateFinAvenant'],
+                $enreg['emploiAvenant'],
+                $enreg['qualificationAvenant'],
+                $enreg['remunerationAvenant'],
+                $enreg['lieuTravailAvenant'],
+                $enreg['avantageAvenant'],
+                $enreg['autreModificationAvenant'],
+                $enreg['tempsTravail'],
+                $enreg['volumeTempsPartiel'],
                 $enreg['repartitionTempsPartiel'],
                 $leSalarie
                 );
@@ -60,30 +68,39 @@ class M_DaoDemande extends M_DaoGenerique {
     public function objetVersEnregistrement($objetMetier) {
         // construire un tableau des paramètres d'insertion ou de modification
         // l'ordre des valeurs est important : il correspond à celui des paramètres de la requête SQL
+        // le rôle sera mis à jour séparément
         if (!is_null($objetMetier->getPersonne())) {
             $idPersonne = $objetMetier->getPersonne()->getIdPersonne();
         } else {
-            $idPersonne = 0;
+            $idPersonne = 0; // "Autre" (simple visiteur)
         }
         $retour = array(
             ':etablissement' => $objetMetier->getEtablissement(),
             ':numOffreEmploi' => $objetMetier->getNumOffreEmploi(),
-            ':dateHeureEmbauche' => $objetMetier->getDateHeureEmbauche(),
             ':emploi' => $objetMetier->getEmploi(),
             ':qualification' => $objetMetier->getQualification(),
             ':lieuTravail' => $objetMetier->getLieuTravail(),
             ':remuneration' => $objetMetier->getRemuneration(),
             ':avantage' => $objetMetier->getAvantage(),
             ':typeContrat' => $objetMetier->getTypeContrat(),
-            ':periodeEssaiCDI' => $objetMetier->getPeriodeEssaiCDI(),
             ':dateDebutCDD' => $objetMetier->getDateDebutCDD(),
             ':dateFinCDD' => $objetMetier->getDateFinCDD(),
-            ':dateFinDernierCDD' => $objetMetier->getDateFinDernierCDD(),
             ':motifCDD' => $objetMetier->getMotifCDD(),
             ':infoComplementaireMotif' => $objetMetier->getInfoComplementaireMotif(),
-            ':typeTempsTravail' => $objetMetier->getTypeTempsTravail(),
+            ':dateDebutCDI' => $objetMetier->getDateDebutCDI(),
+            ':periodeEssaiCDI' => $objetMetier->getPeriodeEssaiCDI(),
+            ':dureePeriodeEssaiCDI' => $objetMetier->getDureePeriodeEssaiCDI(),
+            ':dureeAvenant' => $objetMetier->getDureeAvenant(),
+            ':dateDebutAvenant' => $objetMetier->getDateDebutAvenant(),
+            ':dateFinAvenant' => $objetMetier->getDateFinAvenant(),
+            ':emploiAvenant' => $objetMetier->getEmploiAvenant(),
+            ':qualificationAvenant' => $objetMetier->getQualificationAvenant(),
+            ':remunerationAvenant' => $objetMetier->getRemunerationAvenant(),
+            ':lieuTravailAvenant' => $objetMetier->getLieuTravailAvenant(),
+            ':avantageAvenant' => $objetMetier->getAvantageAvenant(),
+            ':autreModificationAvenant' => $objetMetier->getAutreModificationAvenant(),
+            ':tempsTravail' => $objetMetier->getTempsTravail(),
             ':volumeTempsPartiel' => $objetMetier->getVolumeTempsPartiel(),
-            ':typeRepartitionTempsPartiel' => $objetMetier->getTypeRepartitionTempsPartiel(),
             ':repartitionTempsPartiel' => $objetMetier->getRepartitionTempsPartiel(),
             ':idPersonne' => $idPersonne
         );
@@ -190,43 +207,59 @@ class M_DaoDemande extends M_DaoGenerique {
             $sql = "INSERT INTO $this->nomTable (";
             $sql .=   "etablissement,"
                     . "numOffreEmploi,"
-                    . "dateHeureEmbauche,"
                     . "emploi,"
                     . "qualification,"
                     . "lieuTravail,"
                     . "remuneration,"
                     . "avantage,"
                     . "typeContrat,"
-                    . "periodeEssaiCDI,"
                     . "dateDebutCDD,"
                     . "dateFinCDD,"
-                    . "dateFinDernierCDD,"
                     . "motifCDD,"
                     . "infoComplementaireMotif,"
-                    . "typeTempsTravail,"
+                    . "dateDebutCDI,"
+                    . "periodeEssaiCDI,"
+                    . "dureePeriodeEssaiCDI,"
+                    . "dureeAvenant,"
+                    . "dateDebutAvenant,"
+                    . "dateFinAvenant,"
+                    . "emploiAvenant,"
+                    . "qualificationAvenant,"
+                    . "remunerationAvenant,"
+                    . "lieuTravailAvenant,"
+                    . "avantageAvenant,"
+                    . "autreModificationAvenant,"
+                    . "tempsTravail,"
                     . "volumeTempsPartiel,"
-                    . "typeRepartitionTempsPartiel,"
                     . "repartitionTempsPartiel,"
                     . "idPersonne) ";
             $sql .= "VALUES (";
-            $sql .=   ":etablissement,"
+            $sql .= ":etablissement,"
                     . ":numOffreEmploi,"
-                    . ":dateHeureEmbauche,"
                     . ":emploi,"
                     . ":qualification,"
                     . ":lieuTravail,"
                     . ":remuneration,"
                     . ":avantage,"
                     . ":typeContrat,"
-                    . ":periodeEssaiCDI,"
                     . ":dateDebutCDD,"
                     . ":dateFinCDD,"
-                    . ":dateFinDernierCDD,"
                     . ":motifCDD,"
                     . ":infoComplementaireMotif,"
-                    . ":typeTempsTravail,"
+                    . ":dateDebutCDI,"
+                    . ":periodeEssaiCDI,"
+                    . ":dureePeriodeEssaiCDI,"
+                    . ":dureeAvenant,"
+                    . ":dateDebutAvenant,"
+                    . ":dateFinAvenant,"
+                    . ":emploiAvenant,"
+                    . ":qualificationAvenant,"
+                    . ":remunerationAvenant,"
+                    . ":lieuTravailAvenant,"
+                    . ":avantageAvenant,"
+                    . ":autreModificationAvenant,"
+                    . ":tempsTravail,"
                     . ":volumeTempsPartiel,"
-                    . ":typeRepartitionTempsPartiel,"
                     . ":repartitionTempsPartiel,"
                     . ":idPersonne)";
             //var_dump($sql);
@@ -250,22 +283,30 @@ class M_DaoDemande extends M_DaoGenerique {
             $sql = "UPDATE $this->nomTable SET ";
             $sql .= "etablissement = :etablissement, ";
             $sql .= "numOffreEmploi = :numOffreEmploi, ";
-            $sql .= "dateHeureEmbauche = :dateHeureEmbauche, ";
             $sql .= "emploi = :emploi, ";
             $sql .= "qualification = :qualification, ";
             $sql .= "lieuTravail = :lieuTravail, ";
             $sql .= "remuneration = :remuneration, ";
             $sql .= "avantage = :avantage, ";
             $sql .= "typeContrat = :typeContrat, ";
-            $sql .= "periodeEssaiCDI = :periodeEssaiCDI, ";
             $sql .= "dateDebutCDD = :dateDebutCDD, ";
             $sql .= "dateFinCDD = :dateFinCDD, ";
-            $sql .= "dateFinDernierCDD = :dateFinDernierCDD, ";
             $sql .= "motifCDD = :motifCDD, ";
             $sql .= "infoComplementaireMotif = :infoComplementaireMotif, ";
-            $sql .= "typeTempsTravail = :typeTempsTravail, ";
+            $sql .= "dateDebutCDI = :dateDebutCDI, ";
+            $sql .= "periodeEssaiCDI = :periodeEssaiCDI, ";
+            $sql .= "dureePeriodeEssaiCDI = :dureePeriodeEssaiCDI, ";
+            $sql .= "dureeAvenant = :dureeAvenant, ";
+            $sql .= "dateDebutAvenant = :dateDebutAvenant, ";
+            $sql .= "dateFinAvenant = :dateFinAvenant, ";
+            $sql .= "emploiAvenant = :emploiAvenant, ";
+            $sql .= "qualificationAvenant = :qualificationAvenant, ";
+            $sql .= "remunerationAvenant = :remunerationAvenant, ";
+            $sql .= "lieuTravailAvenant = :lieuTravailAvenant, ";
+            $sql .= "avantageAvenant = :avantageAvenant, ";
+            $sql .= "autreModificationAvenant = :autreModificationAvenant, ";
+            $sql .= "tempsTravail = :tempsTravail, ";
             $sql .= "volumeTempsPartiel = :volumeTempsPartiel, ";
-            $sql .= "typeRepartitionTempsPartiel = :typeRepartitionTempsPartiel, ";
             $sql .= "repartitionTempsPartiel = :repartitionTempsPartiel, ";
             $sql .= "idPersonne = :idPersonne ";
             $sql .= "WHERE idDemande = :id";
