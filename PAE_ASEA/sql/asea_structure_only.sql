@@ -77,7 +77,7 @@ CREATE TABLE `personne` (
   `prenomPersonne` varchar(255) NOT NULL,
   `dateNaissance` date NOT NULL,
   `lieuNaissance` varchar(255) NOT NULL,
-  `numSecuSoc` bigint(13) NOT NULL,
+  `numSecuSoc` bigint(15) NOT NULL,
   `nationalite` varchar(255) NOT NULL,
   `adresse` varchar(255) NOT NULL,
   `complementAdresse` varchar(255) DEFAULT NULL,

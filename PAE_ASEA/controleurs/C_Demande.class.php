@@ -10,6 +10,8 @@ class C_Demande extends C_ControleurGenerique {
         // les fichiers
         $this->vue = new V_Vue("../vues/templates/template.inc.php");
         $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreFormulaireNewDemande.inc.php");
+        // session temporaire qui contiendra les informations de la demande de contrat
+        //MaSession::nouvelle(array('login' => $login, 'role' => $unUser['idRole']));
         // les données
         $this->vue->ecrireDonnee('etape',"newDemande");
         $this->vue->afficher();
