@@ -1,3 +1,4 @@
+<!-- affichage du centre de l'acceuil du site -->
 <div class="sectionMarge">
     <h3>Bienvenue sur le site ASEA.</h3>
     <li><a href=".?controleur=demande&action=newDemande">Nouvelle demande de contrat</a></li><br>

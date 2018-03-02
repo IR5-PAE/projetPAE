@@ -1,3 +1,4 @@
+<!-- Formulaire temps travail -->
 <form class="sectionMarge" method="post" action=".?controleur=demande&action=validerTempsTravailForm">
     <div class="formsDemandeContrat">
         <strong>Temps de travail :</strong>
@@ -204,7 +205,7 @@
         <br><br><br>
         <div id="divBoutons">
             <button type="button" onclick="history.go(-1)">Retour</button>
-            <button type="submit" onclick="validerTempsTravail()">Suivant</button>
+            <button type="submit" onclick="return validerTempsTravail()">Suivant</button>
         </div>
     </div>
 </form>

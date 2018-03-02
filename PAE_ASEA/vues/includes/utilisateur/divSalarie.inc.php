@@ -1,3 +1,4 @@
+<!-- Formulaire salarie -->
 <form class="sectionMarge" method="post" action=".?controleur=demande&action=validerSalarieForm">
     <div class="formsDemandeContrat">
         <label class="required">*</label><label>Nom :</label>
@@ -231,7 +232,7 @@
         <br><br><br>
         <div id="divBoutons">
             <button type="button" onclick="history.go(-1)">Retour</button>
-            <button type="submit" onclick="validerSalarie()">Suivant</button>
+            <button type="submit" onclick="return validerSalarie()">Suivant</button>
         </div>
     </div>
 </form>

@@ -1,52 +1,13 @@
-/*
- document.getElementById("BoutonSuivantDemande").onclick = function() {
- document.getElementById("divDemande").style.display = "none";
- document.getElementById("divSalarie").style.display = "block";
- document.getElementById("divContrat").style.display = "none";
- document.getElementById("divTempsTravail").style.display = "none";
- document.getElementById("boutonDemande").className="disabled";
- document.getElementById("boutonSalarie").className="";
- document.getElementById("boutonContrat").className="disabled";
- document.getElementById("boutonTempsTravail").className="disabled";
- };    
- */
-
-/*
- document.getElementById("BoutonSuivantSalarie").onclick = function() {
- document.getElementById("divDemande").style.display = "none";
- document.getElementById("divSalarie").style.display = "none";
- document.getElementById("divContrat").style.display = "block";
- document.getElementById("divTempsTravail").style.display = "none";
- document.getElementById("boutonDemande").className="disabled";
- document.getElementById("boutonSalarie").className="disabled";
- document.getElementById("boutonContrat").className="";
- document.getElementById("boutonTempsTravail").className="disabled";
- };   
- */
-
-/*
- document.getElementById("BoutonSuivantContrat").onclick = function() {
- document.getElementById("divDemande").style.display = "none";
- document.getElementById("divSalarie").style.display = "none";
- document.getElementById("divContrat").style.display = "none";
- document.getElementById("divTempsTravail").style.display = "block";
- document.getElementById("boutonDemande").className="disabled";
- document.getElementById("boutonSalarie").className="disabled";
- document.getElementById("boutonContrat").className="disabled";
- document.getElementById("boutonTempsTravail").className="";
- };    
- */
-
 // CONTROLE DE L'AFFICHAGE DANS divContrat.inc.php
 
 // Boutons radios pour le type de contrat
 function TypeContrat(nb) {
     if (nb === 1) {
-        document.getElementById("cdd").checked = false;
+        document.getElementsByName("cdd")[0].checked = false;
         document.getElementById("divCdi").style.display = "block";
         document.getElementById("divCdd").style.display = "none";
     } else if (nb === 2) {
-        document.getElementById("cdi").checked = false;
+        document.getElementsByName("cdi")[0].checked = false;
         document.getElementById("divCdi").style.display = "none";
         document.getElementById("divCdd").style.display = "block";
     }
@@ -55,15 +16,15 @@ function TypeContrat(nb) {
 // Boutons radios pour la période d'essai
 function PeriodeEssai(nb) {
     if (nb === 1) {
-        document.getElementById("non").checked = false;
+        document.getElementsByName("non")[0].checked = false;
     } else if (nb === 2) {
-        document.getElementById("oui").checked = false;
+        document.getElementsByName("oui")[0].checked = false;
     }
 }
 
 // Action au changement de la sélection de la liste déroulante Motif
 function Motif() {
-    var optionSelected = document.getElementById("motif").value;
+    var optionSelected = document.getElementsByName("motif")[0].value;
     if (optionSelected === "surcroit") {
         document.getElementById("divSurcroit").style.display = "block";
         document.getElementById("divTacheOcas").style.display = "none";
@@ -90,11 +51,11 @@ function Motif() {
 //Si il y a remplacement de salarié
 function Remplacement(nb) {
     if (nb === 1) {
-        document.getElementById("remplacementPartiel").checked = false;
+        document.getElementsByName("remplacementPartiel")[0].checked = false;
         document.getElementById("divRemplacementCascade").style.display = "block";
         document.getElementById("divRemplacementPartiel").style.display = "none";
     } else if (nb === 2) {
-        document.getElementById("remplacementCascade").checked = false;
+        document.getElementsByName("remplacementCascade")[0].checked = false;
         document.getElementById("divRemplacementCascade").style.display = "none";
         document.getElementById("divRemplacementPartiel").style.display = "block";
     }
@@ -103,9 +64,9 @@ function Remplacement(nb) {
 //Si il y a remplacement de salarié
 function RemplacementPartiel(nb) {
     if (nb === 1) {
-        document.getElementById("remplacementPartielOpt2").checked = false;
+        document.getElementsByName("remplacementPartielOpt2")[0].checked = false;
     } else if (nb === 2) {
-        document.getElementById("remplacementPartielOpt1").checked = false;
+        document.getElementsByName("remplacementPartielOpt1")[0].checked = false;
     }
 }
 

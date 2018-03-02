@@ -1,3 +1,4 @@
+<!-- Formulaire demande -->
 <form class="sectionMarge" method="post" action=".?controleur=demande&action=validerDemandeForm">
     <div class="formsDemandeContrat">
         <label class="required">*</label><label>Etablissement :</label>

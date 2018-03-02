@@ -17,7 +17,7 @@ class C_Demande extends C_ControleurGenerique {
     
     /**
      * controleur= utilisateur & action= validerDemandeForm
-     * Afficher la page demande de contrat
+     * valide l'onglet demande et passe à l'onglet salarie
      */
     function validerDemandeForm() {
         $etablissement = $_POST['listeEtablissements']; 
@@ -36,8 +36,8 @@ class C_Demande extends C_ControleurGenerique {
     }
     
     /**
-     * controleur= utilisateur & action= validerDemandeForm
-     * Afficher la page demande de contrat
+     * controleur= utilisateur & action= validerSalarieForm
+     * valide l'onglet salarie et passe à l'onglet contrat
      */
     function validerSalarieForm() {
         $nomPersonne = $_POST['nom']; 
@@ -72,8 +72,8 @@ class C_Demande extends C_ControleurGenerique {
     }
     
     /**
-     * controleur= utilisateur & action= validerDemandeForm
-     * Afficher la page demande de contrat
+     * controleur= utilisateur & action= validerContratForm
+     * valide l'onglet contrat et passe à l'onglet temps travail
      */
     function validerContratForm() {
         //$etablissement = $_POST['etablissement']; 
@@ -93,8 +93,8 @@ class C_Demande extends C_ControleurGenerique {
     }
     
     /**
-     * controleur= utilisateur & action= validerDemandeForm
-     * Afficher la page demande de contrat
+     * controleur= utilisateur & action= validerTempsTravailForm
+     * Valide l'onglet temps travail et enregistre la demande en base
      */
     function validerTempsTravailForm() {
         //$etablissement = $_POST['etablissement']; 

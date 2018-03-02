@@ -1,7 +1,10 @@
+<!-- Centre de la page pour faire une nouvelle demande -->
+
 <?php
     $demande = $this->lireDonnee('demande');
 ?>
 
+<!-- Barre d'onglets de la demande -->
 <ol class="breadcrumb breadcrumb-arrow">
     <li><a class="disabled" id="boutonDemande">Demande</a></li>
     <li><a class="disabled" id="boutonSalarie">Salarié</a></li>
@@ -9,6 +12,7 @@
     <li><a class="disabled" id="boutonTempsTravail">Temps Travail</a></li>
 </ol>
 
+<!-- Formulaires de chaque onglets -->
 <div id="globalNewDemande" class="centrerElem">
     <div id="divDemande" style="display: none">
         <?php include($this->lireDonnee('divDemande')); ?>
@@ -24,6 +28,7 @@
     </div>
 </div>
 
+<!-- Affichage ou non du bon formulaire en fonction des étapes de la demande gére par le controleur C_Demande -->
 <?php
     if($this->lireDonnee('etape')=='newDemande'){
         ?>
@@ -66,5 +71,11 @@
     }
 ?>
 
-<script src="../vues/js/validerDemande.js" type="text/javascript"></script>
+<!-- Appel du script js pour afficher correctement les formulaires -->
+<script src="../vues/js/affichageForms.js" type="text/javascript"></script>
 
+<!-- Appel des scripts js pour vérifier les champs des formulaires -->
+<script src="../vues/js/validerDemande.js" type="text/javascript"></script>
+<script src="../vues/js/validerSalarie.js" type="text/javascript"></script>
+<script src="../vues/js/validerContrat.js" type="text/javascript"></script>
+<script src="../vues/js/validerTempsTravail.js" type="text/javascript"></script>
