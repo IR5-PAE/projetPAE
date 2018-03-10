@@ -17,7 +17,7 @@
         <input type="text" name="lieuNaissance" required/>
         <br><br>
         <label class="required">*</label><label>N° sécurité sociale :</label>
-        <input type="text" name="numSecu" required/>
+        <input type="text" name="numSecu" minlength="15" maxlength="15" required/>
         <br><br>
         <label class="required">*</label><label>Nationalité :</label>
         <select name="pays" required>
@@ -239,8 +239,7 @@
         <label class="required">*</label><label>Ville :</label>
         <input type="text" name="ville"  required/>
         <br><br><br>
-        <div id="divBoutons">
-            <button type="button" onclick="history.go(-1)">Retour</button>
+        <div id="divBouton">
             <button type="submit">Suivant</button>
         </div>
     </div>
@@ -265,7 +264,7 @@
         <input type="text" name="lieuNaissance" />
         <br><br>
         <label class="required">*</label><label>N° sécurité sociale :</label>
-        <input type="text" name="numSecu" />
+        <input type="number" name="numSecu" minlength="15" maxlength="15"/>
         <br><br>
         <label class="required">*</label><label>Nationalité :</label>
         <select name="pays" >
@@ -487,8 +486,7 @@
         <label class="required">*</label><label>Ville :</label>
         <input type="text" name="ville"  />
         <br><br><br>
-        <div id="divBoutons">
-            <button type="button" onclick="history.go(-1)">Retour</button>
+        <div id="divBouton">
             <button type="submit" >Suivant</button>
         </div>
     </div>

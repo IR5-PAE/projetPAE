@@ -12,6 +12,15 @@ function validerSalarie() {
 //        document.getElementsByName("numSecu")[0].focus();
 //        return false;
 //    }
+//    var key = document.getElementsByName("numSecu")[0].value.substring(13,15);
+//    var Num = document.getElementsByName("numSecu")[0].value.substring(0,13);
+//    var calculKey = 97 - Num % 97;
+//    if(key !== calculKey.toString()){
+//        alert("Le numéro de sécurité sociale est incorrect");
+//        ok = 0;
+//        document.getElementsByName("numSecu")[0].focus();
+//        return false;
+//    }
     
     if (ok === 1) {
         document.submit();

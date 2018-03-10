@@ -9,6 +9,7 @@ function TypeContrat(nb) {
         document.getElementsByName("dateDebutCDD")[0].removeAttribute("required");
         document.getElementsByName("dateFinCDD")[0].removeAttribute("required");
         document.getElementsByName("dateFinDernierCDD")[0].removeAttribute("required");
+        document.getElementsByName("precSurcroit")[0].removeAttribute("required");
     } else if (nb === 2) {
         document.getElementsByName("cdi")[0].checked = false;
         document.getElementById("divCdi").style.display = "none";
@@ -32,21 +33,21 @@ function PeriodeEssai(nb) {
 // Action au changement de la sélection de la liste déroulante Motif
 function Motif() {
     var optionSelected = document.getElementsByName("motif")[0].value;
-    if (optionSelected === "surcroit") {
+    if (optionSelected === "1") {
         document.getElementById("divSurcroit").style.display = "block";
         document.getElementById("divTacheOcas").style.display = "none";
         document.getElementById("divRemplacement").style.display = "none";
         document.getElementsByName("precSurcroit")[0].setAttribute("required", "");
     } else {
         document.getElementsByName("precSurcroit")[0].removeAttribute("required");
-        if (optionSelected === "tacheOcas") {
+        if (optionSelected === "2") {
             document.getElementById("divSurcroit").style.display = "none";
             document.getElementById("divTacheOcas").style.display = "block";
             document.getElementById("divRemplacement").style.display = "none";
             document.getElementsByName("precTacheOcas")[0].setAttribute("required", "");
         } else {
             document.getElementsByName("precTacheOcas")[0].removeAttribute("required");
-            if (optionSelected === "remplacement") {
+            if (optionSelected === "3") {
                 document.getElementById("divSurcroit").style.display = "none";
                 document.getElementById("divTacheOcas").style.display = "none";
                 document.getElementById("divRemplacement").style.display = "block";
