@@ -15,7 +15,7 @@ function validerContrat() {
 //    
 //    if (document.getElementsByName("cdi")[0].checked === false && document.getElementsByName("cdd")[0].checked === false)
 //    {
-//        alert("Veuillez préciser s'il sagit d'un cdi ou cdd");
+//        alert("Veuillez préciser s'il s'agit d'un cdi ou cdd");
 //        ok = 0;
 //        return false;
 //    }
@@ -24,7 +24,7 @@ function validerContrat() {
 //    {
 //        if (document.getElementsByName("oui")[0].checked === false && document.getElementsByName("non")[0].checked === false)
 //        {
-//           alert("Veuillez préciser si il y a une période d'éssai");
+//           alert("Veuillez préciser si il y a une période d'essai");
 //           ok = 0;
 //           return false;
 //        }

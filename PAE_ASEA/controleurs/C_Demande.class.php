@@ -13,6 +13,7 @@ class C_Demande extends C_ControleurGenerique {
         // session temporaire qui contiendra les informations de la demande de contrat
         //MaSession::nouvelle(array('login' => $login, 'role' => $unUser['idRole']));
         // les données
+        $this->vue->ecrireDonnee('titreVue',"Demande");
         $this->vue->ecrireDonnee('etape',"newDemande");
         $this->vue->afficher();
     }
@@ -32,6 +33,7 @@ class C_Demande extends C_ControleurGenerique {
         
         $this->vue = new V_Vue("../vues/templates/template.inc.php");
         $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreFormulaireNewDemande.inc.php");
+        $this->vue->ecrireDonnee('titreVue',"Salarié");
         $this->vue->ecrireDonnee('etape',"okDemande");
         $this->vue->ecrireDonnee('demande', $demande);
         $this->vue->afficher();
@@ -53,7 +55,7 @@ class C_Demande extends C_ControleurGenerique {
         $complementAdresse = $_POST['complementAdresse'];
         $codePostal = $_POST['cp'];
         $ville = $_POST['ville'];
-        print($nomPersonne." et ".$nomJeuneFillePersonne); 
+        //print($nomPersonne." et ".$nomJeuneFillePersonne); 
         
         $salarie = new M_Personne(null, $nomPersonne, $nomJeuneFillePersonne, $prenomPersonne, $dateNaissance, $lieuNaissance, $numSecuSoc, $nationalite, $adresse, $complementAdresse, $codePostal, $ville);
 //        $personne->setNom($nom);
@@ -68,6 +70,7 @@ class C_Demande extends C_ControleurGenerique {
         $this->vue = new V_Vue("../vues/templates/template.inc.php");
         $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreFormulaireNewDemande.inc.php");
         // les données
+        $this->vue->ecrireDonnee('titreVue',"Contrat");
         $this->vue->ecrireDonnee('etape',"okSalarie");
         $this->vue->ecrireDonnee('salarie', $salarie);
         $this->vue->afficher();
@@ -86,6 +89,7 @@ class C_Demande extends C_ControleurGenerique {
         $this->vue = new V_Vue("../vues/templates/template.inc.php");
         $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreFormulaireNewDemande.inc.php");
         // les données
+        $this->vue->ecrireDonnee('titreVue',"Temps Travail");
         $this->vue->ecrireDonnee('etape',"okContrat");
         $this->vue->ecrireDonnee('demande', $demande);
         $this->vue->afficher();
