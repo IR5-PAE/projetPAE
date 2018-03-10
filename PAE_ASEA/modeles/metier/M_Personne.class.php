@@ -7,10 +7,10 @@
  */
 class M_Personne {
 
-    private $idPersonne; //type : int
-    private $nomPersonne; //type : String
-    private $nomJeuneFillePersonne; //type : String
-    private $prenomPersonne; //type : String
+    private $id; //type : int
+    private $nom; //type : String
+    private $nomJeuneFille; //type : String
+    private $prenom; //type : String
     private $dateNaissance;
     private $lieuNaissance;
     private $numSecuSoc;
@@ -20,11 +20,11 @@ class M_Personne {
     private $codePostal;
     private $ville;
 
-    function __construct($idPersonne, $nomPersonne, $nomJeuneFillePersonne, $prenomPersonne, $dateNaissance, $lieuNaissance, $numSecuSoc, $nationalite, $adresse, $complementAdresse, $codePostal, $ville) {
-        $this->idPersonne = $idPersonne;
-        $this->nomPersonne = $nomPersonne;
-        $this->nomJeuneFillePersonne = $nomJeuneFillePersonne;
-        $this->prenomPersonne = $prenomPersonne;
+    function __construct($id, $nom, $nomJeuneFille, $prenom, $dateNaissance, $lieuNaissance, $numSecuSoc, $nationalite, $adresse, $complementAdresse, $codePostal, $ville) {
+        $this->id = $id;
+        $this->nom = $nom;
+        $this->nomJeuneFille = $nomJeuneFille;
+        $this->prenom = $prenom;
         $this->dateNaissance = $dateNaissance;
         $this->lieuNaissance = $lieuNaissance;
         $this->numSecuSoc = $numSecuSoc;
@@ -34,21 +34,21 @@ class M_Personne {
         $this->codePostal = $codePostal;
         $this->ville = $ville;
     }
-
-    function getIdPersonne() {
-        return $this->idPersonne;
+    
+    function getId() {
+        return $this->id;
     }
 
-    function getNomPersonne() {
-        return $this->nomPersonne;
+    function getNom() {
+        return $this->nom;
     }
 
-    function getNomJeuneFillePersonne() {
-        return $this->nomJeuneFillePersonne;
+    function getNomJeuneFille() {
+        return $this->nomJeuneFille;
     }
 
-    function getPrenomPersonne() {
-        return $this->prenomPersonne;
+    function getPrenom() {
+        return $this->prenom;
     }
 
     function getDateNaissance() {
@@ -83,20 +83,20 @@ class M_Personne {
         return $this->ville;
     }
 
-    function setIdPersonne($idPersonne) {
-        $this->idPersonne = $idPersonne;
+    function setId($id) {
+        $this->id = $id;
     }
 
-    function setNomPersonne($nomPersonne) {
-        $this->nomPersonne = $nomPersonne;
+    function setNom($nom) {
+        $this->nom = $nom;
     }
 
-    function setNomJeuneFillePersonne($nomJeuneFillePersonne) {
-        $this->nomJeuneFillePersonne = $nomJeuneFillePersonne;
+    function setNomJeuneFille($nomJeuneFille) {
+        $this->nomJeuneFille = $nomJeuneFille;
     }
 
-    function setPrenomPersonne($prenomPersonne) {
-        $this->prenomPersonne = $prenomPersonne;
+    function setPrenom($prenom) {
+        $this->prenom = $prenom;
     }
 
     function setDateNaissance($dateNaissance) {
@@ -130,5 +130,5 @@ class M_Personne {
     function setVille($ville) {
         $this->ville = $ville;
     }
-
-}
+} 
+    

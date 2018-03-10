@@ -1,8 +1,11 @@
-<!-- Centre de la page pour faire une nouvelle demande -->
-
+<!-- Recuperation de la varibale session contenant l'objet demande -->
 <?php
-    $demande = $this->lireDonnee('demande');
+    include_once("../modeles/metier/M_Demande.class.php"); 
+    //session_start();
+    $demande = $_SESSION['demande'];
 ?>
+
+<!-- Centre de la page pour faire une nouvelle demande -->
 
 <!-- Barre d'onglets de la demande -->
 <ol class="breadcrumb breadcrumb-arrow">
@@ -39,6 +42,7 @@
         <?php
     }
     if($this->lireDonnee('etape')=='okDemande'){
+        var_dump($demande);
         ?>
         <script type="text/javascript">
             document.getElementById("divDemande").style.display = "none";
@@ -49,6 +53,7 @@
         <?php
     }
     if($this->lireDonnee('etape')=='okSalarie'){
+        var_dump($demande);
         ?>
         <script type="text/javascript">
             document.getElementById("divSalarie").style.display = "none";
@@ -59,6 +64,7 @@
         <?php
     }
     if($this->lireDonnee('etape')=='okContrat'){
+        var_dump($demande);
         ?>
         <script type="text/javascript">
             document.getElementById("divContrat").style.display = "none";

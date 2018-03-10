@@ -12,7 +12,6 @@ class C_Accueil extends C_ControleurGenerique {
         $this->vue->ecrireDonnee('centre',"../vues/includes/accueil/centreAccueil.inc.php");
         // les données
         $this->vue->ecrireDonnee('titreVue',"Accueil");
-        //$this->vue->ecrireDonnee('loginAuthentification',MaSession::get('login'));
         $this->vue->afficher();
     }
 

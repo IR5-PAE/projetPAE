@@ -7,6 +7,11 @@ class C_Demande extends C_ControleurGenerique {
      * Afficher la page demande de contrat
      */
     function newDemande() {
+        // initialisation de la variable session contenant l'objet demande
+        include_once("../modeles/metier/M_Demande.class.php"); 
+        session_start();
+        $demande = new M_Demande(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
+        $_SESSION['demande'] = $demande;
         // les fichiers
         $this->vue = new V_Vue("../vues/templates/template.inc.php");
         $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreFormulaireNewDemande.inc.php");
@@ -19,18 +24,44 @@ class C_Demande extends C_ControleurGenerique {
     }
     
     /**
+     * controleur= utilisateur & action= modifDemande
+     * Afficher la page de modification de contrat
+     */
+    function modifDemande() {
+        // les fichiers
+        $this->vue = new V_Vue("../vues/templates/template.inc.php");
+        // les données
+        $this->vue->afficher();
+    }
+    
+    /**
+     * controleur= utilisateur & action= rechercherDemande
+     * Afficher la page de modification de contrat
+     */
+    function rechercherDemande() {
+        // les fichiers
+        $this->vue = new V_Vue("../vues/templates/template.inc.php");
+        // les données
+        $this->vue->afficher();
+    }
+    
+    /**
      * controleur= utilisateur & action= validerDemandeForm
      * valide l'onglet demande et passe à l'onglet salarie
      */
     function validerDemandeForm() {
+        // récupération des champs du formulaire demande
         $etablissement = $_POST['listeEtablissements']; 
         $numOffreEmploi = $_POST['numOffreEmploi']; 
-        print($etablissement." et ".$numOffreEmploi); 
         
-        $demande = new M_Demande(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
+        // récupération de la variable session contenant l'objet demande
+        include_once("../modeles/metier/M_Demande.class.php"); 
+        session_start();
+        $demande = $_SESSION['demande'];
         $demande->setEtablissement($etablissement);
         $demande->setNumOffreEmploi($numOffreEmploi);
         
+        //affichage de la vue
         $this->vue = new V_Vue("../vues/templates/template.inc.php");
         $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreFormulaireNewDemande.inc.php");
         $this->vue->ecrireDonnee('titreVue',"Salarié");
@@ -44,6 +75,7 @@ class C_Demande extends C_ControleurGenerique {
      * valide l'onglet salarie et passe à l'onglet contrat
      */
     function validerSalarieForm() {
+        // récupération des champs du formulaire salarie
         $nomPersonne = $_POST['nom']; 
         $nomJeuneFillePersonne = $_POST['nomJeuneFille']; 
         $prenomPersonne = $_POST['prenom']; 
@@ -55,24 +87,21 @@ class C_Demande extends C_ControleurGenerique {
         $complementAdresse = $_POST['complementAdresse'];
         $codePostal = $_POST['cp'];
         $ville = $_POST['ville'];
-        //print($nomPersonne." et ".$nomJeuneFillePersonne); 
         
+        // récupération de la variable session contenant l'objet demande
+        include_once("../modeles/metier/M_Demande.class.php"); 
+        session_start();
+        $demande = $_SESSION['demande'];
         $salarie = new M_Personne(null, $nomPersonne, $nomJeuneFillePersonne, $prenomPersonne, $dateNaissance, $lieuNaissance, $numSecuSoc, $nationalite, $adresse, $complementAdresse, $codePostal, $ville);
-//        $personne->setNom($nom);
-//        $personne->setNomJeuneFille($nomJeuneFille);
-//        $personne->setPrenom($prenom);
-//        $personne->setDateNaissance($dateNaissance);
-//        $personne->setLieuNaissance($lieuNaissance);
-//        $personne->setNumSecu($numSecu);
-//        $personne->setPays($pays);
-//        $personne->setAdresse($adresse);
+        $demande->setPersonne($salarie);
         
+        //affichage de la vue
         $this->vue = new V_Vue("../vues/templates/template.inc.php");
         $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreFormulaireNewDemande.inc.php");
         // les données
         $this->vue->ecrireDonnee('titreVue',"Contrat");
         $this->vue->ecrireDonnee('etape',"okSalarie");
-        $this->vue->ecrireDonnee('salarie', $salarie);
+        $this->vue->ecrireDonnee('demande', $demande);
         $this->vue->afficher();
     }
     
@@ -81,11 +110,93 @@ class C_Demande extends C_ControleurGenerique {
      * valide l'onglet contrat et passe à l'onglet temps travail
      */
     function validerContratForm() {
-        //$etablissement = $_POST['etablissement']; 
-        //$numOffreEmploi = $_POST['numOffreEmploi']; 
-        //print($etablissement." et ".$numOffreEmploi); 
+        // récupération de la variable session contenant l'objet demande
+        include_once("../modeles/metier/M_Demande.class.php"); 
+        session_start();
+        $demande = $_SESSION['demande'];
         
+        // récupération des champs du formulaire contrat
+        $dateHeureEmbauche = $_POST['dateHeureEmbauche'];   
+        $demande->setDateHeureEmbauche($dateHeureEmbauche);
+        $emploi = $_POST['emplois'];          
+        $demande->setEmploi($emploi);
+        $qualification = $_POST['qualifications'];            
+        $demande->setQualification($qualification);
+        $lieuTravail = $_POST['lieuTravail'];  
+        $demande->setLieuTravail($lieuTravail);
+        // Concaténation des rémunérations
+        $remuneration = "";
+        if (isset($_POST['rem'])){
+            foreach($_POST['rem'] as $rem){
+               $remuneration .= "$rem|";
+            }
+        }
+        if (isset($_POST['autrePrime'])){
+            $remuneration .= $_POST['autrePrime'];
+        }
+        if($remuneration !== ""){
+            $demande->setRemuneration($remuneration);
+        }
+        // Concaténation des avantages
+        $avantage = "";   
+        if (isset($_POST['avantage'])){
+            foreach($_POST['avantage'] as $av){
+               $avantage .= "$av|";
+            }
+        }    
+        if (isset($_POST['autreAvantage'])){
+            $avantage .= $_POST['autreAvantage'];
+        }
+        if($avantage !== ""){
+            $demande->setAvantage($avantage);
+        }
+        // Si la case cdi est cochée
+        if (isset($_POST['cdi'])){
+            $typeContrat = $_POST['cdi']; 
+            $demande->setTypeContrat($typeContrat);
+            if (isset($_POST['oui'])){
+                $periodeEssaiCDI = $_POST['oui'];
+                $demande->setPeriodeEssaiCDI($periodeEssaiCDI);
+            }
+            if (isset($_POST['non'])){
+                $periodeEssaiCDI = $_POST['oui'];
+                $demande->setPeriodeEssaiCDI($periodeEssaiCDI);
+            }
+        }else{
+            if (isset($_POST['cdd'])){
+                $typeContrat = $_POST['cdd']; 
+                $demande->setTypeContrat($typeContrat);
+                $dateDebutCDD = $_POST['dateDebutCDD'];     
+                $demande->setDateDebutCDD($dateDebutCDD);
+                $dateFinCDD = $_POST['dateFinCDD'];    
+                $demande->setDateFinCDD($dateFinCDD);
+                $dateFinDernierCDD = $_POST['dateFinDernierCDD'];    
+                $demande->setDateFinDernierCDD($dateFinDernierCDD);
+                $motifCDD = $_POST['motif'];
+                $demande->setMotifCDD($motifCDD);
+                $infoComplementaireMotif = "";
+                if ($motifCDD==="1"){
+                    $infoComplementaireMotif = $_POST['precSurcroit'];
+                }elseif ($motifCDD==="2") {
+                    $infoComplementaireMotif = $_POST['precTacheOcas'];
+                }elseif ($motifCDD==="3") {
+                    $infoComplementaireMotif .= $_POST['nomSalarieRemplace']."|";
+                    $infoComplementaireMotif .= $_POST['motifRemplacement']."|";
+                    if (isset($_POST['remplacementCascade'])){
+                        $infoComplementaireMotif .= $_POST['salarieRemplacementCascade'];
+                    }elseif (isset($_POST['remplacementPartiel'])) {
+                        if (isset($_POST['remplacementPartielOpt1'])){
+                            $infoComplementaireMotif .= $_POST['remplacementPartielOpt1'];
+                        }elseif (isset($_POST['remplacementPartielOpt2'])) {
+                            $infoComplementaireMotif .= $_POST['remplacementPartielOpt2'];
+                        }
+                    }
+                }
+                $demande->setInfoComplementaireMotif($infoComplementaireMotif);
+            }
+        }
         
+        //affichage de la vue
         $this->vue = new V_Vue("../vues/templates/template.inc.php");
         $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreFormulaireNewDemande.inc.php");
         // les données
@@ -100,18 +211,25 @@ class C_Demande extends C_ControleurGenerique {
      * Valide l'onglet temps travail et enregistre la demande en base
      */
     function validerTempsTravailForm() {
-        //$etablissement = $_POST['etablissement']; 
-        //$numOffreEmploi = $_POST['numOffreEmploi']; 
-        //print($etablissement." et ".$numOffreEmploi); 
+        // récupération des champs du formulaire temps travail
         
-        $demande = $_POST['demande']; 
-        //$demande->setEtablissement($etablissement);
-        //$demande->setNumOffreEmploi($numOffreEmploi);
         
+        // récupération de la variable session contenant l'objet demande
+        include_once("../modeles/metier/M_Demande.class.php"); 
+        session_start();
+        $demande = $_SESSION['demande'];
+        
+        //insertion de la demande dans la base
+        $daoDemande = new M_DaoDemande();
+        $daoDemande->connecter();
+        $daoDemande->insert($demande);
+        $daoDemande->deconnecter();
+        
+        //affichage de la vue
         $this->vue = new V_Vue("../vues/templates/template.inc.php");
-        $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreFormulaireNewDemande.inc.php");
+        $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreValiderDemande.inc.php");
         // les données
-        $this->vue->ecrireDonnee('etape',"okTempsTravail");
+        $this->vue->ecrireDonnee('message',"La demande a été enregistrée");
         $this->vue->ecrireDonnee('demande', $demande);
         $this->vue->afficher();
     }

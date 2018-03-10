@@ -5,6 +5,14 @@
 function validerContrat() {
     var ok = 1;
     
+//    if (document.getElementsByName("emplois")[0].value === "Sélectionner un emploi")
+//    {
+//        alert("Veuillez sélectionner un emploi");
+//        ok = 0;
+//        document.getElementsByName("emplois")[0].focus();
+//        return false;
+//    }
+//    
 //    if (document.getElementsByName("qualifications")[0].value === "Sélectionner une qualification")
 //    {
 //        alert("Veuillez sélectionner une qualification");

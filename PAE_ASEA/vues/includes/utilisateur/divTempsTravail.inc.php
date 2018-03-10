@@ -203,8 +203,7 @@
             </div>
         </div>
         <br><br><br>
-        <div id="divBoutons">
-            <button type="button" onclick="history.go(-1)">Retour</button>
+        <div id="divBouton">
             <button type="submit" onclick="return validerTempsTravail()">Suivant</button>
         </div>
     </div>
