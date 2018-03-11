@@ -1,25 +1,25 @@
 <!-- Formulaire salarie -->
 <!--<form class="sectionMarge" method="post" action=".?controleur=demande&action=validerSalarieForm" onsubmit="return validerSalarie()>
     <div class="formsDemandeContrat">
-        <label class="required">*</label><label>Nom :</label>
+        <span class="required">*</span><label>Nom :</label>
         <input type="text" name="nom" required/>
         <br><br>
         <label class="nonRequired">*</label><label>Nom de jeune fille:</label>
         <input type="text" name="nomJeuneFille"/>
         <br><br>
-        <label class="required">*</label><label>Prénom :</label>
+        <span class="required">*</span><label>Prénom :</label>
         <input type="text" name="prenom" required/>
         <br><br>
-        <label class="required">*</label><label>Date de naissance :</label>
+        <span class="required">*</span><label>Date de naissance :</label>
         <input type="date" name="dateNaissance" required>
         <br><br>
-        <label class="required">*</label><label>Lieu de naissance :</label>
+        <span class="required">*</span><label>Lieu de naissance :</label>
         <input type="text" name="lieuNaissance" required/>
         <br><br>
-        <label class="required">*</label><label>N° sécurité sociale :</label>
+        <span class="required">*</span><label>N° sécurité sociale :</label>
         <input type="text" name="numSecu" minlength="15" maxlength="15" required/>
         <br><br>
-        <label class="required">*</label><label>Nationalité :</label>
+        <span class="required">*</span><label>Nationalité :</label>
         <select name="pays" required>
             <optgroup label="Afrique">
             <option value="afriqueDuSud">Afrique Du Sud</option>
@@ -227,16 +227,16 @@
         <br><br>
         - Pour les non européens : fournir le titre de séjour et l'autorisation de travail
         <br><br>
-        <label class="required">*</label><label>Adresse :</label>
+        <span class="required">*</span><label>Adresse :</label>
         <input type="text" name="adresse" required/>
         <br><br>
         <label class="nonRequired">*</label><label>Complément d'adresse :</label>
         <input type="text" name="complementAdresse"/>
         <br><br>
-        <label class="required">*</label><label>Code Postal :</label>
-        <input type="text" name="cp"  required/>
+        <span class="required">*</span><label>Code Postal :</label>
+        <input type="number" name="cp" minlength="5" maxlength="5" />
         <br><br>
-        <label class="required">*</label><label>Ville :</label>
+        <span class="required">*</span><label>Ville :</label>
         <input type="text" name="ville"  required/>
         <br><br><br>
         <div id="divBouton">
@@ -248,25 +248,25 @@
 
 <form class="sectionMarge" method="post" action=".?controleur=demande&action=validerSalarieForm" onsubmit="return validerSalarie()">
     <div class="formsDemandeContrat">
-        <label class="required">*</label><label>Nom :</label>
+        <span class="required">*</span><label>Nom :</label>
         <input type="text" name="nom"/>
         <br><br>
         <label class="nonRequired">*</label><label>Nom de jeune fille:</label>
         <input type="text" name="nomJeuneFille"/>
         <br><br>
-        <label class="required">*</label><label>Prénom :</label>
+        <span class="required">*</span><label>Prénom :</label>
         <input type="text" name="prenom" />
         <br><br>
-        <label class="required">*</label><label>Date de naissance :</label>
+        <span class="required">*</span><label>Date de naissance :</label>
         <input type="date" name="dateNaissance" >
         <br><br>
-        <label class="required">*</label><label>Lieu de naissance :</label>
+        <span class="required">*</span><label>Lieu de naissance :</label>
         <input type="text" name="lieuNaissance" />
         <br><br>
-        <label class="required">*</label><label>N° sécurité sociale :</label>
-        <input type="number" name="numSecu" minlength="15" maxlength="15"/>
+        <span class="required">*</span><label>N° sécurité sociale :</label>
+        <input type="text" name="numSecu" minlength="15" maxlength="15"/>
         <br><br>
-        <label class="required">*</label><label>Nationalité :</label>
+        <span class="required">*</span><label>Nationalité :</label>
         <select name="pays" >
             <optgroup label="Afrique">
             <option value="afriqueDuSud">Afrique Du Sud</option>
@@ -474,16 +474,16 @@
         <br><br>
         - Pour les non européens : fournir le titre de séjour et l'autorisation de travail
         <br><br>
-        <label class="required">*</label><label>Adresse :</label>
+        <span class="required">*</span><label>Adresse :</label>
         <input type="text" name="adresse" />
         <br><br>
         <label class="nonRequired">*</label><label>Complément d'adresse :</label>
         <input type="text" name="complementAdresse"/>
         <br><br>
-        <label class="required">*</label><label>Code Postal :</label>
-        <input type="text" name="cp"  />
+        <span class="required">*</span><label>Code Postal :</label>
+        <input type="number" name="cp" minlength="5" maxlength="5" />
         <br><br>
-        <label class="required">*</label><label>Ville :</label>
+        <span class="required">*</span><label>Ville :</label>
         <input type="text" name="ville"  />
         <br><br><br>
         <div id="divBouton">

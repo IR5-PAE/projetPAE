@@ -17,7 +17,7 @@
             <br><br>
 
             <div id="divHebdomadaire" style="display: none">
-                <label>Répartition :</label>
+                <span class="required">*</span><label>Répartition :</label>
                 <input type="radio" class="inherit" name="repartitionEnHeure" value="repartitionEnHeure" onchange="RepartitionHebdomadaire(1)">Répartition en heure
                 <input type="radio" class="inherit" name="volumeJournalier" value="volumeJournalier" onchange="RepartitionHebdomadaire(2)">En volume journalier
 
@@ -44,66 +44,66 @@
                         </tr>
                         <tr>
                             <td class="titres">Lundi</td>
-                            <td><input type="time" name="cell1" id="cell1" step="300"/></td>
-                            <td><input type="time" name="cell2" id="cell2" step="300"/></td>
-                            <td><input type="time" name="cell3" id="cell3" step="300"/></td>
-                            <td><input type="time" name="cell4" id="cell4" step="300"/></td>
-                            <td><input type="time" name="cell5" id="cell5" step="300"/></td>
-                            <td><input type="time" name="cell6" id="cell6" step="300"/></td>
+                            <td><input type="time" name="cell1" id="cell1"/></td>
+                            <td><input type="time" name="cell2" id="cell2"/></td>
+                            <td><input type="time" name="cell3" id="cell3"/></td>
+                            <td><input type="time" name="cell4" id="cell4"/></td>
+                            <td><input type="time" name="cell5" id="cell5"/></td>
+                            <td><input type="time" name="cell6" id="cell6"/></td>
                         </tr>
                         <tr>
                             <td class="titres">Mardi</td>
-                            <td><input type="time" name="cell7" id="cell7" step="300"/></td>
-                            <td><input type="time" name="cell8" id="cell8" step="300"/></td>
-                            <td><input type="time" name="cell9" id="cell9" step="300"/></td>
-                            <td><input type="time" name="cell10" id="cell10" step="300"/></td>
-                            <td><input type="time" name="cell11" id="cell11" step="300"/></td>
-                            <td><input type="time" name="cell12" id="cell12" step="300"/></td>
+                            <td><input type="time" name="cell7" id="cell7"/></td>
+                            <td><input type="time" name="cell8" id="cell8"/></td>
+                            <td><input type="time" name="cell9" id="cell9"/></td>
+                            <td><input type="time" name="cell10" id="cell10"/></td>
+                            <td><input type="time" name="cell11" id="cell11"/></td>
+                            <td><input type="time" name="cell12" id="cell12"/></td>
                         </tr>
                         <tr>
                             <td class="titres">Mercredi</td>
-                            <td><input type="time" name="cell13" id="cell13" step="300"/></td>
-                            <td><input type="time" name="cell14" id="cell14" step="300"/></td>
-                            <td><input type="time" name="cell15" id="cell15" step="300"/></td>
-                            <td><input type="time" name="cell16" id="cell16" step="300"/></td>
-                            <td><input type="time" name="cell17" id="cell17" step="300"/></td>
-                            <td><input type="time" name="cell18" id="cell18" step="300"/></td>
+                            <td><input type="time" name="cell13" id="cell13"/></td>
+                            <td><input type="time" name="cell14" id="cell14"/></td>
+                            <td><input type="time" name="cell15" id="cell15"/></td>
+                            <td><input type="time" name="cell16" id="cell16"/></td>
+                            <td><input type="time" name="cell17" id="cell17"/></td>
+                            <td><input type="time" name="cell18" id="cell18"/></td>
                         </tr>
                         <tr>
                             <td class="titres">Jeudi</td>
-                            <td><input type="time" name="cell19" id="cell19" step="300"/></td>
-                            <td><input type="time" name="cell20" id="cell20" step="300"/></td>
-                            <td><input type="time" name="cell21" id="cell21" step="300"/></td>
-                            <td><input type="time" name="cell22" id="cell22" step="300"/></td>
-                            <td><input type="time" name="cell23" id="cell23" step="300"/></td>
-                            <td><input type="time" name="cell24" id="cell24" step="300"/></td>
+                            <td><input type="time" name="cell19" id="cell19"/></td>
+                            <td><input type="time" name="cell20" id="cell20"/></td>
+                            <td><input type="time" name="cell21" id="cell21"/></td>
+                            <td><input type="time" name="cell22" id="cell22"/></td>
+                            <td><input type="time" name="cell23" id="cell23"/></td>
+                            <td><input type="time" name="cell24" id="cell24"/></td>
                         </tr>
                         <tr>
                             <td class="titres">Vendredi</td>
-                            <td><input type="time" name="cell25" id="cell25" step="300"/></td>
-                            <td><input type="time" name="cell26" id="cell26" step="300"/></td>
-                            <td><input type="time" name="cell27" id="cell27" step="300"/></td>
-                            <td><input type="time" name="cell28" id="cell28" step="300"/></td>
-                            <td><input type="time" name="cell29" id="cell29" step="300"/></td>
-                            <td><input type="time" name="cell30" id="cell30" step="300"/></td>
+                            <td><input type="time" name="cell25" id="cell25"/></td>
+                            <td><input type="time" name="cell26" id="cell26"/></td>
+                            <td><input type="time" name="cell27" id="cell27"/></td>
+                            <td><input type="time" name="cell28" id="cell28"/></td>
+                            <td><input type="time" name="cell29" id="cell29"/></td>
+                            <td><input type="time" name="cell30" id="cell30"/></td>
                         </tr>
                         <tr>
                             <td class="titres">Samedi</td>
-                            <td><input type="time" name="cell31" id="cell31" step="300"/></td>
-                            <td><input type="time" name="cell32" id="cell32" step="300"/></td>
-                            <td><input type="time" name="cell33" id="cell33" step="300"/></td>
-                            <td><input type="time" name="cell34" id="cell34" step="300"/></td>
-                            <td><input type="time" name="cell35" id="cell35" step="300"/></td>
-                            <td><input type="time" name="cell36" id="cell36" step="300"/></td>
+                            <td><input type="time" name="cell31" id="cell31"/></td>
+                            <td><input type="time" name="cell32" id="cell32"/></td>
+                            <td><input type="time" name="cell33" id="cell33"/></td>
+                            <td><input type="time" name="cell34" id="cell34"/></td>
+                            <td><input type="time" name="cell35" id="cell35"/></td>
+                            <td><input type="time" name="cell36" id="cell36"/></td>
                         </tr>
                         <tr>
                             <td class="titres">Dimanche</td>
-                            <td><input type="time" name="cell37" id="cell37" step="300"/></td>
-                            <td><input type="time" name="cell38" id="cell38" step="300"/></td>
-                            <td><input type="time" name="cell39" id="cell39" step="300"/></td>
-                            <td><input type="time" name="cell40" id="cell40" step="300"/></td>
-                            <td><input type="time" name="cell41" id="cell41" step="300"/></td>
-                            <td><input type="time" name="cell42" id="cell42" step="300"/></td>
+                            <td><input type="time" name="cell37" id="cell37"/></td>
+                            <td><input type="time" name="cell38" id="cell38"/></td>
+                            <td><input type="time" name="cell39" id="cell39"/></td>
+                            <td><input type="time" name="cell40" id="cell40"/></td>
+                            <td><input type="time" name="cell41" id="cell41"/></td>
+                            <td><input type="time" name="cell42" id="cell42"/></td>
                         </tr>
                         <tr>
                             <td class="titres">TOTAL Semaine</td>
@@ -123,31 +123,31 @@
                         </tr>
                         <tr>
                             <td class="titres">Lundi</td>
-                            <td><input type="time" name="cell44" id="cell44" step="300"/></td>
+                            <td><input type="time" name="cell44" id="cell44"/></td>
                         </tr>
                         <tr>
                             <td class="titres">Mardi</td>
-                            <td><input type="time" name="cell45" id="cell45" step="300"/></td>
+                            <td><input type="time" name="cell45" id="cell45"/></td>
                         </tr>
                         <tr>
                             <td class="titres">Mercredi</td>
-                            <td><input type="time" name="cell46" id="cell46" step="300"/></td>
+                            <td><input type="time" name="cell46" id="cell46"/></td>
                         </tr>
                         <tr>
                             <td class="titres">Jeudi</td>
-                            <td><input type="time" name="cell47" id="cell47" step="300"/></td>
+                            <td><input type="time" name="cell47" id="cell47"/></td>
                         </tr>
                         <tr>
                             <td class="titres">Vendredi</td>
-                            <td><input type="time" name="cell48" id="cell48" step="300"/></td>
+                            <td><input type="time" name="cell48" id="cell48"/></td>
                         </tr>
                         <tr>
                             <td class="titres">Samedi</td>
-                            <td><input type="time" name="cell49" id="cell49" step="300"/></td>
+                            <td><input type="time" name="cell49" id="cell49"/></td>
                         </tr>
                         <tr>
                             <td class="titres">Dimanche</td>
-                            <td><input type="time" name="cell50" id="cell50" step="300"/></td>
+                            <td><input type="time" name="cell50" id="cell50"/></td>
                         </tr>
                         <tr>
                             <td class="titres">TOTAL</td>
@@ -164,20 +164,20 @@
                 <div id="divMoyenneHebdomadaire" style="display: none">
                     <br><br>
                     <label>Nombre d'heures par semaine en moyenne :</label>
-                    <input type="time" name="moyenneNbHeuresHebdomadaires" id="moyenneNbHeuresHebdomadaires" step="300"/>
+                    <input type="time" name="moyenneNbHeuresHebdomadaires" id="moyenneNbHeuresHebdomadaires"/>
                 </div>
                 <br><br>
                 <input type="radio" class="inherit" name="moyenneHebdomadaireSur4Semaines" value="moyenneHebdomadaireSur4Semaines" onchange="RepartitionMensuel(2)">Moyenne Hebdomadaire sur 4 Semaines
                 <div id="divMoyenneHebdomadaireSur4Semaines" style="display: none">
                     <br><br>
                     <label>Nombre d'heures Semaine 1 :</label>
-                    <input type="time" name="nbHeuresSemaine1" id="nbHeuresSemaine1" step="300"/><br><br>
+                    <input type="time" name="nbHeuresSemaine1" id="nbHeuresSemaine1"/><br><br>
                     <label>Nombre d'heures Semaine 2 :</label>
-                    <input type="time" name="nbHeuresSemaine2" id="nbHeuresSemaine2" step="300"/><br><br>
+                    <input type="time" name="nbHeuresSemaine2" id="nbHeuresSemaine2"/><br><br>
                     <label>Nombre d'heures Semaine 3 :</label>
-                    <input type="time" name="nbHeuresSemaine3" id="nbHeuresSemaine3" step="300"/><br><br>
+                    <input type="time" name="nbHeuresSemaine3" id="nbHeuresSemaine3"/><br><br>
                     <label>Nombre d'heures Semaine 4 :</label>
-                    <input type="time" name="nbHeuresSemaine4" id="nbHeuresSemaine4" step="300"/><br><br><br><br>
+                    <input type="time" name="nbHeuresSemaine4" id="nbHeuresSemaine4"/><br><br><br><br>
                     
                     <label><strong>Nombre d'heures Mensuelles en moyenne :</strong></label>
                     <input type="time" name="moyenneNbHeuresMensuelles" id="moyenneNbHeuresMensuelles" step="300" disabled="true"/>
@@ -191,14 +191,14 @@
                 <div id="divMoyenneHebdomadaireSur12Mois" style="display: none">
                     <br><br>
                     <label>Moyenne d'heures par semaine :</label>
-                    <input type="time" name="moyenneNbHeuresHebdomadaires12Mois" id="moyenneNbHeuresHebdomadaires12Mois" step="300"/>
+                    <input type="time" name="moyenneNbHeuresHebdomadaires12Mois" id="moyenneNbHeuresHebdomadaires12Mois"/>
                 </div>
                 <br><br>
                 <input type="radio" class="inherit" name="moyenneMensuelleSur12Mois" value="moyenneMensuelleSur12Mois" onchange="RepartitionMoyenne12Mois(2)">Moyenne d'heures par mois (sur 4 semaines) sur la période de modulation
                 <div id="divMoyenneMensuelleSur12Mois" style="display: none">
                     <br><br>
                     <label>Moyenne d'heures par mois (4 semaines) :</label>
-                    <input type="time" name="moyenneNbHeuresMensuelles12Mois" id="moyenneNbHeuresMensuelles12Mois" step="300"/>
+                    <input type="time" name="moyenneNbHeuresMensuelles12Mois" id="moyenneNbHeuresMensuelles12Mois"/>
                 </div>
             </div>
         </div>

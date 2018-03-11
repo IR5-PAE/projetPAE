@@ -38,6 +38,14 @@ function validerContrat() {
 //        }
 //    }
 //    
+//    if (document.getElementsByName("motif")[0].value === "Sélectionner un motif")
+//    {
+//        alert("Veuillez sélectionner un motif");
+//        ok = 0;
+//        document.getElementsByName("motif")[0].focus();
+//        return false;
+//    }
+//    
 //    if (document.getElementsByName("remplacementPartiel")[0].checked === false && document.getElementsByName("remplacementCascade")[0].checked === false)
 //    {
 //        alert("Veuillez préciser la nature du remplacement");

@@ -9,7 +9,16 @@ function TypeContrat(nb) {
         document.getElementsByName("dateDebutCDD")[0].removeAttribute("required");
         document.getElementsByName("dateFinCDD")[0].removeAttribute("required");
         document.getElementsByName("dateFinDernierCDD")[0].removeAttribute("required");
+        document.getElementById("motif").options[0].selected = "Sélectionner un motif";
+        document.getElementById("divSurcroit").style.display = "none";
+        document.getElementById("divTacheOcas").style.display = "none";
+        document.getElementById("divRemplacement").style.display = "none";
         document.getElementsByName("precSurcroit")[0].removeAttribute("required");
+        document.getElementsByName("precTacheOcas")[0].removeAttribute("required");
+        document.getElementsByName("nomSalarieRemplace")[0].removeAttribute("required");
+        document.getElementsByName("motifRemplacement")[0].removeAttribute("required");
+        document.getElementsByName("salarieRemplacementCascade")[0].removeAttribute("required");
+        
     } else if (nb === 2) {
         document.getElementsByName("cdi")[0].checked = false;
         document.getElementById("divCdi").style.display = "none";
@@ -40,8 +49,8 @@ function Motif() {
         document.getElementsByName("precTacheOcas")[0].removeAttribute("required");
         document.getElementsByName("nomSalarieRemplace")[0].removeAttribute("required");
         document.getElementsByName("motifRemplacement")[0].removeAttribute("required");
+        document.getElementsByName("salarieRemplacementCascade")[0].removeAttribute("required");
     } else {
-        document.getElementsByName("precSurcroit")[0].removeAttribute("required");
         if (optionSelected === "2") {
             document.getElementById("divSurcroit").style.display = "none";
             document.getElementById("divTacheOcas").style.display = "block";
@@ -50,8 +59,8 @@ function Motif() {
             document.getElementsByName("precTacheOcas")[0].setAttribute("required", "");
             document.getElementsByName("nomSalarieRemplace")[0].removeAttribute("required");
             document.getElementsByName("motifRemplacement")[0].removeAttribute("required");
+            document.getElementsByName("salarieRemplacementCascade")[0].removeAttribute("required");
         } else {
-            document.getElementsByName("precTacheOcas")[0].removeAttribute("required");
             if (optionSelected === "3") {
                 document.getElementById("divSurcroit").style.display = "none";
                 document.getElementById("divTacheOcas").style.display = "none";
@@ -60,6 +69,12 @@ function Motif() {
                 document.getElementsByName("precTacheOcas")[0].removeAttribute("required");
                 document.getElementsByName("nomSalarieRemplace")[0].setAttribute("required", "");
                 document.getElementsByName("motifRemplacement")[0].setAttribute("required", "");
+                document.getElementsByName("remplacementCascade")[0].checked = false;
+                document.getElementById("divRemplacementCascade").style.display = "none";
+                document.getElementsByName("remplacementPartiel")[0].checked = false;
+                document.getElementById("divRemplacementPartiel").style.display = "none";
+                document.getElementsByName("remplacementPartielOpt1")[0].checked = false;
+                document.getElementsByName("remplacementPartielOpt2")[0].checked = false;
             } else {
                 document.getElementById("divSurcroit").style.display = "none";
                 document.getElementById("divTacheOcas").style.display = "none";
@@ -68,6 +83,7 @@ function Motif() {
                 document.getElementsByName("precTacheOcas")[0].removeAttribute("required");
                 document.getElementsByName("nomSalarieRemplace")[0].removeAttribute("required");
                 document.getElementsByName("motifRemplacement")[0].removeAttribute("required");
+                document.getElementsByName("salarieRemplacementCascade")[0].removeAttribute("required");
             }
         }
     }
@@ -104,6 +120,25 @@ function TypeTempsTravail(nb) {
     if (nb === 1) {
         document.getElementsByName("tempsPartiel")[0].checked = false;
         document.getElementById("divTempsPartiel").style.display = "none";
+        document.getElementsByName("hebdomadaire")[0].checked = false;
+        document.getElementsByName("mensuel")[0].checked = false;
+        document.getElementsByName("moyenneSur12Mois")[0].checked = false;
+        document.getElementById("divHebdomadaire").style.display = "none";
+        document.getElementById("divMensuel").style.display = "none";
+        document.getElementById("divMoyenne12Mois").style.display = "none";
+        for (var i = 1; i <= 42; i++) {
+            document.getElementsByName("cell"+i)[0].removeAttribute("required");
+        }
+        for (var i = 44; i <= 50; i++) {
+            document.getElementsByName("cell"+i)[0].removeAttribute("required");
+        }
+        document.getElementsByName("moyenneNbHeuresHebdomadaires")[0].removeAttribute("required");
+        document.getElementsByName("nbHeuresSemaine1")[0].removeAttribute("required");
+        document.getElementsByName("nbHeuresSemaine2")[0].removeAttribute("required");
+        document.getElementsByName("nbHeuresSemaine3")[0].removeAttribute("required");
+        document.getElementsByName("nbHeuresSemaine4")[0].removeAttribute("required");
+        document.getElementsByName("moyenneNbHeuresHebdomadaires12Mois")[0].removeAttribute("required");
+        document.getElementsByName("moyenneNbHeuresMensuelles12Mois")[0].removeAttribute("required");
     } else if (nb === 2) {
         document.getElementsByName("tempsComplet")[0].checked = false;
         document.getElementById("divTempsPartiel").style.display = "block";
@@ -118,18 +153,56 @@ function Volume(nb) {
         document.getElementById("divHebdomadaire").style.display = "block";
         document.getElementById("divMensuel").style.display = "none";
         document.getElementById("divMoyenne12Mois").style.display = "none";
+        document.getElementsByName("repartitionEnHeure")[0].checked = false;
+        document.getElementsByName("volumeJournalier")[0].checked = false;
+        document.getElementById("divRepartitionEnHeure").style.display = "none";
+        document.getElementById("divVolumeJournalier").style.display = "none";
+        document.getElementsByName("moyenneNbHeuresHebdomadaires")[0].removeAttribute("required");
+        document.getElementsByName("nbHeuresSemaine1")[0].removeAttribute("required");
+        document.getElementsByName("nbHeuresSemaine2")[0].removeAttribute("required");
+        document.getElementsByName("nbHeuresSemaine3")[0].removeAttribute("required");
+        document.getElementsByName("nbHeuresSemaine4")[0].removeAttribute("required");
+        document.getElementsByName("moyenneNbHeuresHebdomadaires12Mois")[0].removeAttribute("required");
+        document.getElementsByName("moyenneNbHeuresMensuelles12Mois")[0].removeAttribute("required");
     } else if (nb === 2) {
         document.getElementsByName("hebdomadaire")[0].checked = false;
         document.getElementsByName("moyenneSur12Mois")[0].checked = false;
         document.getElementById("divHebdomadaire").style.display = "none";
         document.getElementById("divMensuel").style.display = "block";
         document.getElementById("divMoyenne12Mois").style.display = "none";
+        document.getElementsByName("moyenneHebdomadaire")[0].checked = false;
+        document.getElementsByName("moyenneHebdomadaireSur4Semaines")[0].checked = false;
+        document.getElementById("divMoyenneHebdomadaire").style.display = "none";
+        document.getElementById("divMoyenneHebdomadaireSur4Semaines").style.display = "none";
+        for (var i = 1; i <= 42; i++) {
+            document.getElementsByName("cell"+i)[0].removeAttribute("required");
+        }
+        for (var i = 44; i <= 50; i++) {
+            document.getElementsByName("cell"+i)[0].removeAttribute("required");
+        }
+        document.getElementsByName("moyenneNbHeuresHebdomadaires12Mois")[0].removeAttribute("required");
+        document.getElementsByName("moyenneNbHeuresMensuelles12Mois")[0].removeAttribute("required");
     } else if (nb === 3) {
         document.getElementsByName("hebdomadaire")[0].checked = false;
         document.getElementsByName("mensuel")[0].checked = false;
         document.getElementById("divHebdomadaire").style.display = "none";
         document.getElementById("divMensuel").style.display = "none";
         document.getElementById("divMoyenne12Mois").style.display = "block";
+        document.getElementsByName("moyenneHebdomadaireSur12Mois")[0].checked = false;
+        document.getElementsByName("moyenneMensuelleSur12Mois")[0].checked = false;
+        document.getElementById("divMoyenneHebdomadaireSur12Mois").style.display = "none";
+        document.getElementById("divMoyenneMensuelleSur12Mois").style.display = "none";
+        for (var i = 1; i <= 42; i++) {
+            document.getElementsByName("cell"+i)[0].removeAttribute("required");
+        }
+        for (var i = 44; i <= 50; i++) {
+            document.getElementsByName("cell"+i)[0].removeAttribute("required");
+        }
+        document.getElementsByName("moyenneNbHeuresHebdomadaires")[0].removeAttribute("required");
+        document.getElementsByName("nbHeuresSemaine1")[0].removeAttribute("required");
+        document.getElementsByName("nbHeuresSemaine2")[0].removeAttribute("required");
+        document.getElementsByName("nbHeuresSemaine3")[0].removeAttribute("required");
+        document.getElementsByName("nbHeuresSemaine4")[0].removeAttribute("required");
     }
 }
 
@@ -187,8 +260,8 @@ function RepartitionMoyenne12Mois(nb) {
         document.getElementsByName("moyenneMensuelleSur12Mois")[0].checked = false;
         document.getElementById("divMoyenneHebdomadaireSur12Mois").style.display = "block";
         document.getElementById("divMoyenneMensuelleSur12Mois").style.display = "none";
-        document.getElementsByName("moyenneNbHeuresHebdomadaires")[0].setAttribute("required", "");
-        document.getElementsByName("nbHeuresSemaine1")[0].removeAttribute("required");
+        document.getElementsByName("moyenneNbHeuresHebdomadaires12Mois")[0].setAttribute("required", "");
+        document.getElementsByName("moyenneNbHeuresMensuelles12Mois")[0].removeAttribute("required");
     } else if (nb === 2) {
         document.getElementsByName("moyenneHebdomadaireSur12Mois")[0].checked = false;
         document.getElementById("divMoyenneHebdomadaireSur12Mois").style.display = "none";

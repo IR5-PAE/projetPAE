@@ -1,7 +1,7 @@
 <!-- Formulaire demande -->
 <!--<form class="sectionMarge" method="post" action=".?controleur=demande&action=validerDemandeForm" onsubmit="return validerDemande()">
     <div class="formsDemandeContrat">
-        <label class="required">*</label><label>Etablissement :</label>
+        <span class="required">*</span><label>Etablissement :</label>
         <select name="listeEtablissements" required>
             <option value="daphe">DAPHE</option>
             <option value="siege">Siège</option>
@@ -15,7 +15,7 @@
             <option value="cmppEtCamps">Centre Françoise Dolto - CMPP et CAMPS</option>
         </select>
         <br><br>
-        <label class="required">*</label><label>Offre d'emploi n° :</label>
+        <span class="required">*</span><label>Offre d'emploi n° :</label>
         <input type="text" id="numOffreEmploi" name="numOffreEmploi" required/>
         <br><br><br>
         <div id="divBouton">
@@ -26,7 +26,7 @@
 
 <form class="sectionMarge" method="post" action=".?controleur=demande&action=validerDemandeForm" onsubmit="return validerDemande()">
     <div class="formsDemandeContrat">
-        <label class="required">*</label><label>Etablissement :</label>
+        <span class="required">*</span><label>Etablissement :</label>
         <select name="listeEtablissements" required>
             <option value="daphe">DAPHE</option>
             <option value="siege">Siège</option>
@@ -40,7 +40,7 @@
             <option value="cmppEtCamps">Centre Françoise Dolto - CMPP et CAMPS</option>
         </select>
         <br><br>
-        <label class="required">*</label><label>Offre d'emploi n° :</label>
+        <span class="required">*</span><label>Offre d'emploi n° :</label>
         <input type="text" id="numOffreEmploi" name="numOffreEmploi"/>
         <br><br><br>
         <div id="divBouton">

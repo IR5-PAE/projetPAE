@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 28 Février 2018 à 21:56
+-- Généré le :  Dim 11 Mars 2018 à 02:32
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -58,7 +58,7 @@ CREATE TABLE `demande` (
 --
 
 INSERT INTO `demande` (`idDemande`, `etablissement`, `numOffreEmploi`, `dateHeureEmbauche`, `emploi`, `qualification`, `lieuTravail`, `remuneration`, `avantage`, `typeContrat`, `periodeEssaiCDI`, `dateDebutCDD`, `dateFinCDD`, `dateFinDernierCDD`, `motifCDD`, `infoComplementaireMotif`, `typeTempsTravail`, `volumeTempsPartiel`, `typeRepartitionTempsPartiel`, `repartitionTempsPartiel`, `idPersonne`) VALUES
-(1, 'Eleifend PC', 1, '2018-11-12 23:00:00', 'Duis dignissim tempor', 'dictum. Phasellus in felis. Nulla', 'Nullam Enim Sed Corp.', 'Donec felis orci, adipiscing non,', 'risus. Duis', 'CDD', 0, '2017-03-08', '2017-10-17', '2018-05-01', 'dignissim', 'Duis volutpat nunc sit amet metus.', 'complet', 'lacus.', 'eget', 'dui, in', 90),
+(1, 'Eleifend PC', 1, '2018-02-28 22:11:29', 'Duis dignissim tempor', 'dictum. Phasellus in felis. Nulla', 'Nullam Enim Sed Corp.', 'Donec felis orci, adipiscing non,', 'risus. Duis', 'CDD', 0, '2017-03-08', '2017-10-17', '2018-05-01', 'dignissim', 'Duis volutpat nunc sit amet metus.', 'complet', 'lacus.', 'eget', 'dui, in', 1),
 (2, 'Nunc Nulla Vulputate Corp.', 2, '2017-06-05 22:00:00', 'Proin eget odio.', 'mattis. Cras eget nisi dictum', 'Augue Id Ante PC', 'non dui nec urna suscipit', 'molestie in,', 'CDI', 0, '2019-01-20', '2017-07-03', '2018-11-06', 'ultrices,', 'elementum, lorem ut aliquam iaculis, lacus', 'complet', 'Lorem', 'lacus,', 'vestibulum nec, euismod in, dolor. Fusce feugiat. Lorem', 39),
 (3, 'Blandit LLP', 3, '2017-06-14 22:00:00', 'dui. Fusce aliquam,', 'lorem fringilla ornare placerat, orci', 'Aliquam Ultrices Corporation', 'fringilla mi lacinia mattis. Integer', 'eu, placerat', 'CDI', 0, '2017-06-13', '2017-10-05', '2017-06-03', 'sit', 'lacinia mattis. Integer eu lacus. Quisque', 'partiel', 'ipsum', 'in', 'fringilla euismod enim. Etiam gravida molestie arcu. Sed eu nibh', 19),
 (4, 'Morbi Tristique Senectus Company', 4, '2018-03-20 23:00:00', 'Nam ligula elit,', 'lorem tristique aliquet. Phasellus fermentum', 'Mollis Vitae Limited', 'sit amet diam eu dolor', 'Integer id', 'CDI', 0, '2019-01-11', '2018-01-23', '2017-02-28', 'id,', 'pede nec ante blandit viverra. Donec', 'complet', 'Quisque', 'non,', 'faucibus. Morbi vehicula. Pellentesque tincidunt tempus risus. Donec', 19),
@@ -167,7 +167,7 @@ INSERT INTO `demande` (`idDemande`, `etablissement`, `numOffreEmploi`, `dateHeur
 
 CREATE TABLE `etablissement` (
   `idEtablissement` int(11) NOT NULL,
-  `nomEtablissement` varchar(25) NOT NULL
+  `nomEtablissement` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -175,8 +175,16 @@ CREATE TABLE `etablissement` (
 --
 
 INSERT INTO `etablissement` (`idEtablissement`, `nomEtablissement`) VALUES
-(1, 'bat a'),
-(2, 'bat b');
+(1, 'DAPHE'),
+(2, 'Siège'),
+(3, 'SAEMO'),
+(4, 'SIE'),
+(5, 'Prévention Spécialisée'),
+(6, 'CAVA'),
+(7, 'IME Le Coteau'),
+(8, 'ITEP Le Colombier'),
+(9, 'SESSAD'),
+(10, 'Centre Françoise Dolto - CMPP et CAMPS');
 
 -- --------------------------------------------------------
 
@@ -321,8 +329,52 @@ CREATE TABLE `qualification` (
 --
 
 INSERT INTO `qualification` (`idQualification`, `libelleQualification`) VALUES
-(1, 'qualif 1'),
-(2, 'qualif 2');
+(1, 'A.M.P.  pour adultes'),
+(2, 'Agent administratif principal'),
+(3, 'Agent de service intérieur'),
+(4, 'Agent d\'entretien'),
+(5, 'Agent technique'),
+(6, 'Agent technique supérieur'),
+(7, 'Aide médico-psychologique'),
+(8, 'Animateur'),
+(9, 'Animateur socio-éducatif'),
+(10, 'Assistante sociale spécialisée enfance inadaptée'),
+(11, 'Cadre classe 1 niveau 1'),
+(12, 'Cadre classe 2 niveau 2'),
+(13, 'Cadre classe 2 niveau 3'),
+(14, 'Cadre Hors classe - Directeur général'),
+(15, 'Cadre technicien de niveau 1'),
+(16, 'Psychologue - Cadre technicien de niveau 3'),
+(17, 'Candidat Educateur spécialisé'),
+(18, 'Conseillère en économie familiale et sociale'),
+(19, 'Cuisinier qualifié'),
+(20, 'Educateur scolaire'),
+(21, 'Educateur scolaire spécialisé'),
+(22, 'Educateur spécialisé'),
+(23, 'Educateur sportif niveau 4'),
+(24, 'Educateur technique'),
+(25, 'Educateur technique spécialisé'),
+(26, 'Infirmier'),
+(27, 'Instituteur'),
+(28, 'Maître ou Maîtresse de maison'),
+(29, 'Médecin généraliste'),
+(30, 'Médecin pédiatre'),
+(31, 'Moniteur adjoint d\'animation et/ou d\'activités'),
+(32, 'Moniteur d\'atelier de 2eme classe'),
+(33, 'Moniteur éducateur'),
+(34, 'Monitrice d\'enseignement ménager'),
+(35, 'Orthophoniste'),
+(36, 'Ouvrier Qualifié'),
+(37, 'Professeur d\'éducation physique et sportive'),
+(38, 'Professeur des écoles'),
+(39, 'Psychiatre direction'),
+(40, 'Psychiatre ou neuro-psychiatre'),
+(41, 'Psychomotricien'),
+(42, 'Secrétaire médicale'),
+(43, 'Surveillant de nuit'),
+(44, 'Surveillant de nuit qualifié'),
+(45, 'Technicien qualifié'),
+(46, 'Technicien supérieur');
 
 --
 -- Index pour les tables exportées
@@ -366,7 +418,7 @@ ALTER TABLE `demande`
 -- AUTO_INCREMENT pour la table `etablissement`
 --
 ALTER TABLE `etablissement`
-  MODIFY `idEtablissement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idEtablissement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT pour la table `personne`
 --
@@ -376,7 +428,7 @@ ALTER TABLE `personne`
 -- AUTO_INCREMENT pour la table `qualification`
 --
 ALTER TABLE `qualification`
-  MODIFY `idQualification` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idQualification` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 --
 -- Contraintes pour les tables exportées
 --
