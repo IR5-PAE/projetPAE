@@ -1,3 +1,7 @@
+--
+-- Contenu de la table `etablissement`
+--
+
 INSERT INTO `etablissement` (`idEtablissement`, `nomEtablissement`) VALUES
 (1, 'DAPHE'),
 (2, 'Siège'),

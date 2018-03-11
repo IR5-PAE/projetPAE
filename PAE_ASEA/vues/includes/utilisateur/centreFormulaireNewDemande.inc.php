@@ -1,8 +1,9 @@
 <!-- Recuperation de la varibale session contenant l'objet demande -->
 <?php
-    include_once("../modeles/metier/M_Demande.class.php"); 
-    //session_start();
-    $demande = $_SESSION['demande'];
+include_once("../modeles/metier/M_Demande.class.php");
+include_once("../modeles/metier/M_Personne.class.php");
+$demande = $_SESSION['demande'];
+$salarie = $_SESSION['salarie'];
 ?>
 
 <!-- Centre de la page pour faire une nouvelle demande -->
@@ -33,47 +34,52 @@
 
 <!-- Affichage ou non du bon formulaire en fonction des étapes de la demande gére par le controleur C_Demande -->
 <?php
-    if($this->lireDonnee('etape')=='newDemande'){
-        ?>
-        <script type="text/javascript">
-            document.getElementById("divDemande").style.display = "block";
-            document.getElementById("boutonDemande").className="";
-        </script>
-        <?php
-    }
-    if($this->lireDonnee('etape')=='okDemande'){
-        var_dump($demande);
-        ?>
-        <script type="text/javascript">
-            document.getElementById("divDemande").style.display = "none";
-            document.getElementById("divSalarie").style.display = "block";
-            document.getElementById("boutonDemande").className="disabled";
-            document.getElementById("boutonSalarie").className="";
-        </script>
-        <?php
-    }
-    if($this->lireDonnee('etape')=='okSalarie'){
-        var_dump($demande);
-        ?>
-        <script type="text/javascript">
-            document.getElementById("divSalarie").style.display = "none";
-            document.getElementById("divContrat").style.display = "block";
-            document.getElementById("boutonSalarie").className="disabled";
-            document.getElementById("boutonContrat").className="";
-        </script>
-        <?php
-    }
-    if($this->lireDonnee('etape')=='okContrat'){
-        var_dump($demande);
-        ?>
-        <script type="text/javascript">
-            document.getElementById("divContrat").style.display = "none";
-            document.getElementById("divTempsTravail").style.display = "block";
-            document.getElementById("boutonContrat").className="disabled";
-            document.getElementById("boutonTempsTravail").className="";
-        </script>
-        <?php
-    }
+if ($this->lireDonnee('etape') == 'newDemande') {
+    var_dump($demande);
+    var_dump($salarie);
+    ?>
+    <script type="text/javascript">
+        document.getElementById("divDemande").style.display = "block";
+        document.getElementById("boutonDemande").className = "";
+    </script>
+    <?php
+}
+if ($this->lireDonnee('etape') == 'okDemande') {
+    var_dump($demande);
+    var_dump($salarie);
+    ?>
+    <script type="text/javascript">
+        document.getElementById("divDemande").style.display = "none";
+        document.getElementById("divSalarie").style.display = "block";
+        document.getElementById("boutonDemande").className = "disabled";
+        document.getElementById("boutonSalarie").className = "";
+    </script>
+    <?php
+}
+if ($this->lireDonnee('etape') == 'okSalarie') {
+    var_dump($demande);
+    var_dump($salarie);
+    ?>
+    <script type="text/javascript">
+        document.getElementById("divSalarie").style.display = "none";
+        document.getElementById("divContrat").style.display = "block";
+        document.getElementById("boutonSalarie").className = "disabled";
+        document.getElementById("boutonContrat").className = "";
+    </script>
+    <?php
+}
+if ($this->lireDonnee('etape') == 'okContrat') {
+    var_dump($demande);
+    var_dump($salarie);
+    ?>
+    <script type="text/javascript">
+        document.getElementById("divContrat").style.display = "none";
+        document.getElementById("divTempsTravail").style.display = "block";
+        document.getElementById("boutonContrat").className = "disabled";
+        document.getElementById("boutonTempsTravail").className = "";
+    </script>
+    <?php
+}
 ?>
 
 <!-- Appel du script js pour afficher correctement les formulaires -->

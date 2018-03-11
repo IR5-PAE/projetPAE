@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 28 Février 2018 à 21:57
+-- Généré le :  Dim 11 Mars 2018 à 16:44
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -32,7 +32,7 @@ USE `asea`;
 CREATE TABLE `demande` (
   `idDemande` int(11) NOT NULL,
   `etablissement` varchar(255) NOT NULL,
-  `numOffreEmploi` int(11) NOT NULL,
+  `numOffreEmploi` varchar(25) NOT NULL,
   `dateHeureEmbauche` timestamp NOT NULL,
   `emploi` varchar(255) NOT NULL,
   `qualification` varchar(255) NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE `demande` (
   `typeTempsTravail` varchar(25) NOT NULL,
   `volumeTempsPartiel` varchar(25) NOT NULL,
   `typeRepartitionTempsPartiel` varchar(50) NOT NULL,
-  `repartitionTempsPartiel` varchar(500) NOT NULL,
+  `repartitionTempsPartiel` varchar(300) NOT NULL,
   `idPersonne` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -61,7 +61,7 @@ CREATE TABLE `demande` (
 
 CREATE TABLE `etablissement` (
   `idEtablissement` int(11) NOT NULL,
-  `nomEtablissement` varchar(50) NOT NULL
+  `nomEtablissement` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -77,7 +77,7 @@ CREATE TABLE `personne` (
   `prenomPersonne` varchar(255) NOT NULL,
   `dateNaissance` date NOT NULL,
   `lieuNaissance` varchar(255) NOT NULL,
-  `numSecuSoc` bigint(15) NOT NULL,
+  `numSecuSoc` varchar(15) NOT NULL,
   `nationalite` varchar(255) NOT NULL,
   `adresse` varchar(255) NOT NULL,
   `complementAdresse` varchar(255) DEFAULT NULL,
@@ -117,7 +117,8 @@ ALTER TABLE `etablissement`
 -- Index pour la table `personne`
 --
 ALTER TABLE `personne`
-  ADD PRIMARY KEY (`idPersonne`);
+  ADD PRIMARY KEY (`idPersonne`),
+  ADD UNIQUE KEY `numSecuSoc` (`numSecuSoc`);
 
 --
 -- Index pour la table `qualification`

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Description of M_DaoUser
+ * Description of M_DaoPersonne
  *
  * @author arichard
  */
@@ -46,9 +46,9 @@ class M_DaoPersonne extends M_DaoGenerique {
         // construire un tableau des paramètres d'insertion ou de modification
         // l'ordre des valeurs est important : il correspond à celui des paramètres de la requête SQL
         $retour = array(
-            ':nomPersonne' => $objetMetier->getNomPersonne(),
-            ':nomJeuneFillePersonne' => $objetMetier->getNomJeuneFillePersonne(),
-            ':prenomPersonne' => $objetMetier->getPrenomPersonne(),
+            ':nom' => $objetMetier->getNom(),
+            ':nomJeuneFille' => $objetMetier->getNomJeuneFille(),
+            ':prenom' => $objetMetier->getPrenom(),
             ':dateNaissance' => $objetMetier->getDateNaissance(),
             ':lieuNaissance' => $objetMetier->getLieuNaissance(),
             ':numSecuSoc' => $objetMetier->getNumSecuSoc(),
@@ -104,6 +104,29 @@ class M_DaoPersonne extends M_DaoGenerique {
         return $retour;
     }
     
+    // Lire un enregistrement d'une table par son numero de sécurité sociae mis en paramètre
+    function getOneByNumSecSoc($num) {
+        $retour = null;
+        try {
+            // Requête textuelle
+            $sql = "SELECT * FROM $this->nomTable P ";
+            $sql .= "WHERE P.numSecuSoc = ?";
+            // préparer la requête PDO
+            $queryPrepare = $this->pdo->prepare($sql);
+            // exécuter la requête avec les valeurs des paramètres (il n'y en a qu'un ici) dans un tableau
+            if ($queryPrepare->execute(array($num))) {
+                // si la requête réussit :
+                // extraire l'enregistrement retourné par la requête
+                $enregistrement = $queryPrepare->fetch(PDO::FETCH_ASSOC);
+                // construire l'objet métier correspondant
+                $retour = $this->enregistrementVersObjet($enregistrement);
+            }
+        } catch (PDOException $e) {
+            echo get_class($this) . ' - ' . __METHOD__ . ' : ' . $e->getMessage();
+        }
+        return $retour;
+    }
+    
     /**
      * insertion
      * @param type $objetMetier
@@ -126,9 +149,9 @@ class M_DaoPersonne extends M_DaoGenerique {
                     . "codePostal,"
                     . "ville) ";
             $sql .= "VALUES (";
-            $sql .=   ":nomPersonne,"
-                    . ":nomJeuneFillePersonne,"
-                    . ":prenomPersonne,"
+            $sql .=   ":nom,"
+                    . ":nomJeuneFille,"
+                    . ":prenom,"
                     . ":dateNaissance,"
                     . ":lieuNaissance,"
                     . ":numSecuSoc,"
@@ -156,9 +179,9 @@ class M_DaoPersonne extends M_DaoGenerique {
         try {
             // Requête textuelle paramétrée (paramètres nommés)
             $sql = "UPDATE $this->nomTable SET ";
-            $sql .= "nomPersonne = :nomPersonne, ";
-            $sql .= "nomJeuneFillePersonne = :nomJeuneFillePersonne, ";
-            $sql .= "prenomPersonne = :prenomPersonne, ";
+            $sql .= "nomPersonne = :nom, ";
+            $sql .= "nomJeuneFillePersonne = :nomJeuneFille, ";
+            $sql .= "prenomPersonne = :prenom, ";
             $sql .= "dateNaissance = :dateNaissance, ";
             $sql .= "lieuNaissance = :lieuNaissance, ";
             $sql .= "numSecuSoc = :numSecuSoc, ";
@@ -167,14 +190,14 @@ class M_DaoPersonne extends M_DaoGenerique {
             $sql .= "complementAdresse = :complementAdresse, ";
             $sql .= "codePostal = :codePostal, ";
             $sql .= "ville = :ville ";
-            $sql .= "WHERE idPersonne = :idPersonne";
+            $sql .= "WHERE idPersonne = :id";
             //var_dump($sql);
             // préparer la requête PDO
             $queryPrepare = $this->pdo->prepare($sql);
             // préparer la  liste des paramètres la valeur de l'identifiant
             //  à prendre en compte est celle qui a été passée en paramètre à la méthode
             $parametres = $this->objetVersEnregistrement($objetMetier);
-            $parametres[':idPersonne'] = $idMetier;
+            $parametres[':id'] = $idMetier;
             // exécuter la requête avec les valeurs des paramètres dans un tableau
             $retour = $queryPrepare->execute($parametres);
             //debug_query($sql, $parametres);

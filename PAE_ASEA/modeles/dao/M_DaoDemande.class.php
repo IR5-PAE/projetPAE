@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Description of M_DaoUser
+ * Description of M_DaoDemande
  *
  * @author arichard
  */
@@ -61,7 +61,7 @@ class M_DaoDemande extends M_DaoGenerique {
         // construire un tableau des paramètres d'insertion ou de modification
         // l'ordre des valeurs est important : il correspond à celui des paramètres de la requête SQL
         if (!is_null($objetMetier->getPersonne())) {
-            $idPersonne = $objetMetier->getPersonne()->getIdPersonne();
+            $idPersonne = $objetMetier->getPersonne()->getId();
         } else {
             $idPersonne = 0;
         }
@@ -85,7 +85,7 @@ class M_DaoDemande extends M_DaoGenerique {
             ':volumeTempsPartiel' => $objetMetier->getVolumeTempsPartiel(),
             ':typeRepartitionTempsPartiel' => $objetMetier->getTypeRepartitionTempsPartiel(),
             ':repartitionTempsPartiel' => $objetMetier->getRepartitionTempsPartiel(),
-            ':idPersonne' => $idPersonne
+            ':id' => $idPersonne
         );
         return $retour;
     }
@@ -228,7 +228,7 @@ class M_DaoDemande extends M_DaoGenerique {
                     . ":volumeTempsPartiel,"
                     . ":typeRepartitionTempsPartiel,"
                     . ":repartitionTempsPartiel,"
-                    . ":idPersonne)";
+                    . ":id)";
             //var_dump($sql);
             // préparer la requête PDO
             $queryPrepare = $this->pdo->prepare($sql);
@@ -267,15 +267,15 @@ class M_DaoDemande extends M_DaoGenerique {
             $sql .= "volumeTempsPartiel = :volumeTempsPartiel, ";
             $sql .= "typeRepartitionTempsPartiel = :typeRepartitionTempsPartiel, ";
             $sql .= "repartitionTempsPartiel = :repartitionTempsPartiel, ";
-            $sql .= "idPersonne = :idPersonne ";
-            $sql .= "WHERE idDemande = :id";
+            $sql .= "idPersonne = :id ";
+            $sql .= "WHERE idDemande = :idDemande";
             //var_dump($sql);
             // préparer la requête PDO
             $queryPrepare = $this->pdo->prepare($sql);
             // préparer la  liste des paramètres la valeur de l'identifiant
             //  à prendre en compte est celle qui a été passée en paramètre à la méthode
             $parametres = $this->objetVersEnregistrement($objetMetier);
-            $parametres[':id'] = $idMetier;
+            $parametres[':idDemande'] = $idMetier;
             // exécuter la requête avec les valeurs des paramètres dans un tableau
             $retour = $queryPrepare->execute($parametres);
             //debug_query($sql, $parametres);

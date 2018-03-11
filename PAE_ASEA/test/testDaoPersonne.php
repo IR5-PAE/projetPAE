@@ -25,7 +25,7 @@
 
         //Test d'insertion
         echo "<p>Test d'insertion</p>";
-        $personne = new M_Personne(null, "DURAND", "DUPE", "Antoine", "2018-12-26", "Bastia", 1680892002039, "Micronesia", "424-396 Fermentum St.", "Corse", 1, "Bastia");
+        $personne = new M_Personne(null, "DURAND", "DUPE", "Antoine", "2018-12-26", "Bastia", "168015892002039", "Micronesia", "424-396 Fermentum St.", "Corse", 1, "Bastia");
         var_dump($personne);
         $dao->insert($personne);
 
@@ -35,7 +35,7 @@
         
         //Test de modification
         echo "<p>Test de modification</p>";
-        $personne->setNomPersonne("RICHARD");
+        $personne->setNom("RICHARD");
         $personne->setLieuNaissance("NANTES");
         var_dump($personne);
         $enr = $dao->getPdo()->query('SELECT MAX(idPersonne) FROM Personne;')->fetch();
@@ -46,7 +46,7 @@
 
         //Test de suppression
         echo "<p>Test de suppression</p>";
-        $id = $persLu->getIdPersonne();
+        $id = $persLu->getId();
         echo "Supprimer : " . $id . "<br/>";
         $dao->delete($id);
         $persLu = $dao->getOneById($id);

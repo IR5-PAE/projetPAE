@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Description of M_DaoProduit
+ * Description of M_DaoQualification
  *
  * @author arichard
  */

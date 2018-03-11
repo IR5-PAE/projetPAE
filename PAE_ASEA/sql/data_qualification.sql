@@ -1,3 +1,7 @@
+--
+-- Contenu de la table `qualification`
+--
+
 INSERT INTO `qualification` (`idQualification`, `libelleQualification`) VALUES
 (1, 'A.M.P.  pour adultes'),
 (2, 'Agent administratif principal'),
