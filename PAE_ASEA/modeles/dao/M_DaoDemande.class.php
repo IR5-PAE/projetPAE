@@ -66,27 +66,27 @@ class M_DaoDemande extends M_DaoGenerique {
             $idPersonne = 0;
         }
         $retour = array(
-            ':etablissement' => $objetMetier->getEtablissement(),
-            ':numOffreEmploi' => $objetMetier->getNumOffreEmploi(),
-            ':dateHeureEmbauche' => $objetMetier->getDateHeureEmbauche(),
-            ':emploi' => $objetMetier->getEmploi(),
-            ':qualification' => $objetMetier->getQualification(),
-            ':lieuTravail' => $objetMetier->getLieuTravail(),
-            ':remuneration' => $objetMetier->getRemuneration(),
-            ':avantage' => $objetMetier->getAvantage(),
-            ':typeContrat' => $objetMetier->getTypeContrat(),
-            ':periodeEssaiCDI' => $objetMetier->getPeriodeEssaiCDI(),
-            ':dateDebutCDD' => $objetMetier->getDateDebutCDD(),
-            ':dateFinCDD' => $objetMetier->getDateFinCDD(),
-            ':dateFinDernierCDD' => $objetMetier->getDateFinDernierCDD(),
-            ':motifCDD' => $objetMetier->getMotifCDD(),
-            ':infoComplementaireMotif' => $objetMetier->getInfoComplementaireMotif(),
-            ':typeTempsTravail' => $objetMetier->getTypeTempsTravail(),
-            ':volumeTempsPartiel' => $objetMetier->getVolumeTempsPartiel(),
-            ':typeRepartitionTempsPartiel' => $objetMetier->getTypeRepartitionTempsPartiel(),
-            ':repartitionTempsPartiel' => $objetMetier->getRepartitionTempsPartiel(),
-            ':id' => $idPersonne
-        );
+                ':etablissement' => $objetMetier->getEtablissement(),
+                ':numOffreEmploi' => $objetMetier->getNumOffreEmploi(),
+                ':dateHeureEmbauche' => $objetMetier->getDateHeureEmbauche(),
+                ':emploi' => $objetMetier->getEmploi(),
+                ':qualification' => $objetMetier->getQualification(),
+                ':lieuTravail' => $objetMetier->getLieuTravail(),
+                ':remuneration' => $objetMetier->getRemuneration(),
+                ':avantage' => $objetMetier->getAvantage(),
+                ':typeContrat' => $objetMetier->getTypeContrat(),
+                ':periodeEssaiCDI' => $objetMetier->getPeriodeEssaiCDI(),
+                ':dateDebutCDD' => $objetMetier->getDateDebutCDD(),
+                ':dateFinCDD' => $objetMetier->getDateFinCDD(),
+                ':dateFinDernierCDD' => $objetMetier->getDateFinDernierCDD(),
+                ':motifCDD' => $objetMetier->getMotifCDD(),
+                ':infoComplementaireMotif' => $objetMetier->getInfoComplementaireMotif(),
+                ':typeTempsTravail' => $objetMetier->getTypeTempsTravail(),
+                ':volumeTempsPartiel' => $objetMetier->getVolumeTempsPartiel(),
+                ':typeRepartitionTempsPartiel' => $objetMetier->getTypeRepartitionTempsPartiel(),
+                ':repartitionTempsPartiel' => $objetMetier->getRepartitionTempsPartiel(),
+                ':id' => $idPersonne
+                );
         return $retour;
     }
 

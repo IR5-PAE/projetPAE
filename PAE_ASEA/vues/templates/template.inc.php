@@ -8,13 +8,13 @@
     <body>
         <div id="global" class="centrerElem">
             <header>
-               <?php include($this->lireDonnee('entete')); ?>
+                <?php include($this->lireDonnee('entete')); ?>
             </header>
             <section>
-                <?php include($this->lireDonnee('centre'));?>
+                <?php include($this->lireDonnee('centre')); ?>
             </section>
             <footer>
-                <?php include($this->lireDonnee('pied'));?>
+                <?php include($this->lireDonnee('pied')); ?>
             </footer>
         </div>
     </body>

@@ -46,18 +46,18 @@ class M_DaoPersonne extends M_DaoGenerique {
         // construire un tableau des paramètres d'insertion ou de modification
         // l'ordre des valeurs est important : il correspond à celui des paramètres de la requête SQL
         $retour = array(
-            ':nom' => $objetMetier->getNom(),
-            ':nomJeuneFille' => $objetMetier->getNomJeuneFille(),
-            ':prenom' => $objetMetier->getPrenom(),
-            ':dateNaissance' => $objetMetier->getDateNaissance(),
-            ':lieuNaissance' => $objetMetier->getLieuNaissance(),
-            ':numSecuSoc' => $objetMetier->getNumSecuSoc(),
-            ':nationalite' => $objetMetier->getNationalite(),
-            ':adresse' => $objetMetier->getAdresse(),
-            ':complementAdresse' => $objetMetier->getComplementAdresse(),
-            ':codePostal' => $objetMetier->getCodePostal(),
-            ':ville' => $objetMetier->getVille()
-        );
+                ':nom' => $objetMetier->getNom(),
+                ':nomJeuneFille' => $objetMetier->getNomJeuneFille(),
+                ':prenom' => $objetMetier->getPrenom(),
+                ':dateNaissance' => $objetMetier->getDateNaissance(),
+                ':lieuNaissance' => $objetMetier->getLieuNaissance(),
+                ':numSecuSoc' => $objetMetier->getNumSecuSoc(),
+                ':nationalite' => $objetMetier->getNationalite(),
+                ':adresse' => $objetMetier->getAdresse(),
+                ':complementAdresse' => $objetMetier->getComplementAdresse(),
+                ':codePostal' => $objetMetier->getCodePostal(),
+                ':ville' => $objetMetier->getVille()
+                );
         return $retour;
     }
 

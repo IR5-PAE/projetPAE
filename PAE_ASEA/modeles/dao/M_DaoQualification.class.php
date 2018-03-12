@@ -19,7 +19,10 @@ class M_DaoQualification extends M_DaoGenerique {
      * @return objet :  instance de la classe métier, initialisée d'après les valeurs de l'enregistrement 
      */
     public function enregistrementVersObjet($enreg) {
-        $retour = new M_Qualification($enreg['idQualification'], $enreg['libelleQualification']);
+        $retour = new M_Qualification(
+                $enreg['idQualification'], 
+                $enreg['libelleQualification']
+                );
         return $retour;
     }
 
@@ -32,8 +35,8 @@ class M_DaoQualification extends M_DaoGenerique {
         // construire un tableau des paramètres d'insertion ou de modification
         // l'ordre des valeurs est important : il correspond à celui des paramètres de la requête SQL
         $retour = array(
-            ':libelleQualification' => $objetMetier->getLibelleQualification()
-        );
+                ':libelleQualification' => $objetMetier->getLibelleQualification()
+                );
         return $retour;
     }
 

@@ -18,7 +18,7 @@ function __autoload($classe) {
                     break;
                 default :
                     $chemin = "../modeles/metier/";
-                    break;                   
+                    break;
             }
             break;
         case "V_" :
@@ -56,7 +56,7 @@ function getNomClasse($typeClasse, $suffixe) {
  * @return string : valeur lue ou bien par défaut
  */
 function getParametre($nomParametre, $valeurDefaut) {
-    $valeurParametre= null;
+    $valeurParametre = null;
     if (isset($_REQUEST["$nomParametre"])) {
         $valeurParametre = $_REQUEST["$nomParametre"];
     } else {
@@ -65,23 +65,17 @@ function getParametre($nomParametre, $valeurDefaut) {
     return $valeurParametre;
 }
 
-
 function debug_query($query, $param) {
-     foreach ($param as $name=>$value) {
-             $query = str_replace($name, '"' . $value . '"', $query);
-     }
-     echo '<p>' . $query . '</p>';
+    foreach ($param as $name => $value) {
+        $query = str_replace($name, '"' . $value . '"', $query);
+    }
+    echo '<p>' . $query . '</p>';
 }
 
 //fonction d'impression 
-function edition(){
-    options =="Width=700,Height=700";
-    windows.open("../includes/edition.php","edition",options);
-    
+function edition() {
+    options == "Width=700,Height=700";
+    windows . open("../includes/edition.php", "edition", options);
 }
-
-
-
-
 ?>
 

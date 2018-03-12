@@ -35,8 +35,6 @@ $salarie = $_SESSION['salarie'];
 <!-- Affichage ou non du bon formulaire en fonction des étapes de la demande gére par le controleur C_Demande -->
 <?php
 if ($this->lireDonnee('etape') == 'newDemande') {
-    var_dump($demande);
-    var_dump($salarie);
     ?>
     <script type="text/javascript">
         document.getElementById("divDemande").style.display = "block";
@@ -45,8 +43,6 @@ if ($this->lireDonnee('etape') == 'newDemande') {
     <?php
 }
 if ($this->lireDonnee('etape') == 'okDemande') {
-    var_dump($demande);
-    var_dump($salarie);
     ?>
     <script type="text/javascript">
         document.getElementById("divDemande").style.display = "none";
@@ -57,8 +53,6 @@ if ($this->lireDonnee('etape') == 'okDemande') {
     <?php
 }
 if ($this->lireDonnee('etape') == 'okSalarie') {
-    var_dump($demande);
-    var_dump($salarie);
     ?>
     <script type="text/javascript">
         document.getElementById("divSalarie").style.display = "none";
@@ -69,8 +63,6 @@ if ($this->lireDonnee('etape') == 'okSalarie') {
     <?php
 }
 if ($this->lireDonnee('etape') == 'okContrat') {
-    var_dump($demande);
-    var_dump($salarie);
     ?>
     <script type="text/javascript">
         document.getElementById("divContrat").style.display = "none";

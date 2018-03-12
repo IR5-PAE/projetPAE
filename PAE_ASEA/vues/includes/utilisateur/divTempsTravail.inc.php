@@ -3,23 +3,24 @@
     <div class="formsDemandeContrat">
         <strong>Temps de travail :</strong>
         <br><hr><br>
-        <input type="radio" class="inherit" name="tempsComplet" value="tempsComplet" onchange="TypeTempsTravail(1)">Temps Complet
-        <input type="radio" class="inherit" name="tempsPartiel" value="tempsPartiel" onchange="TypeTempsTravail(2)">Temps partiel
+        <label class="inherit"><input type="radio" class="inherit" name="tempsComplet" value="tempsComplet" onchange="TypeTempsTravail(1)">Temps Complet</label>
+        <label class="inherit"><input type="radio" class="inherit" name="tempsPartiel" value="tempsPartiel" onchange="TypeTempsTravail(2)">Temps partiel</label>
         <br><br><br>
 
         <div id="divTempsPartiel" style="display: none">
             <span class="required">*</span><label>Volume :</label>
-            <input type="radio" class="inherit" name="hebdomadaire" value="hebdomadaire" onchange="Volume(1)">Hebdomadaire
-            <input type="radio" class="inherit" name="mensuel" value="mensuel" onchange="Volume(2)">Mensuel
-            <input type="radio" class="inherit" name="moyenneSur12Mois" value="moyenneSur12Mois" onchange="Volume(3)">Moyenne sur 12 mois
-            <br><span style="font-style: italic">(maximum 34,99 heures par semaine)</span>
+            <label class="inherit"><input type="radio" class="inherit" name="hebdomadaire" value="hebdomadaire" onchange="Volume(1)">Hebdomadaire</label>
+            <label class="inherit"><input type="radio" class="inherit" name="mensuel" value="mensuel" onchange="Volume(2)">Mensuel</label>
+            <label class="inherit"><input type="radio" class="inherit" name="moyenneSur12Mois" value="moyenneSur12Mois" onchange="Volume(3)">Moyenne sur 12 mois</label>
+            <br><br><span style="font-style: italic">(maximum 34,99 heures par semaine)</span>
 
             <br><br>
 
             <div id="divHebdomadaire" style="display: none">
                 <span class="required">*</span><label>Répartition :</label>
-                <input type="radio" class="inherit" name="repartitionEnHeure" value="repartitionEnHeure" onchange="RepartitionHebdomadaire(1)">Répartition en heure
-                <input type="radio" class="inherit" name="volumeJournalier" value="volumeJournalier" onchange="RepartitionHebdomadaire(2)">En volume journalier
+                <br><br>
+                <label class="inherit"><input type="radio" class="inherit" name="repartitionEnHeure" value="repartitionEnHeure" onchange="RepartitionHebdomadaire(1)">Répartition en heure</label>
+                <label class="inherit"><input type="radio" class="inherit" name="volumeJournalier" value="volumeJournalier" onchange="RepartitionHebdomadaire(2)">En volume journalier</label>
 
                 <br><br>
 
@@ -107,7 +108,7 @@
                         </tr>
                         <tr>
                             <td class="titres">TOTAL Semaine</td>
-                            <td colspan="6"><input type="time" name="cell43" id="cell43" value="31:40" disabled="true"/></td>
+                            <td colspan="6"><input type="time" name="cell43" id="cell43" disabled/></td>
                         </tr>
                     </table>
                 </div>
@@ -151,53 +152,51 @@
                         </tr>
                         <tr>
                             <td class="titres">TOTAL</td>
-                            <td><input type="time" name="cell51" id="cell51" value="31:40" readonly="true"/></td>
+                            <td><input type="time" name="cell51" id="cell51" disabled/></td>
                         </tr>
                     </table>
                 </div>
             </div>
 
             <div id="divMensuel" style="display: none">
-                <label>Répartition :</label>
+                <span class="required">*</span><label>Répartition :</label>
                 <br><br>
-                <input type="radio" class="inherit" name="moyenneHebdomadaire" value="moyenneHebdomadaire" onchange="RepartitionMensuel(1)">Moyenne Hebdomadaire
+                <label class="inherit"><input type="radio" class="inherit" name="moyenneHebdomadaire" value="moyenneHebdomadaire" onchange="RepartitionMensuel(1)">Moyenne Hebdomadaire</label>
+                <br><br>
+                <label class="inherit"><input type="radio" class="inherit" name="moyenneHebdomadaireSur4Semaines" value="moyenneHebdomadaireSur4Semaines" onchange="RepartitionMensuel(2)">Moyenne Hebdomadaire sur 4 Semaines</label>
+                <br><br><br>
                 <div id="divMoyenneHebdomadaire" style="display: none">
-                    <br><br>
-                    <label>Nombre d'heures par semaine en moyenne :</label>
+                    <label for="moyenneNbHeuresHebdomadaires">Nombre d'heures par semaine en moyenne :</label>
                     <input type="time" name="moyenneNbHeuresHebdomadaires" id="moyenneNbHeuresHebdomadaires"/>
                 </div>
-                <br><br>
-                <input type="radio" class="inherit" name="moyenneHebdomadaireSur4Semaines" value="moyenneHebdomadaireSur4Semaines" onchange="RepartitionMensuel(2)">Moyenne Hebdomadaire sur 4 Semaines
                 <div id="divMoyenneHebdomadaireSur4Semaines" style="display: none">
-                    <br><br>
-                    <label>Nombre d'heures Semaine 1 :</label>
+                    <label for="nbHeuresSemaine1">Nombre d'heures Semaine 1 :</label>
                     <input type="time" name="nbHeuresSemaine1" id="nbHeuresSemaine1"/><br><br>
-                    <label>Nombre d'heures Semaine 2 :</label>
+                    <label for="nbHeuresSemaine2">Nombre d'heures Semaine 2 :</label>
                     <input type="time" name="nbHeuresSemaine2" id="nbHeuresSemaine2"/><br><br>
-                    <label>Nombre d'heures Semaine 3 :</label>
+                    <label for="nbHeuresSemaine3">Nombre d'heures Semaine 3 :</label>
                     <input type="time" name="nbHeuresSemaine3" id="nbHeuresSemaine3"/><br><br>
-                    <label>Nombre d'heures Semaine 4 :</label>
+                    <label for="nbHeuresSemaine4">Nombre d'heures Semaine 4 :</label>
                     <input type="time" name="nbHeuresSemaine4" id="nbHeuresSemaine4"/><br><br><br><br>
-                    
+
                     <label><strong>Nombre d'heures Mensuelles en moyenne :</strong></label>
-                    <input type="time" name="moyenneNbHeuresMensuelles" id="moyenneNbHeuresMensuelles" step="300" disabled="true"/>
+                    <input type="time" name="moyenneNbHeuresMensuelles" id="moyenneNbHeuresMensuelles" disabled/>
                 </div>
             </div>
-            
+
             <div id="divMoyenne12Mois" style="display: none">
-                <label>Répartition :</label>
+                <span class="required">*</span><label>Répartition :</label>
                 <br><br>
-                <input type="radio" class="inherit" name="moyenneHebdomadaireSur12Mois" value="moyenneHebdomadaireSur12Mois" onchange="RepartitionMoyenne12Mois(1)">Moyenne d'heures par semaine sur la période de modulation
+                <label class="inherit"><input type="radio" class="inherit" name="moyenneHebdomadaireSur12Mois" value="moyenneHebdomadaireSur12Mois" onchange="RepartitionMoyenne12Mois(1)">Moyenne d'heures par semaine sur la période de modulation</label>
+                <br><br>
+                <label class="inherit"><input type="radio" class="inherit" name="moyenneMensuelleSur12Mois" value="moyenneMensuelleSur12Mois" onchange="RepartitionMoyenne12Mois(2)">Moyenne d'heures par mois (sur 4 semaines) sur la période de modulation</label>
+                <br><br><br>
                 <div id="divMoyenneHebdomadaireSur12Mois" style="display: none">
-                    <br><br>
-                    <label>Moyenne d'heures par semaine :</label>
+                    <label for="moyenneNbHeuresHebdomadaires12Mois">Moyenne d'heures par semaine :</label>
                     <input type="time" name="moyenneNbHeuresHebdomadaires12Mois" id="moyenneNbHeuresHebdomadaires12Mois"/>
                 </div>
-                <br><br>
-                <input type="radio" class="inherit" name="moyenneMensuelleSur12Mois" value="moyenneMensuelleSur12Mois" onchange="RepartitionMoyenne12Mois(2)">Moyenne d'heures par mois (sur 4 semaines) sur la période de modulation
                 <div id="divMoyenneMensuelleSur12Mois" style="display: none">
-                    <br><br>
-                    <label>Moyenne d'heures par mois (4 semaines) :</label>
+                    <label for="moyenneNbHeuresMensuelles12Mois">Moyenne d'heures par mois (4 semaines) :</label>
                     <input type="time" name="moyenneNbHeuresMensuelles12Mois" id="moyenneNbHeuresMensuelles12Mois"/>
                 </div>
             </div>

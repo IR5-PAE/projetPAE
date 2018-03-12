@@ -29,10 +29,6 @@
         var_dump($personne);
         $dao->insert($personne);
 
-        //Test de selection par login
-//        $persLu = $dao->getOneByLogin('vhugo');
-//        var_dump($persLu);
-        
         //Test de modification
         echo "<p>Test de modification</p>";
         $personne->setNom("RICHARD");

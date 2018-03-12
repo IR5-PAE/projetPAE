@@ -4,7 +4,7 @@
 
 function validerDemande() {
     var ok = 1;
-    
+
     if (ok === 1) {
         document.submit();
     }

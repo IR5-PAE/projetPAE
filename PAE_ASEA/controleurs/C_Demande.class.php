@@ -7,9 +7,9 @@ class C_Demande extends C_ControleurGenerique {
      * Afficher la page demande de contrat
      */
     function newDemande() {
-        // initialisation de la variable session contenant l'objet demande
+        // initialisation des variables session
         include_once("../modeles/metier/M_Demande.class.php");
-        include_once("../modeles/metier/M_Demande.class.php");
+        include_once("../modeles/metier/M_Personne.class.php");
         session_start();
         $demande = new M_Demande(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
         $salarie = new M_Personne(null, null, null, null, null, null, null, null, null, null, null, null);
@@ -19,6 +19,11 @@ class C_Demande extends C_ControleurGenerique {
         $this->vue = new V_Vue("../vues/templates/template.inc.php");
         $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreFormulaireNewDemande.inc.php");
         // les données
+        // Mémoriser la liste des établissements
+        $daoEtablissement = new M_DaoEtablissement();
+        $daoEtablissement->connecter();
+        $this->vue->ecrireDonnee('lesEtablissements', $daoEtablissement->getAll());
+        $daoEtablissement->deconnecter();
         $this->vue->ecrireDonnee('titreVue', "Demande");
         $this->vue->ecrireDonnee('etape', "newDemande");
         $this->vue->afficher();
@@ -95,7 +100,7 @@ class C_Demande extends C_ControleurGenerique {
         $demande = $_SESSION['demande'];
         $salarie = $_SESSION['salarie'];
         $salarie->setNom($nomPersonne);
-        if (isset($_POST['nomJeuneFille'])) {
+        if ($nomJeuneFillePersonne != "") {
             $salarie->setNomJeuneFille($nomJeuneFillePersonne);
         }
         $salarie->setPrenom($prenomPersonne);
@@ -104,7 +109,7 @@ class C_Demande extends C_ControleurGenerique {
         $salarie->setNumSecuSoc($numSecuSoc);
         $salarie->setNationalite($nationalite);
         $salarie->setAdresse($adresse);
-        if (isset($_POST['complementAdresse'])) {
+        if ($complementAdresse != "") {
             $salarie->setComplementAdresse($complementAdresse);
         }
         $salarie->setCodePostal($codePostal);
@@ -114,6 +119,11 @@ class C_Demande extends C_ControleurGenerique {
         $this->vue = new V_Vue("../vues/templates/template.inc.php");
         $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreFormulaireNewDemande.inc.php");
         // les données
+        // Mémoriser la liste des établissements
+        $daoQualification = new M_DaoQualification();
+        $daoQualification->connecter();
+        $this->vue->ecrireDonnee('lesQualifications', $daoQualification->getAll());
+        $daoQualification->deconnecter();
         $this->vue->ecrireDonnee('titreVue', "Contrat");
         $this->vue->ecrireDonnee('etape', "okSalarie");
         $this->vue->ecrireDonnee('demande', $demande);
@@ -140,26 +150,28 @@ class C_Demande extends C_ControleurGenerique {
         $lieuTravail = $_POST['lieuTravail'];
         $demande->setLieuTravail($lieuTravail);
         // Concaténation des rémunérations
-        $remuneration = "";
+        $remuneration = null;
         if (isset($_POST['rem'])) {
             foreach ($_POST['rem'] as $rem) {
                 $remuneration .= "$rem|";
             }
         }
-        if (isset($_POST['autrePrime'])) {
+        $autrePrime = null;
+        if ($autrePrime != "") {
             $remuneration .= $_POST['autrePrime'];
         }
         if ($remuneration !== "") {
             $demande->setRemuneration($remuneration);
         }
         // Concaténation des avantages
-        $avantage = "";
+        $avantage = null;
         if (isset($_POST['avantage'])) {
             foreach ($_POST['avantage'] as $av) {
                 $avantage .= "$av|";
             }
         }
-        if (isset($_POST['autreAvantage'])) {
+        $autreAvantage = null;
+        if ($autreAvantage != "") {
             $avantage .= $_POST['autreAvantage'];
         }
         if ($avantage !== "") {
@@ -174,7 +186,7 @@ class C_Demande extends C_ControleurGenerique {
                 $demande->setPeriodeEssaiCDI($periodeEssaiCDI);
             }
             if (isset($_POST['non'])) {
-                $periodeEssaiCDI = $_POST['oui'];
+                $periodeEssaiCDI = $_POST['non'];
                 $demande->setPeriodeEssaiCDI($periodeEssaiCDI);
             }
         } else {
@@ -189,13 +201,13 @@ class C_Demande extends C_ControleurGenerique {
                 $demande->setDateFinDernierCDD($dateFinDernierCDD);
                 $motifCDD = $_POST['motif'];
                 $demande->setMotifCDD($motifCDD);
-                $infoComplementaireMotif = "";
+                $infoComplementaireMotif = null;
                 if ($motifCDD === "1") {
                     $infoComplementaireMotif = $_POST['precSurcroit'];
                 } elseif ($motifCDD === "2") {
                     $infoComplementaireMotif = $_POST['precTacheOcas'];
                 } elseif ($motifCDD === "3") {
-                    $infoComplementaireMotif .= $_POST['nomSalarieRemplace'] . "|";
+                    $infoComplementaireMotif = $_POST['nomSalarieRemplace'] . "|";
                     $infoComplementaireMotif .= $_POST['motifRemplacement'] . "|";
                     if (isset($_POST['remplacementCascade'])) {
                         $infoComplementaireMotif .= $_POST['salarieRemplacementCascade'];
@@ -233,10 +245,10 @@ class C_Demande extends C_ControleurGenerique {
         $salarie = $_SESSION['salarie'];
 
         // récupération des champs du formulaire temps travail
-        $typeTempsTravail = "";
-        $volumeTempsPartiel = "";
-        $typeRepartitionTempsPartiel = "";
-        $repartitionTempsPartiel = "";
+        $typeTempsTravail = null;
+        $volumeTempsPartiel = null;
+        $typeRepartitionTempsPartiel = null;
+        $repartitionTempsPartiel = null;
         // 
         // Si la case tempsComplet est cochée
         if (isset($_POST['tempsComplet'])) {
@@ -258,7 +270,6 @@ class C_Demande extends C_ControleurGenerique {
                         // Si la case volumeJournalier est cochée
                         if (isset($_POST['volumeJournalier'])) {
                             $typeRepartitionTempsPartiel = $_POST['volumeJournalier'];
-                            $repartitionTempsPartiel = tableau;
                             for ($index = 44; $index <= 50; $index++) {
                                 $repartitionTempsPartiel .= $_POST["cell{$index}"] . "|";
                             }

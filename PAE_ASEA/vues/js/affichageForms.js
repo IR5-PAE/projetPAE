@@ -9,20 +9,22 @@ function TypeContrat(nb) {
         document.getElementsByName("dateDebutCDD")[0].removeAttribute("required");
         document.getElementsByName("dateFinCDD")[0].removeAttribute("required");
         document.getElementsByName("dateFinDernierCDD")[0].removeAttribute("required");
+        document.getElementById("motif").removeAttribute("required");
         document.getElementById("motif").options[0].selected = "Sélectionner un motif";
         document.getElementById("divSurcroit").style.display = "none";
-        document.getElementById("divTacheOcas").style.display = "none";
+        document.getElementById("divTacheOccas").style.display = "none";
         document.getElementById("divRemplacement").style.display = "none";
         document.getElementsByName("precSurcroit")[0].removeAttribute("required");
-        document.getElementsByName("precTacheOcas")[0].removeAttribute("required");
+        document.getElementsByName("precTacheOccas")[0].removeAttribute("required");
         document.getElementsByName("nomSalarieRemplace")[0].removeAttribute("required");
         document.getElementsByName("motifRemplacement")[0].removeAttribute("required");
         document.getElementsByName("salarieRemplacementCascade")[0].removeAttribute("required");
-        
+
     } else if (nb === 2) {
         document.getElementsByName("cdi")[0].checked = false;
         document.getElementById("divCdi").style.display = "none";
         document.getElementById("divCdd").style.display = "block";
+        document.getElementById("motif").setAttribute("required", "");
         document.getElementsByName("dateDebutCDD")[0].setAttribute("required", "");
         document.getElementsByName("dateFinCDD")[0].setAttribute("required", "");
         document.getElementsByName("dateFinDernierCDD")[0].setAttribute("required", "");
@@ -43,30 +45,30 @@ function Motif() {
     var optionSelected = document.getElementsByName("motif")[0].value;
     if (optionSelected === "1") {
         document.getElementById("divSurcroit").style.display = "block";
-        document.getElementById("divTacheOcas").style.display = "none";
+        document.getElementById("divTacheOccas").style.display = "none";
         document.getElementById("divRemplacement").style.display = "none";
         document.getElementsByName("precSurcroit")[0].setAttribute("required", "");
-        document.getElementsByName("precTacheOcas")[0].removeAttribute("required");
+        document.getElementsByName("precTacheOccas")[0].removeAttribute("required");
         document.getElementsByName("nomSalarieRemplace")[0].removeAttribute("required");
         document.getElementsByName("motifRemplacement")[0].removeAttribute("required");
         document.getElementsByName("salarieRemplacementCascade")[0].removeAttribute("required");
     } else {
         if (optionSelected === "2") {
             document.getElementById("divSurcroit").style.display = "none";
-            document.getElementById("divTacheOcas").style.display = "block";
+            document.getElementById("divTacheOccas").style.display = "block";
             document.getElementById("divRemplacement").style.display = "none";
             document.getElementsByName("precSurcroit")[0].removeAttribute("required");
-            document.getElementsByName("precTacheOcas")[0].setAttribute("required", "");
+            document.getElementsByName("precTacheOccas")[0].setAttribute("required", "");
             document.getElementsByName("nomSalarieRemplace")[0].removeAttribute("required");
             document.getElementsByName("motifRemplacement")[0].removeAttribute("required");
             document.getElementsByName("salarieRemplacementCascade")[0].removeAttribute("required");
         } else {
             if (optionSelected === "3") {
                 document.getElementById("divSurcroit").style.display = "none";
-                document.getElementById("divTacheOcas").style.display = "none";
+                document.getElementById("divTacheOccas").style.display = "none";
                 document.getElementById("divRemplacement").style.display = "block";
                 document.getElementsByName("precSurcroit")[0].removeAttribute("required");
-                document.getElementsByName("precTacheOcas")[0].removeAttribute("required");
+                document.getElementsByName("precTacheOccas")[0].removeAttribute("required");
                 document.getElementsByName("nomSalarieRemplace")[0].setAttribute("required", "");
                 document.getElementsByName("motifRemplacement")[0].setAttribute("required", "");
                 document.getElementsByName("remplacementCascade")[0].checked = false;
@@ -77,10 +79,10 @@ function Motif() {
                 document.getElementsByName("remplacementPartielOpt2")[0].checked = false;
             } else {
                 document.getElementById("divSurcroit").style.display = "none";
-                document.getElementById("divTacheOcas").style.display = "none";
+                document.getElementById("divTacheOccas").style.display = "none";
                 document.getElementById("divRemplacement").style.display = "none";
                 document.getElementsByName("precSurcroit")[0].removeAttribute("required");
-                document.getElementsByName("precTacheOcas")[0].removeAttribute("required");
+                document.getElementsByName("precTacheOccas")[0].removeAttribute("required");
                 document.getElementsByName("nomSalarieRemplace")[0].removeAttribute("required");
                 document.getElementsByName("motifRemplacement")[0].removeAttribute("required");
                 document.getElementsByName("salarieRemplacementCascade")[0].removeAttribute("required");
@@ -101,6 +103,8 @@ function Remplacement(nb) {
         document.getElementById("divRemplacementCascade").style.display = "none";
         document.getElementById("divRemplacementPartiel").style.display = "block";
         document.getElementsByName("salarieRemplacementCascade")[0].removeAttribute("required");
+        document.getElementsByName("remplacementPartielOpt1")[0].checked = false;
+        document.getElementsByName("remplacementPartielOpt2")[0].checked = false;
     }
 }
 
@@ -127,10 +131,10 @@ function TypeTempsTravail(nb) {
         document.getElementById("divMensuel").style.display = "none";
         document.getElementById("divMoyenne12Mois").style.display = "none";
         for (var i = 1; i <= 42; i++) {
-            document.getElementsByName("cell"+i)[0].removeAttribute("required");
+            document.getElementsByName("cell" + i)[0].removeAttribute("required");
         }
         for (var i = 44; i <= 50; i++) {
-            document.getElementsByName("cell"+i)[0].removeAttribute("required");
+            document.getElementsByName("cell" + i)[0].removeAttribute("required");
         }
         document.getElementsByName("moyenneNbHeuresHebdomadaires")[0].removeAttribute("required");
         document.getElementsByName("nbHeuresSemaine1")[0].removeAttribute("required");
@@ -175,10 +179,10 @@ function Volume(nb) {
         document.getElementById("divMoyenneHebdomadaire").style.display = "none";
         document.getElementById("divMoyenneHebdomadaireSur4Semaines").style.display = "none";
         for (var i = 1; i <= 42; i++) {
-            document.getElementsByName("cell"+i)[0].removeAttribute("required");
+            document.getElementsByName("cell" + i)[0].removeAttribute("required");
         }
         for (var i = 44; i <= 50; i++) {
-            document.getElementsByName("cell"+i)[0].removeAttribute("required");
+            document.getElementsByName("cell" + i)[0].removeAttribute("required");
         }
         document.getElementsByName("moyenneNbHeuresHebdomadaires12Mois")[0].removeAttribute("required");
         document.getElementsByName("moyenneNbHeuresMensuelles12Mois")[0].removeAttribute("required");
@@ -193,10 +197,10 @@ function Volume(nb) {
         document.getElementById("divMoyenneHebdomadaireSur12Mois").style.display = "none";
         document.getElementById("divMoyenneMensuelleSur12Mois").style.display = "none";
         for (var i = 1; i <= 42; i++) {
-            document.getElementsByName("cell"+i)[0].removeAttribute("required");
+            document.getElementsByName("cell" + i)[0].removeAttribute("required");
         }
         for (var i = 44; i <= 50; i++) {
-            document.getElementsByName("cell"+i)[0].removeAttribute("required");
+            document.getElementsByName("cell" + i)[0].removeAttribute("required");
         }
         document.getElementsByName("moyenneNbHeuresHebdomadaires")[0].removeAttribute("required");
         document.getElementsByName("nbHeuresSemaine1")[0].removeAttribute("required");
@@ -213,20 +217,20 @@ function RepartitionHebdomadaire(nb) {
         document.getElementById("divRepartitionEnHeure").style.display = "block";
         document.getElementById("divVolumeJournalier").style.display = "none";
         for (var i = 1; i <= 42; i++) {
-            document.getElementsByName("cell"+i)[0].setAttribute("required", "");
+            document.getElementsByName("cell" + i)[0].setAttribute("required", "");
         }
         for (var i = 44; i <= 50; i++) {
-            document.getElementsByName("cell"+i)[0].removeAttribute("required");
+            document.getElementsByName("cell" + i)[0].removeAttribute("required");
         }
     } else if (nb === 2) {
         document.getElementsByName("repartitionEnHeure")[0].checked = false;
         document.getElementById("divRepartitionEnHeure").style.display = "none";
         document.getElementById("divVolumeJournalier").style.display = "block";
         for (var i = 1; i <= 42; i++) {
-            document.getElementsByName("cell"+i)[0].removeAttribute("required");
+            document.getElementsByName("cell" + i)[0].removeAttribute("required");
         }
         for (var i = 44; i <= 50; i++) {
-            document.getElementsByName("cell"+i)[0].setAttribute("required", "");
+            document.getElementsByName("cell" + i)[0].setAttribute("required", "");
         }
     }
 }

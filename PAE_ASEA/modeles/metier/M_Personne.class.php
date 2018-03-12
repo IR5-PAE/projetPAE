@@ -34,7 +34,7 @@ class M_Personne {
         $this->codePostal = $codePostal;
         $this->ville = $ville;
     }
-    
+
     function getId() {
         return $this->id;
     }
@@ -130,5 +130,5 @@ class M_Personne {
     function setVille($ville) {
         $this->ville = $ville;
     }
-} 
-    
+
+}
