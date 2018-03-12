@@ -1,4 +1,4 @@
-<!-- Recuperation de la varibale session contenant l'objet demande -->
+<!-- Récuperation des variables session demande et salarie -->
 <?php
 include_once("../modeles/metier/M_Demande.class.php");
 include_once("../modeles/metier/M_Personne.class.php");

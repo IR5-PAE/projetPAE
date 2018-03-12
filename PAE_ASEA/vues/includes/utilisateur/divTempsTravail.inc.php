@@ -108,7 +108,7 @@
                         </tr>
                         <tr>
                             <td class="titres">TOTAL Semaine</td>
-                            <td colspan="6"><input type="time" name="cell43" id="cell43" disabled/></td>
+                            <td colspan="6"><input type="text" name="cell43" id="cell43" disabled/></td>
                         </tr>
                     </table>
                 </div>
@@ -152,7 +152,7 @@
                         </tr>
                         <tr>
                             <td class="titres">TOTAL</td>
-                            <td><input type="time" name="cell51" id="cell51" disabled/></td>
+                            <td><input type="text" name="cell51" id="cell51" disabled/></td>
                         </tr>
                     </table>
                 </div>

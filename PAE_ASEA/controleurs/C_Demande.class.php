@@ -34,10 +34,13 @@ class C_Demande extends C_ControleurGenerique {
      * Afficher la page de modification de contrat
      */
     function modifDemande() {
-        // les fichiers
-        $this->vue = new V_Vue("../vues/templates/template.inc.php");
-        // les données
-        $this->vue->afficher();
+        //affichage de la vue
+            $this->vue = new V_Vue("../vues/templates/template.inc.php");
+            $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreModificationContrat.inc.php");
+            // les données
+            $this->vue->ecrireDonnee('titreVue', "Modifier une demande");
+            $this->vue->ecrireDonnee('message', "Non fonctionnelle");
+            $this->vue->afficher();
     }
 
     /**
@@ -45,10 +48,13 @@ class C_Demande extends C_ControleurGenerique {
      * Afficher la page de modification de contrat
      */
     function rechercherDemande() {
-        // les fichiers
-        $this->vue = new V_Vue("../vues/templates/template.inc.php");
-        // les données
-        $this->vue->afficher();
+        //affichage de la vue
+            $this->vue = new V_Vue("../vues/templates/template.inc.php");
+            $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreRechercherDemande.inc.php");
+            // les données
+            $this->vue->ecrireDonnee('titreVue', "Rechercher une demande");
+            $this->vue->ecrireDonnee('message', "Non fonctionnelle");
+            $this->vue->afficher();
     }
 
     /**
@@ -94,7 +100,7 @@ class C_Demande extends C_ControleurGenerique {
         $codePostal = $_POST['cp'];
         $ville = $_POST['ville'];
 
-        // récupération de la variable session contenant l'objet demande
+        // récupération des variables session demande et salarie
         include_once("../modeles/metier/M_Demande.class.php");
         session_start();
         $demande = $_SESSION['demande'];
@@ -135,7 +141,7 @@ class C_Demande extends C_ControleurGenerique {
      * valide l'onglet contrat et passe à l'onglet temps travail
      */
     function validerContratForm() {
-        // récupération de la variable session contenant l'objet demande
+        // récupération de la variable session  demande
         include_once("../modeles/metier/M_Demande.class.php");
         session_start();
         $demande = $_SESSION['demande'];
@@ -238,8 +244,9 @@ class C_Demande extends C_ControleurGenerique {
      * Valide l'onglet temps travail et enregistre la demande en base
      */
     function validerTempsTravailForm() {
-        // récupération de la variable session contenant l'objet demande
+        // récupération des variables session demande et salarie
         include_once("../modeles/metier/M_Demande.class.php");
+        include_once("../modeles/metier/M_Personne.class.php");
         session_start();
         $demande = $_SESSION['demande'];
         $salarie = $_SESSION['salarie'];
@@ -337,6 +344,7 @@ class C_Demande extends C_ControleurGenerique {
             $this->vue = new V_Vue("../vues/templates/template.inc.php");
             $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreValiderDemande.inc.php");
             // les données
+            $this->vue->ecrireDonnee('titreVue', "Demande Enregistrée");
             $this->vue->ecrireDonnee('message', "La demande a été enregistrée");
             $this->vue->ecrireDonnee('demande', $demande);
             $this->vue->afficher();

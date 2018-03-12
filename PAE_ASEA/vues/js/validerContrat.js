@@ -22,11 +22,15 @@ function validerContrat() {
         }
     }
 
-    if (document.getElementsByName("remplacementPartiel")[0].checked === false && document.getElementsByName("remplacementCascade")[0].checked === false)
+    var optionSelected = document.getElementsByName("motif")[0].value;
+    if (optionSelected === "3")
     {
-        alert("Veuillez préciser la nature du remplacement");
-        ok = 0;
-        return false;
+        if (document.getElementsByName("remplacementPartiel")[0].checked === false && document.getElementsByName("remplacementCascade")[0].checked === false)
+        {
+            alert("Veuillez préciser la nature du remplacement");
+            ok = 0;
+            return false;
+        }
     }
 
     if (document.getElementsByName("remplacementPartiel")[0].checked)
