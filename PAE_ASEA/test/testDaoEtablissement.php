@@ -14,8 +14,8 @@
 
         //Test de sélection par Id 
         echo "<p>Test de sélection par Id </p>";
-        $qualification = $dao->getOneById(1);
-        var_dump($qualification);
+        $etablissement = $dao->getOneById(1);
+        var_dump($etablissement);
 
         //Test de sélection de tous les établissements
         echo "<p>Test de sélection de tous les enregistrements</p>";
@@ -24,28 +24,28 @@
 
         //Test d'insertion
         echo "<p>Test d'insertion</p>";
-        $qualification = new M_Etablissement(null, "bat test");
-        var_dump($qualification);
-        $dao->insert($qualification);
-        $qualificationLu = $dao->getOneByName("bat test");
-        var_dump($qualificationLu);
+        $etablissement = new M_Etablissement(null, "bat test");
+        var_dump($etablissement);
+        $dao->insert($etablissement);
+        $etablissementLu = $dao->getOneByName("bat test");
+        var_dump($etablissementLu);
 
         //Test de modification
         echo "<p>Test de modification</p>";
-        $qualification->setNomEtablissement("bat modif");
+        $etablissement->setNomEtablissement("bat modif");
         $enr = $dao->getPdo()->query('SELECT MAX(idEtablissement) FROM etablissement;')->fetch();
         $id = $enr[0];
-        $dao->update($id, $qualification);
-        $qualificationLu = $dao->getOneByName("bat modif");
-        var_dump($qualificationLu);
+        $dao->update($id, $etablissement);
+        $etablissementLu = $dao->getOneByName("bat modif");
+        var_dump($etablissementLu);
 
         //Test de suppression
         echo "<p>Test de suppression</p>";
-        $id = $qualificationLu->getIdEtablissement();
+        $id = $etablissementLu->getIdEtablissement();
         echo "Supprimer : " . $id . "<br/>";
         $dao->delete($id);
-        $qualificationLu = $dao->getOneById($id);
-        var_dump($qualificationLu);
+        $etablissementLu = $dao->getOneById($id);
+        var_dump($etablissementLu);
 
         $dao->deconnecter();
         ?>

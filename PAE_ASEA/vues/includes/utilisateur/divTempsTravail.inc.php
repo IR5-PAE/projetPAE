@@ -167,7 +167,7 @@
                 <br><br><br>
                 <div id="divMoyenneHebdomadaire" style="display: none">
                     <label for="moyenneNbHeuresHebdomadaires">Nombre d'heures par semaine en moyenne :</label>
-                    <input type="time" name="moyenneNbHeuresHebdomadaires" id="moyenneNbHeuresHebdomadaires"/>
+                    <input type="text" name="moyenneNbHeuresHebdomadaires" id="moyenneNbHeuresHebdomadaires"/>
                 </div>
                 <div id="divMoyenneHebdomadaireSur4Semaines" style="display: none">
                     <label for="nbHeuresSemaine1">Nombre d'heures Semaine 1 :</label>
@@ -180,7 +180,7 @@
                     <input type="time" name="nbHeuresSemaine4" id="nbHeuresSemaine4"/><br><br><br><br>
 
                     <label><strong>Nombre d'heures Mensuelles en moyenne :</strong></label>
-                    <input type="time" name="moyenneNbHeuresMensuelles" id="moyenneNbHeuresMensuelles" disabled/>
+                    <input type="text" name="moyenneNbHeuresMensuelles" id="moyenneNbHeuresMensuelles" disabled/>
                 </div>
             </div>
 
@@ -193,11 +193,11 @@
                 <br><br><br>
                 <div id="divMoyenneHebdomadaireSur12Mois" style="display: none">
                     <label for="moyenneNbHeuresHebdomadaires12Mois">Moyenne d'heures par semaine :</label>
-                    <input type="time" name="moyenneNbHeuresHebdomadaires12Mois" id="moyenneNbHeuresHebdomadaires12Mois"/>
+                    <input type="text" name="moyenneNbHeuresHebdomadaires12Mois" id="moyenneNbHeuresHebdomadaires12Mois"/>
                 </div>
                 <div id="divMoyenneMensuelleSur12Mois" style="display: none">
                     <label for="moyenneNbHeuresMensuelles12Mois">Moyenne d'heures par mois (4 semaines) :</label>
-                    <input type="time" name="moyenneNbHeuresMensuelles12Mois" id="moyenneNbHeuresMensuelles12Mois"/>
+                    <input type="text" name="moyenneNbHeuresMensuelles12Mois" id="moyenneNbHeuresMensuelles12Mois"/>
                 </div>
             </div>
         </div>

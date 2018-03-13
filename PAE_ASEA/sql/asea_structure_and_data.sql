@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 11 Mars 2018 à 16:43
+-- Généré le :  Mar 13 Mars 2018 à 00:52
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -19,7 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `asea`
 --
-DROP DATABASE `asea`;
 CREATE DATABASE IF NOT EXISTS `asea` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `asea`;
 
@@ -47,9 +46,9 @@ CREATE TABLE `demande` (
   `motifCDD` varchar(255) DEFAULT NULL,
   `infoComplementaireMotif` varchar(255) DEFAULT NULL,
   `typeTempsTravail` varchar(25) NOT NULL,
-  `volumeTempsPartiel` varchar(25) NOT NULL,
-  `typeRepartitionTempsPartiel` varchar(50) NOT NULL,
-  `repartitionTempsPartiel` varchar(300) NOT NULL,
+  `volumeTempsPartiel` varchar(25) DEFAULT NULL,
+  `typeRepartitionTempsPartiel` varchar(50) DEFAULT NULL,
+  `repartitionTempsPartiel` varchar(300) DEFAULT NULL,
   `idPersonne` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -158,6 +157,69 @@ INSERT INTO `demande` (`idDemande`, `etablissement`, `numOffreEmploi`, `dateHeur
 (98, 'Eu Industries', '98', '2017-11-27 23:00:00', 'in sodales elit', 'arcu iaculis enim, sit amet', 'Pharetra Ltd', 'magna. Phasellus dolor elit, pellentesque', 'Sed nunc', 'CDI', 0, '2017-07-14', '2018-11-15', '2018-09-16', 'et', 'nisl arcu iaculis enim, sit amet', 'complet', 'at,', 'et', 'dignissim magna a tortor. Nunc commodo', 45),
 (99, 'Natoque Penatibus Ltd', '99', '2018-05-26 22:00:00', 'arcu et pede.', 'felis purus ac tellus. Suspendisse', 'Semper Ltd', 'non, vestibulum nec, euismod in,', 'bibendum fermentum', 'CDI', 1, '2017-07-04', '2017-12-27', '2017-03-07', 'mollis', 'purus gravida sagittis. Duis gravida. Praesent', 'complet', 'sem', 'dictum', 'Suspendisse ac metus vitae velit', 62),
 (100, 'Proin Industries', '100', '2019-01-05 22:00:00', 'enim diam vel', 'lorem tristique aliquet. Phasellus fermentum', 'Magna Praesent PC', 'fermentum vel, mauris. Integer sem', 'magna. Cras', 'CDD', 1, '2018-08-01', '2018-01-10', '2017-05-26', 'blandit', 'ante lectus convallis est, vitae sodales', 'complet', 'Fusce', 'libero', 'adipiscing lacus. Ut nec urna et', 22);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `emploi`
+--
+
+CREATE TABLE `emploi` (
+  `idEmploi` int(11) NOT NULL,
+  `libelleEmploi` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `emploi`
+--
+
+INSERT INTO `emploi` (`idEmploi`, `libelleEmploi`) VALUES
+(1, 'A.M.P.  pour adultes'),
+(2, 'Agent administratif principal'),
+(3, 'Agent de service intérieur'),
+(4, 'Agent d\'entretien'),
+(5, 'Agent technique'),
+(6, 'Agent technique supérieur'),
+(7, 'Aide médico-psychologique'),
+(8, 'Animateur'),
+(9, 'Animateur socio-éducatif'),
+(10, 'Assistante sociale spécialisée enfance inadaptée'),
+(11, 'Cadre classe 1 niveau 1'),
+(12, 'Cadre classe 2 niveau 2'),
+(13, 'Cadre classe 2 niveau 3'),
+(14, 'Cadre Hors classe - Directeur général'),
+(15, 'Cadre technicien de niveau 1'),
+(16, 'Psychologue - Cadre technicien de niveau 3'),
+(17, 'Candidat Educateur spécialisé'),
+(18, 'Conseillère en économie familiale et sociale'),
+(19, 'Cuisinier qualifié'),
+(20, 'Educateur scolaire'),
+(21, 'Educateur scolaire spécialisé'),
+(22, 'Educateur spécialisé'),
+(23, 'Educateur sportif niveau 4'),
+(24, 'Educateur technique'),
+(25, 'Educateur technique spécialisé'),
+(26, 'Infirmier'),
+(27, 'Instituteur'),
+(28, 'Maître ou Maîtresse de maison'),
+(29, 'Médecin généraliste'),
+(30, 'Médecin pédiatre'),
+(31, 'Moniteur adjoint d\'animation et/ou d\'activités'),
+(32, 'Moniteur d\'atelier de 2eme classe'),
+(33, 'Moniteur éducateur'),
+(34, 'Monitrice d\'enseignement ménager'),
+(35, 'Orthophoniste'),
+(36, 'Ouvrier Qualifié'),
+(37, 'Professeur d\'éducation physique et sportive'),
+(38, 'Professeur des écoles'),
+(39, 'Psychiatre direction'),
+(40, 'Psychiatre ou neuro-psychiatre'),
+(41, 'Psychomotricien'),
+(42, 'Secrétaire médicale'),
+(43, 'Surveillant de nuit'),
+(44, 'Surveillant de nuit qualifié'),
+(45, 'Technicien qualifié'),
+(46, 'Technicien supérieur');
 
 -- --------------------------------------------------------
 
@@ -388,6 +450,12 @@ ALTER TABLE `demande`
   ADD KEY `FK_Demande_idPersonne` (`idPersonne`);
 
 --
+-- Index pour la table `emploi`
+--
+ALTER TABLE `emploi`
+  ADD PRIMARY KEY (`idEmploi`);
+
+--
 -- Index pour la table `etablissement`
 --
 ALTER TABLE `etablissement`
@@ -397,8 +465,7 @@ ALTER TABLE `etablissement`
 -- Index pour la table `personne`
 --
 ALTER TABLE `personne`
-  ADD PRIMARY KEY (`idPersonne`),
-  ADD UNIQUE KEY `numSecuSoc` (`numSecuSoc`);
+  ADD PRIMARY KEY (`idPersonne`);
 
 --
 -- Index pour la table `qualification`
@@ -416,10 +483,15 @@ ALTER TABLE `qualification`
 ALTER TABLE `demande`
   MODIFY `idDemande` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 --
+-- AUTO_INCREMENT pour la table `emploi`
+--
+ALTER TABLE `emploi`
+  MODIFY `idEmploi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+--
 -- AUTO_INCREMENT pour la table `etablissement`
 --
 ALTER TABLE `etablissement`
-  MODIFY `idEtablissement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idEtablissement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT pour la table `personne`
 --
@@ -429,7 +501,7 @@ ALTER TABLE `personne`
 -- AUTO_INCREMENT pour la table `qualification`
 --
 ALTER TABLE `qualification`
-  MODIFY `idQualification` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `idQualification` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 --
 -- Contraintes pour les tables exportées
 --

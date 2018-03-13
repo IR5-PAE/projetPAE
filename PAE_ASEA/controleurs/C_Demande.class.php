@@ -35,12 +35,12 @@ class C_Demande extends C_ControleurGenerique {
      */
     function modifDemande() {
         //affichage de la vue
-            $this->vue = new V_Vue("../vues/templates/template.inc.php");
-            $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreModificationContrat.inc.php");
-            // les données
-            $this->vue->ecrireDonnee('titreVue', "Modifier une demande");
-            $this->vue->ecrireDonnee('message', "Non fonctionnelle");
-            $this->vue->afficher();
+        $this->vue = new V_Vue("../vues/templates/template.inc.php");
+        $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreModificationContrat.inc.php");
+        // les données
+        $this->vue->ecrireDonnee('titreVue', "Modifier une demande");
+        $this->vue->ecrireDonnee('message', "Non fonctionnelle");
+        $this->vue->afficher();
     }
 
     /**
@@ -49,12 +49,12 @@ class C_Demande extends C_ControleurGenerique {
      */
     function rechercherDemande() {
         //affichage de la vue
-            $this->vue = new V_Vue("../vues/templates/template.inc.php");
-            $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreRechercherDemande.inc.php");
-            // les données
-            $this->vue->ecrireDonnee('titreVue', "Rechercher une demande");
-            $this->vue->ecrireDonnee('message', "Non fonctionnelle");
-            $this->vue->afficher();
+        $this->vue = new V_Vue("../vues/templates/template.inc.php");
+        $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreRechercherDemande.inc.php");
+        // les données
+        $this->vue->ecrireDonnee('titreVue', "Rechercher une demande");
+        $this->vue->ecrireDonnee('message', "Non fonctionnelle");
+        $this->vue->afficher();
     }
 
     /**
@@ -125,7 +125,12 @@ class C_Demande extends C_ControleurGenerique {
         $this->vue = new V_Vue("../vues/templates/template.inc.php");
         $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreFormulaireNewDemande.inc.php");
         // les données
-        // Mémoriser la liste des établissements
+        // Mémoriser la liste des emplois
+        $daoEmploi = new M_DaoEmploi();
+        $daoEmploi->connecter();
+        $this->vue->ecrireDonnee('lesEmplois', $daoEmploi->getAll());
+        $daoEmploi->deconnecter();
+        // Mémoriser la liste des qualifications
         $daoQualification = new M_DaoQualification();
         $daoQualification->connecter();
         $this->vue->ecrireDonnee('lesQualifications', $daoQualification->getAll());
@@ -162,13 +167,10 @@ class C_Demande extends C_ControleurGenerique {
                 $remuneration .= "$rem|";
             }
         }
-        $autrePrime = null;
-        if ($autrePrime != "") {
+        if (isset($_POST['autrePrime'])) {
             $remuneration .= $_POST['autrePrime'];
         }
-        if ($remuneration !== "") {
-            $demande->setRemuneration($remuneration);
-        }
+        $demande->setRemuneration($remuneration);
         // Concaténation des avantages
         $avantage = null;
         if (isset($_POST['avantage'])) {
@@ -176,13 +178,10 @@ class C_Demande extends C_ControleurGenerique {
                 $avantage .= "$av|";
             }
         }
-        $autreAvantage = null;
-        if ($autreAvantage != "") {
+        if (isset($_POST['autreAvantage'])) {
             $avantage .= $_POST['autreAvantage'];
         }
-        if ($avantage !== "") {
-            $demande->setAvantage($avantage);
-        }
+        $demande->setAvantage($avantage);
         // Si la case cdi est cochée
         if (isset($_POST['cdi'])) {
             $typeContrat = $_POST['cdi'];
@@ -285,7 +284,7 @@ class C_Demande extends C_ControleurGenerique {
                 } else {
                     // Si la case mensuel est cochée
                     if (isset($_POST['mensuel'])) {
-                        $volumeTempsPartiel = $_POST['hebdomadaire'];
+                        $volumeTempsPartiel = $_POST['mensuel'];
                         // Si la case moyenneHebdomadaire est cochée
                         if (isset($_POST['moyenneHebdomadaire'])) {
                             $typeRepartitionTempsPartiel = $_POST['moyenneHebdomadaire'];
@@ -302,7 +301,7 @@ class C_Demande extends C_ControleurGenerique {
                     } else {
                         // Si la case moyenneSur12Mois est cochée
                         if (isset($_POST['moyenneSur12Mois'])) {
-                            $volumeTempsPartiel = $_POST['hebdomadaire'];
+                            $volumeTempsPartiel = $_POST['moyenneSur12Mois'];
                             // Si la case moyenneHebdomadaireSur12Mois est cochée
                             if (isset($_POST['moyenneHebdomadaireSur12Mois'])) {
                                 $typeRepartitionTempsPartiel = $_POST['moyenneHebdomadaireSur12Mois'];
@@ -317,38 +316,37 @@ class C_Demande extends C_ControleurGenerique {
                     }
                 }
             }
-            $demande->setTypeTempsTravail($typeTempsTravail);
-            $demande->setVolumeTempsPartiel($volumeTempsPartiel);
-            $demande->setTypeRepartitionTempsPartiel($typeRepartitionTempsPartiel);
-            $demande->setRepartitionTempsPartiel($repartitionTempsPartiel);
-
-            //insertion de la personne dans la base
-            $daoPersonne = new M_DaoPersonne();
-            $daoPersonne->connecter();
-            $daoPersonne->insert($salarie);
-            $salarieEnr = $daoPersonne->getOneByNumSecSoc($salarie->getNumSecuSoc());
-            $daoPersonne->deconnecter();
-
-            //insertion de la demande dans la base
-            $daoDemande = new M_DaoDemande();
-            $daoDemande->connecter();
-//            $demande->setPersonne($salarieEnr); // PROVOQUE ERREUR CONTRAINTE SQL POUR L'IDPERSONNE
-//            $daoDemande->insert($demande);
-
-            $demandeVersBDD = new M_Demande(
-                    null, $demande->getEtablissement(), $demande->getNumOffreEmploi(), $demande->getDateHeureEmbauche(), $demande->getEmploi(), $demande->getQualification(), $demande->getLieuTravail(), $demande->getRemuneration(), $demande->getAvantage(), $demande->getTypeContrat(), $demande->getPeriodeEssaiCDI(), $demande->getDateDebutCDD(), $demande->getDateFinCDD(), $demande->getDateFinDernierCDD(), $demande->getMotifCDD(), $demande->getInfoComplementaireMotif(), $demande->getTypeTempsTravail(), $demande->getVolumeTempsPartiel(), $demande->getTypeRepartitionTempsPartiel(), $demande->getRepartitionTempsPartiel(), $salarieEnr);
-            $daoDemande->insert($demandeVersBDD);
-            $daoDemande->deconnecter();
-
-            //affichage de la vue
-            $this->vue = new V_Vue("../vues/templates/template.inc.php");
-            $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreValiderDemande.inc.php");
-            // les données
-            $this->vue->ecrireDonnee('titreVue', "Demande Enregistrée");
-            $this->vue->ecrireDonnee('message', "La demande a été enregistrée");
-            $this->vue->ecrireDonnee('demande', $demande);
-            $this->vue->afficher();
         }
+        $demande->setTypeTempsTravail($typeTempsTravail);
+        $demande->setVolumeTempsPartiel($volumeTempsPartiel);
+        $demande->setTypeRepartitionTempsPartiel($typeRepartitionTempsPartiel);
+        $demande->setRepartitionTempsPartiel($repartitionTempsPartiel);
+
+        //insertion de la personne dans la base
+        $daoPersonne = new M_DaoPersonne();
+        $daoPersonne->connecter();
+        $daoPersonne->insert($salarie);
+        $salarieEnr = $daoPersonne->getOneByNumSecSoc($salarie->getNumSecuSoc());
+        $daoPersonne->deconnecter();
+
+        //insertion de la demande dans la base
+        $daoDemande = new M_DaoDemande();
+        $daoDemande->connecter();
+//      $demande->setPersonne($salarieEnr); // PROVOQUE ERREUR CONTRAINTE SQL POUR L'IDPERSONNE
+//      $daoDemande->insert($demande);
+        $demandeVersBDD = new M_Demande(
+                null, $demande->getEtablissement(), $demande->getNumOffreEmploi(), $demande->getDateHeureEmbauche(), $demande->getEmploi(), $demande->getQualification(), $demande->getLieuTravail(), $demande->getRemuneration(), $demande->getAvantage(), $demande->getTypeContrat(), $demande->getPeriodeEssaiCDI(), $demande->getDateDebutCDD(), $demande->getDateFinCDD(), $demande->getDateFinDernierCDD(), $demande->getMotifCDD(), $demande->getInfoComplementaireMotif(), $demande->getTypeTempsTravail(), $demande->getVolumeTempsPartiel(), $demande->getTypeRepartitionTempsPartiel(), $demande->getRepartitionTempsPartiel(), $salarieEnr);
+        $daoDemande->insert($demandeVersBDD);
+        $daoDemande->deconnecter();
+
+        //affichage de la vue
+        $this->vue = new V_Vue("../vues/templates/template.inc.php");
+        $this->vue->ecrireDonnee('centre', "../vues/includes/utilisateur/centreValiderDemande.inc.php");
+        // les données
+        $this->vue->ecrireDonnee('titreVue', "Demande Enregistrée");
+        $this->vue->ecrireDonnee('message', "La demande a été enregistrée");
+        $this->vue->ecrireDonnee('demande', $demande);
+        $this->vue->afficher();
     }
 
 }

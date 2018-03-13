@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 11 Mars 2018 à 16:44
+-- Généré le :  Mar 13 Mars 2018 à 00:56
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -19,7 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `asea`
 --
-DROP DATABASE `asea`;
 CREATE DATABASE IF NOT EXISTS `asea` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `asea`;
 
@@ -47,10 +46,21 @@ CREATE TABLE `demande` (
   `motifCDD` varchar(255) DEFAULT NULL,
   `infoComplementaireMotif` varchar(255) DEFAULT NULL,
   `typeTempsTravail` varchar(25) NOT NULL,
-  `volumeTempsPartiel` varchar(25) NOT NULL,
-  `typeRepartitionTempsPartiel` varchar(50) NOT NULL,
-  `repartitionTempsPartiel` varchar(300) NOT NULL,
+  `volumeTempsPartiel` varchar(25) DEFAULT NULL,
+  `typeRepartitionTempsPartiel` varchar(50) DEFAULT NULL,
+  `repartitionTempsPartiel` varchar(300) DEFAULT NULL,
   `idPersonne` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `emploi`
+--
+
+CREATE TABLE `emploi` (
+  `idEmploi` int(11) NOT NULL,
+  `libelleEmploi` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -108,6 +118,12 @@ ALTER TABLE `demande`
   ADD KEY `FK_Demande_idPersonne` (`idPersonne`);
 
 --
+-- Index pour la table `emploi`
+--
+ALTER TABLE `emploi`
+  ADD PRIMARY KEY (`idEmploi`);
+
+--
 -- Index pour la table `etablissement`
 --
 ALTER TABLE `etablissement`
@@ -117,8 +133,7 @@ ALTER TABLE `etablissement`
 -- Index pour la table `personne`
 --
 ALTER TABLE `personne`
-  ADD PRIMARY KEY (`idPersonne`),
-  ADD UNIQUE KEY `numSecuSoc` (`numSecuSoc`);
+  ADD PRIMARY KEY (`idPersonne`);
 
 --
 -- Index pour la table `qualification`
@@ -135,6 +150,11 @@ ALTER TABLE `qualification`
 --
 ALTER TABLE `demande`
   MODIFY `idDemande` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `emploi`
+--
+ALTER TABLE `emploi`
+  MODIFY `idEmploi` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `etablissement`
 --

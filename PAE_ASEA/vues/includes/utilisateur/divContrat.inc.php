@@ -5,15 +5,15 @@
         <strong>Renseignement général :</strong>
         <br><hr><br>
         <span class="required">*</span><label for="dateHeureEmbauche">Date et heure d'embauche :</label>
-        <input type="datetime-local" name="dateHeureEmbauche" id="dateHeureEmbauche" required/>
+        <input type="datetime-local" name="dateHeureEmbauche" id="dateHeureEmbauche" min="2000-01-01T00:00:00" max="2038-01-19T03:14:07" required/>
         <br><br>
         <span class="required">*</span><label for="emplois">Emploi :</label>
         <select name="emplois" id="emplois" required>
             <option value="">Sélectionner une option</option>
             <?php
-            // remplissage du "SELECT" qui contient les qualifications
-            foreach ($this->lireDonnee('lesQualifications') as $qualification) {
-                echo'<option value="' . $qualification->getLibelleQualification() . '">' . $qualification->getLibelleQualification() . '</option>';
+            // remplissage du "SELECT" qui contient les emplois
+            foreach ($this->lireDonnee('lesEmplois') as $emploi) {
+                echo'<option value="' . $emploi->getLibelleEmploi() . '">' . $emploi->getLibelleEmploi() . '</option>';
             }
             ?>
         </select>
@@ -57,17 +57,17 @@
         <br><br>
         <div id="divCdi" style="display: none">
             <span class="required">*</span><label>Période d'essai :</label>
-            <label class="inherit"><input type="radio" class="inherit" name="oui" value="oui" onchange="PeriodeEssai(1)">Oui</label>  
-            <label class="inherit"><input type="radio" class="inherit" name="non" value="non" onchange="PeriodeEssai(2)">Non</label>  
+            <label class="inherit"><input type="radio" class="inherit" name="oui" value="1" onchange="PeriodeEssai(1)">Oui</label>  
+            <label class="inherit"><input type="radio" class="inherit" name="non" value="0" onchange="PeriodeEssai(2)">Non</label>  
         </div>
         <div id="divCdd" style="display: none">
             <span class="required">*</span><label>Date du CDD :</label>
-            <label class="inherit">Du : <input type="date" name="dateDebutCDD"></label>
+            <label class="inherit">Du : <input type="date" name="dateDebutCDD" min="0001-01-01" max="9999-12-31"></label>
             <br><br><label style="visibility: hidden">a</label>
-            <label class="inherit">Au : <input type="date" name="dateFinCDD"></label>
+            <label class="inherit">Au : <input type="date" name="dateFinCDD" min="0001-01-01" max="9999-12-31"></label>
             <br><br>
             <span class="required">*</span><label for="dateFinDernierCDD">Date de fin du dernier CDD :</label>
-            <input type="date" name="dateFinDernierCDD" id="dateFinDernierCDD">
+            <input type="date" name="dateFinDernierCDD" id="dateFinDernierCDD" min="0001-01-01" max="9999-12-31">
             <br><br>
             <span class="required">*</span><label for="motif">Motif du CDD :</label>
             <select id="motif" name="motif" onchange="Motif()">

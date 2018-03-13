@@ -12,7 +12,7 @@
         <input type="text" name="prenom" id="prenom" required/>
         <br><br>
         <span class="required">*</span><label for="dateNaissance">Date de naissance :</label>
-        <input type="date" name="dateNaissance" id="dateNaissance" required>
+        <input type="date" name="dateNaissance" id="dateNaissance" min="0001-01-01" max="9999-12-31" required>
         <br><br>
         <span class="required">*</span><label for="lieuNaissance">Lieu de naissance :</label>
         <input type="text" name="lieuNaissance" id="lieuNaissance" required/>
@@ -236,7 +236,7 @@
         <input type="text" name="complementAdresse" id="complementAdresse"/>
         <br><br>
         <span class="required">*</span><label for="cp">Code Postal :</label>
-        <input type="number" name="cp" id="cp" minlength="5" maxlength="5" required/>
+        <input type="number" name="cp" id="cp" required/>
         <br><br>
         <span class="required">*</span><label for="ville">Ville :</label>
         <input type="text" name="ville" id="ville" required/>

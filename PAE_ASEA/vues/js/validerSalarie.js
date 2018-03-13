@@ -5,8 +5,8 @@
 function validerSalarie() {
     var ok = 1;
 
-// CALCUL NUM SECU SOC 
-// 2A ET 2B SONT LES DEPARTEMENT DE CORSE A CONVERTIR EN NOMBRE
+    // CALCUL NUM SECU SOC 
+    // 2A ET 2B SONT LES DEPARTEMENT DE CORSE A CONVERTIR EN NOMBRE
 
     var nir = document.getElementsByName("numSecu")[0].value;
     nir.toString().toUpperCase();
@@ -23,6 +23,13 @@ function validerSalarie() {
         alert("Le numéro de sécurité sociale est incorrect");
         ok = 0;
         document.getElementsByName("numSecu")[0].focus();
+        return false;
+    }
+
+    if (document.getElementById("cp").value.length != 5) {
+        alert("Le code postal doit être composé de 5 chiffres");
+        ok = 0;
+        document.getElementById("cp").focus();
         return false;
     }
 
