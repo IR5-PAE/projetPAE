@@ -210,7 +210,7 @@ class C_Demande extends C_ControleurGenerique {
                 if ($motifCDD === "1") {
                     $infoComplementaireMotif = $_POST['precSurcroit'];
                 } elseif ($motifCDD === "2") {
-                    $infoComplementaireMotif = $_POST['precTacheOcas'];
+                    $infoComplementaireMotif = $_POST['precTacheOccas'];
                 } elseif ($motifCDD === "3") {
                     $infoComplementaireMotif = $_POST['nomSalarieRemplace'] . "|";
                     $infoComplementaireMotif .= $_POST['motifRemplacement'] . "|";
